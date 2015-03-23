@@ -10,31 +10,31 @@
 	<string>FridgeWords</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>0EAD8214E52FB219E9FD459DE71A7BADC67772CA</key>
-		<string>https://github.com/sbastidasr/iOS-Excercises.git</string>
+		<key>EEB8A76331AA56341E79D946F9E3C11751CCF5CE</key>
+		<string>https://bitbucket.org/sbastidasr/bitspoems..git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>FridgeWords/FridgeWords.xcodeproj</string>
+	<string>FridgeWords.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>0EAD8214E52FB219E9FD459DE71A7BADC67772CA</key>
-		<string>../../..</string>
+		<key>EEB8A76331AA56341E79D946F9E3C11751CCF5CE</key>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/sbastidasr/iOS-Excercises.git</string>
+	<string>https://bitbucket.org/sbastidasr/bitspoems..git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>0EAD8214E52FB219E9FD459DE71A7BADC67772CA</string>
+	<string>EEB8A76331AA56341E79D946F9E3C11751CCF5CE</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>0EAD8214E52FB219E9FD459DE71A7BADC67772CA</string>
+			<string>EEB8A76331AA56341E79D946F9E3C11751CCF5CE</string>
 			<key>IDESourceControlWCCName</key>
-			<string>iOS-Excercises</string>
+			<string>FridgeWords</string>
 		</dict>
 	</array>
 </dict>
