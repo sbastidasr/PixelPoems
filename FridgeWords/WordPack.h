@@ -1,5 +1,5 @@
 //
-//  Level.h
+//  WordPack.h
 //  FridgeWords
 //
 //  Created by Sebastian Bastidas on 3/23/15.
@@ -8,9 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Level : NSObject
+@interface WordPack : NSObject
 
-//Words that must go.
-//Wordpack
-
+//Words that arent necessary, can be chosen.
 @end

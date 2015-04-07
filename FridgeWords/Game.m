@@ -8,16 +8,7 @@
 
 #import "Game.h"
 
-@implementation Game  //contains visual settings and the level
+@implementation Game  //most user custmizable settings of current level.
 
-//1 Level
-//1 Choosable wordpack.
-
-//Theme (Contains both ones below)
-//WordStyle (i.e. font etc)
-//Background {image | Pattern}
-
-
-//Game Title  (For saving)
 
 @end

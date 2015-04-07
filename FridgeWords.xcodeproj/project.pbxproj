@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		EAD35B5C1AC0C9B000D3901A /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD35B5B1AC0C9B000D3901A /* Level.m */; };
 		EAD35B601AC0C9F600D3901A /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD35B5F1AC0C9F600D3901A /* Game.m */; };
+		EAD35B631AC0CB7C00D3901A /* WordLabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD35B621AC0CB7C00D3901A /* WordLabelViewController.m */; };
+		EAD35B671AC0CBEA00D3901A /* WordPack.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD35B661AC0CBEA00D3901A /* WordPack.m */; };
 		EAE48A5B1A83B5AF0086F0B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE48A5A1A83B5AF0086F0B6 /* main.m */; };
 		EAE48A5E1A83B5AF0086F0B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE48A5D1A83B5AF0086F0B6 /* AppDelegate.m */; };
 		EAE48A611A83B5AF0086F0B6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE48A601A83B5AF0086F0B6 /* ViewController.m */; };
@@ -33,6 +35,10 @@
 		EAD35B5B1AC0C9B000D3901A /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
 		EAD35B5E1AC0C9F600D3901A /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		EAD35B5F1AC0C9F600D3901A /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		EAD35B611AC0CB7C00D3901A /* WordLabelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordLabelViewController.h; sourceTree = "<group>"; };
+		EAD35B621AC0CB7C00D3901A /* WordLabelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordLabelViewController.m; sourceTree = "<group>"; };
+		EAD35B651AC0CBEA00D3901A /* WordPack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordPack.h; sourceTree = "<group>"; };
+		EAD35B661AC0CBEA00D3901A /* WordPack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPack.m; sourceTree = "<group>"; };
 		EAE48A551A83B5AF0086F0B6 /* FridgeWords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FridgeWords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE48A591A83B5AF0086F0B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAE48A5A1A83B5AF0086F0B6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -71,10 +77,21 @@
 			children = (
 				EAD35B5E1AC0C9F600D3901A /* Game.h */,
 				EAD35B5F1AC0C9F600D3901A /* Game.m */,
+				EAD35B651AC0CBEA00D3901A /* WordPack.h */,
+				EAD35B661AC0CBEA00D3901A /* WordPack.m */,
 				EAD35B5A1AC0C9B000D3901A /* Level.h */,
 				EAD35B5B1AC0C9B000D3901A /* Level.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		EAD35B641AC0CB8200D3901A /* Controllers. */ = {
+			isa = PBXGroup;
+			children = (
+				EAD35B611AC0CB7C00D3901A /* WordLabelViewController.h */,
+				EAD35B621AC0CB7C00D3901A /* WordLabelViewController.m */,
+			);
+			name = Controllers.;
 			sourceTree = "<group>";
 		};
 		EAE48A4C1A83B5AF0086F0B6 = {
@@ -98,6 +115,7 @@
 		EAE48A571A83B5AF0086F0B6 /* FridgeWords */ = {
 			isa = PBXGroup;
 			children = (
+				EAD35B641AC0CB8200D3901A /* Controllers. */,
 				EAD35B5D1AC0C9B800D3901A /* Model */,
 				EAE48A5F1A83B5AF0086F0B6 /* ViewController.h */,
 				EAE48A601A83B5AF0086F0B6 /* ViewController.m */,
@@ -240,6 +258,8 @@
 				EAD35B601AC0C9F600D3901A /* Game.m in Sources */,
 				EAE48A611A83B5AF0086F0B6 /* ViewController.m in Sources */,
 				EAE48A5E1A83B5AF0086F0B6 /* AppDelegate.m in Sources */,
+				EAD35B671AC0CBEA00D3901A /* WordPack.m in Sources */,
+				EAD35B631AC0CB7C00D3901A /* WordLabelViewController.m in Sources */,
 				EAD35B5C1AC0C9B000D3901A /* Level.m in Sources */,
 				EAE48A5B1A83B5AF0086F0B6 /* main.m in Sources */,
 			);
