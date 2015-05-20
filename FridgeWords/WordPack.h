@@ -11,4 +11,5 @@
 @interface WordPack : NSObject
 
 //Words that arent necessary, can be chosen.
+@property (nonatomic, strong) NSArray* words;
 @end

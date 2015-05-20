@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WordPack.h"
 
 @interface Level : NSObject
 
+@property(nonatomic, strong) WordPack* wordPack;
 //Words that must go.
 //Wordpack
 

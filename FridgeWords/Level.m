@@ -10,4 +10,10 @@
 
 @implementation Level
 
+-(WordPack *)wordPack{
+    if(!_wordPack){
+        _wordPack=[[WordPack alloc]init];
+    }
+    return _wordPack;
+}
 @end
