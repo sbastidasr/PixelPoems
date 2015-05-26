@@ -50,16 +50,19 @@ const CGSize CGRectOne = {.width = 2000.0, .height = 1125.0};
 {
     [super viewDidLoad];
     [self createGameView];
-  
-    
-    //Create labels array
-    NSMutableArray *arrayForLabels = [NSMutableArray array];
-    
+    [self setupLabels];
+}
+
+-(void)setupLabels{
     //Iterate through labels.
     for (int i=0; i< self.level.currentWordPack.words.count; i++)
     {
-        //sets start point of label. Size is reset later.
-        WordLabel *label = [[WordLabel alloc] initWithFrame:CGRectMake(100,40+(i*40), 0, 0)];
+    
+        //inits label
+        WordLabel *label = [[WordLabel alloc] init];
+        label.userInteractionEnabled = YES;  //enable user interaction
+        UIPanGestureRecognizer *gesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)] ;
+        [label addGestureRecognizer:gesture];
         
         //Set label text
         NSString *labelText = self.level.currentWordPack.words[i];
@@ -68,21 +71,31 @@ const CGSize CGRectOne = {.width = 2000.0, .height = 1125.0};
         [label setAttributedText:attributedString];
         
         
-        
-        label.userInteractionEnabled = YES;  //enable user interaction
-        UIPanGestureRecognizer *gesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)] ;
-        [label addGestureRecognizer:gesture];
-        
-        
         //SetupLooks
         label.layer.borderWidth = borderWidth;
         label.font = [UIFont fontWithName:@"ProximaNova-Bold" size:fontSize];
         [label sizeToFit];
-        [label setFrame:CGRectMake(label.frame.origin.x, label.frame.origin.y, label.frame.size.width+32, label.frame.size.height+17)];
-
-        [arrayForLabels addObject:label];//add to arrayforlabels
+        
+        label.frame=CGRectMake(0,0, label.frame.size.width+32, label.frame.size.height+17);
+        
+        int x=40;
+        int y=40;
+        
+        if (i>=0){
+            
+            
+            
+            y=40+(i*40);
+        }
+        
+        [label setFrame:CGRectMake(x,y, label.frame.size.width, label.frame.size.height)];
+        
+        
+        
+        [self.wordLabels addObject:label];//add to arrayforlabels
         [self.gameView addSubview:label]; // add to view
     }
+
 }
 
 @end
