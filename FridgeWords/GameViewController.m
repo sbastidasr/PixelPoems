@@ -9,7 +9,6 @@
 #import "GameViewController.h"
 #import "WordLabel.h"
 #import "GameView.h"
-#import "WordPack.h"
 
 @interface GameViewController ()
 @property (strong, nonatomic) IBOutlet UIView *movableLabel;

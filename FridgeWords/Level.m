@@ -7,14 +7,14 @@
 //
 
 #import "Level.h"
-
+#import "NSMutableArray+Shuffling.h"
 @implementation Level
 
 -(WordPack *)currentWordPack{
     if(!_currentWordPack){
-        NSArray *wordPacks  =  [ WordPack loadWordPacks];
-        
-        _currentWordPack=[wordPacks firstObject];   ///HERE CHANGE FOR OTHER WORDPACKS
+
+        _currentWordPack=[WordPackLoader WordPackNamed:@"asd"];///HERE CHANGE FOR OTHER WORDPACKS
+        [_currentWordPack  shuffleWordPack];
         
     }
     return _currentWordPack;

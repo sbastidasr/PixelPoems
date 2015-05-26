@@ -1,21 +1,23 @@
 //
 //  WordPack.h
-//  FridgeWords
+//  PixelPoems
 //
-//  Created by Sebastian Bastidas on 3/23/15.
+//  Created by Sebastian Bastidas on 5/26/15.
 //  Copyright (c) 2015 sbastidasr. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface WordPack : NSObject
 
+
 //Words that arent necessary, can be chosen.
-@property (nonatomic, strong) NSArray* words;
+@property (nonatomic, strong) NSMutableArray* words;
 @property (nonatomic, strong) NSString* packName;
 
 
-+ (NSArray *)loadWordPacks;
 - (id)initWithJSONDictionary:(NSDictionary *)jsonDictionary;
 
+
+-(void)shuffleWordPack;
 @end

@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WordPackLoader.h"
 #import "WordPack.h"
-
 @interface Level : NSObject
 
 @property(nonatomic, strong) WordPack* currentWordPack;
