@@ -17,12 +17,18 @@
 
 @implementation GameViewController
 
+
+
+static float const borderWidth = 2.0;
+static float const fontSize = 18.0;
+const CGSize CGRectOne = {.width = 2000.0, .height = 1125.0};
+
+
 //allocs the level, that has the wordpack.
 -(Level *)level{
     if(!_level){
         _level=[[Level alloc]init];
     }
-    
     return _level;
 }
 
@@ -31,15 +37,13 @@
     gestureRecognizer.view.center =[gestureRecognizer locationInView:gestureRecognizer.view.superview];
 }
 
-
 -(void)createGameView{
     //Setup scrollable view for words.
     self.gameView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.gameView];
-    [self.gameView setContentSize:CGSizeMake(self.gameView.bounds.size.width*3, self.gameView.bounds.size.height*3)];
+    [self.gameView setContentSize:CGRectOne];
     self.gameView.backgroundColor=[UIColor blackColor];
     [self.view addSubview:self.gameView];
-    
 }
 
 - (void)viewDidLoad
@@ -71,8 +75,8 @@
         
         
         //SetupLooks
-        label.layer.borderWidth = 2.0;
-        label.font = [UIFont fontWithName:@"ProximaNova-Bold" size:18];
+        label.layer.borderWidth = borderWidth;
+        label.font = [UIFont fontWithName:@"ProximaNova-Bold" size:fontSize];
         [label sizeToFit];
         [label setFrame:CGRectMake(label.frame.origin.x, label.frame.origin.y, label.frame.size.width+32, label.frame.size.height+17)];
 
