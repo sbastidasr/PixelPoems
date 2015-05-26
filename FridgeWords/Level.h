@@ -11,7 +11,7 @@
 
 @interface Level : NSObject
 
-@property(nonatomic, strong) WordPack* wordPack;
+@property(nonatomic, strong) WordPack* currentWordPack;
 //Words that must go.
 //Wordpack
 

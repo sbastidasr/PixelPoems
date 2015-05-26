@@ -12,4 +12,10 @@
 
 //Words that arent necessary, can be chosen.
 @property (nonatomic, strong) NSArray* words;
+@property (nonatomic, strong) NSString* packName;
+
+
++ (NSArray *)loadWordPacks;
+- (id)initWithJSONDictionary:(NSDictionary *)jsonDictionary;
+
 @end

@@ -20,6 +20,9 @@
 		EA829C291B0D00750016E201 /* ProximaNova-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA829C121B0CFFE00016E201 /* ProximaNova-RegularItalic.otf */; };
 		EA829C2A1B0D00750016E201 /* ProximaNova-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA829C131B0CFFE00016E201 /* ProximaNova-Semibold.otf */; };
 		EA829C2B1B0D00750016E201 /* ProximaNova-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA829C141B0CFFE00016E201 /* ProximaNova-SemiboldItalic.otf */; };
+		EAC202821B137D60001C6692 /* wordPacks.json in Resources */ = {isa = PBXBuildFile; fileRef = EAC202811B137D60001C6692 /* wordPacks.json */; };
+		EAC202891B1380E2001C6692 /* locations.json in Resources */ = {isa = PBXBuildFile; fileRef = EAC202841B1380E2001C6692 /* locations.json */; };
+		EAC2028E1B14CFBD001C6692 /* NSMutableArray+Shuffling.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2028D1B14CFBD001C6692 /* NSMutableArray+Shuffling.m */; };
 		EAD35B5C1AC0C9B000D3901A /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD35B5B1AC0C9B000D3901A /* Level.m */; };
 		EAD35B671AC0CBEA00D3901A /* WordPack.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD35B661AC0CBEA00D3901A /* WordPack.m */; };
 		EAE48A5B1A83B5AF0086F0B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE48A5A1A83B5AF0086F0B6 /* main.m */; };
@@ -57,11 +60,15 @@
 		EA829C121B0CFFE00016E201 /* ProximaNova-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-RegularItalic.otf"; sourceTree = "<group>"; };
 		EA829C131B0CFFE00016E201 /* ProximaNova-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Semibold.otf"; sourceTree = "<group>"; };
 		EA829C141B0CFFE00016E201 /* ProximaNova-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-SemiboldItalic.otf"; sourceTree = "<group>"; };
+		EAC202811B137D60001C6692 /* wordPacks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = wordPacks.json; path = ../wordPacks.json; sourceTree = "<group>"; };
+		EAC202841B1380E2001C6692 /* locations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locations.json; sourceTree = "<group>"; };
+		EAC2028C1B14CFBD001C6692 /* NSMutableArray+Shuffling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+Shuffling.h"; path = "../NSMutableArray+Shuffling.h"; sourceTree = "<group>"; };
+		EAC2028D1B14CFBD001C6692 /* NSMutableArray+Shuffling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+Shuffling.m"; path = "../NSMutableArray+Shuffling.m"; sourceTree = "<group>"; };
 		EAD35B5A1AC0C9B000D3901A /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
 		EAD35B5B1AC0C9B000D3901A /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
 		EAD35B651AC0CBEA00D3901A /* WordPack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordPack.h; sourceTree = "<group>"; };
 		EAD35B661AC0CBEA00D3901A /* WordPack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPack.m; sourceTree = "<group>"; };
-		EAE48A551A83B5AF0086F0B6 /* FridgeWords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FridgeWords.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAE48A551A83B5AF0086F0B6 /* PixelPoems.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixelPoems.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE48A591A83B5AF0086F0B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAE48A5A1A83B5AF0086F0B6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EAE48A5C1A83B5AF0086F0B6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -113,6 +120,17 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		EAC202831B137DDA001C6692 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EA829C041B0CF71F0016E201 /* WordLabel.h */,
+				EA829C051B0CF71F0016E201 /* WordLabel.m */,
+				EA829C071B0CFB3D0016E201 /* GameView.h */,
+				EA829C081B0CFB3D0016E201 /* GameView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		EAD35B5D1AC0C9B800D3901A /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,10 +145,8 @@
 		EAD35B641AC0CB8200D3901A /* Controllers. */ = {
 			isa = PBXGroup;
 			children = (
-				EA829C041B0CF71F0016E201 /* WordLabel.h */,
-				EA829C051B0CF71F0016E201 /* WordLabel.m */,
-				EA829C071B0CFB3D0016E201 /* GameView.h */,
-				EA829C081B0CFB3D0016E201 /* GameView.m */,
+				EAE48A5F1A83B5AF0086F0B6 /* GameViewController.h */,
+				EAE48A601A83B5AF0086F0B6 /* GameViewController.m */,
 			);
 			name = Controllers.;
 			sourceTree = "<group>";
@@ -138,7 +154,7 @@
 		EAE48A4C1A83B5AF0086F0B6 = {
 			isa = PBXGroup;
 			children = (
-				EAE48A571A83B5AF0086F0B6 /* FridgeWords */,
+				EAE48A571A83B5AF0086F0B6 /* PixelPoems */,
 				EAE48A711A83B5AF0086F0B6 /* FridgeWordsTests */,
 				EAE48A561A83B5AF0086F0B6 /* Products */,
 			);
@@ -147,30 +163,34 @@
 		EAE48A561A83B5AF0086F0B6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EAE48A551A83B5AF0086F0B6 /* FridgeWords.app */,
+				EAE48A551A83B5AF0086F0B6 /* PixelPoems.app */,
 				EAE48A6E1A83B5AF0086F0B6 /* FridgeWordsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EAE48A571A83B5AF0086F0B6 /* FridgeWords */ = {
+		EAE48A571A83B5AF0086F0B6 /* PixelPoems */ = {
 			isa = PBXGroup;
 			children = (
+				EAC2028C1B14CFBD001C6692 /* NSMutableArray+Shuffling.h */,
+				EAC2028D1B14CFBD001C6692 /* NSMutableArray+Shuffling.m */,
+				EAC202831B137DDA001C6692 /* Views */,
 				EAD35B641AC0CB8200D3901A /* Controllers. */,
 				EAD35B5D1AC0C9B800D3901A /* Model */,
-				EAE48A5F1A83B5AF0086F0B6 /* GameViewController.h */,
-				EAE48A601A83B5AF0086F0B6 /* GameViewController.m */,
 				EAE48A621A83B5AF0086F0B6 /* Main.storyboard */,
-				EAE48A651A83B5AF0086F0B6 /* Images.xcassets */,
-				EAE48A671A83B5AF0086F0B6 /* LaunchScreen.xib */,
 				EAE48A581A83B5AF0086F0B6 /* Supporting Files */,
 			);
+			name = PixelPoems;
 			path = FridgeWords;
 			sourceTree = "<group>";
 		};
 		EAE48A581A83B5AF0086F0B6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EAC202841B1380E2001C6692 /* locations.json */,
+				EAC202811B137D60001C6692 /* wordPacks.json */,
+				EAE48A651A83B5AF0086F0B6 /* Images.xcassets */,
+				EAE48A671A83B5AF0086F0B6 /* LaunchScreen.xib */,
 				EA829C151B0CFFE60016E201 /* ProximaNova */,
 				EAE48A591A83B5AF0086F0B6 /* Info.plist */,
 				EAE48A5C1A83B5AF0086F0B6 /* AppDelegate.h */,
@@ -200,9 +220,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EAE48A541A83B5AF0086F0B6 /* FridgeWords */ = {
+		EAE48A541A83B5AF0086F0B6 /* PixelPoems */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EAE48A781A83B5AF0086F0B6 /* Build configuration list for PBXNativeTarget "FridgeWords" */;
+			buildConfigurationList = EAE48A781A83B5AF0086F0B6 /* Build configuration list for PBXNativeTarget "PixelPoems" */;
 			buildPhases = (
 				EAE48A511A83B5AF0086F0B6 /* Sources */,
 				EAE48A521A83B5AF0086F0B6 /* Frameworks */,
@@ -212,14 +232,14 @@
 			);
 			dependencies = (
 			);
-			name = FridgeWords;
+			name = PixelPoems;
 			productName = FridgeWords;
-			productReference = EAE48A551A83B5AF0086F0B6 /* FridgeWords.app */;
+			productReference = EAE48A551A83B5AF0086F0B6 /* PixelPoems.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EAE48A6D1A83B5AF0086F0B6 /* FridgeWordsTests */ = {
+		EAE48A6D1A83B5AF0086F0B6 /* PixelPoemsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EAE48A7B1A83B5AF0086F0B6 /* Build configuration list for PBXNativeTarget "FridgeWordsTests" */;
+			buildConfigurationList = EAE48A7B1A83B5AF0086F0B6 /* Build configuration list for PBXNativeTarget "PixelPoemsTests" */;
 			buildPhases = (
 				EAE48A6A1A83B5AF0086F0B6 /* Sources */,
 				EAE48A6B1A83B5AF0086F0B6 /* Frameworks */,
@@ -230,7 +250,7 @@
 			dependencies = (
 				EAE48A701A83B5AF0086F0B6 /* PBXTargetDependency */,
 			);
-			name = FridgeWordsTests;
+			name = PixelPoemsTests;
 			productName = FridgeWordsTests;
 			productReference = EAE48A6E1A83B5AF0086F0B6 /* FridgeWordsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -253,7 +273,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EAE48A501A83B5AF0086F0B6 /* Build configuration list for PBXProject "FridgeWords" */;
+			buildConfigurationList = EAE48A501A83B5AF0086F0B6 /* Build configuration list for PBXProject "PixelPoems" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -266,8 +286,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EAE48A541A83B5AF0086F0B6 /* FridgeWords */,
-				EAE48A6D1A83B5AF0086F0B6 /* FridgeWordsTests */,
+				EAE48A541A83B5AF0086F0B6 /* PixelPoems */,
+				EAE48A6D1A83B5AF0086F0B6 /* PixelPoemsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -279,11 +299,13 @@
 			files = (
 				EAE48A641A83B5AF0086F0B6 /* Main.storyboard in Resources */,
 				EAE48A691A83B5AF0086F0B6 /* LaunchScreen.xib in Resources */,
+				EAC202891B1380E2001C6692 /* locations.json in Resources */,
 				EA829C261B0D00750016E201 /* ProximaNova-LightItalic.otf in Resources */,
 				EA829C231B0D00750016E201 /* ProximaNova-BoldIt.otf in Resources */,
 				EA829C2A1B0D00750016E201 /* ProximaNova-Semibold.otf in Resources */,
 				EA829C211B0D00720016E201 /* ProximaNova-Black.otf in Resources */,
 				EA829C241B0D00750016E201 /* ProximaNova-Extrabold.otf in Resources */,
+				EAC202821B137D60001C6692 /* wordPacks.json in Resources */,
 				EA829C2B1B0D00750016E201 /* ProximaNova-SemiboldItalic.otf in Resources */,
 				EA829C281B0D00750016E201 /* ProximaNova-Regular.otf in Resources */,
 				EA829C251B0D00750016E201 /* ProximaNova-Light.otf in Resources */,
@@ -308,6 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAC2028E1B14CFBD001C6692 /* NSMutableArray+Shuffling.m in Sources */,
 				EAE48A611A83B5AF0086F0B6 /* GameViewController.m in Sources */,
 				EAE48A5E1A83B5AF0086F0B6 /* AppDelegate.m in Sources */,
 				EA829C091B0CFB3D0016E201 /* GameView.m in Sources */,
@@ -331,7 +354,7 @@
 /* Begin PBXTargetDependency section */
 		EAE48A701A83B5AF0086F0B6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = EAE48A541A83B5AF0086F0B6 /* FridgeWords */;
+			target = EAE48A541A83B5AF0086F0B6 /* PixelPoems */;
 			targetProxy = EAE48A6F1A83B5AF0086F0B6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -439,6 +462,7 @@
 				INFOPLIST_FILE = FridgeWords/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -449,6 +473,7 @@
 				INFOPLIST_FILE = FridgeWords/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -489,7 +514,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EAE48A501A83B5AF0086F0B6 /* Build configuration list for PBXProject "FridgeWords" */ = {
+		EAE48A501A83B5AF0086F0B6 /* Build configuration list for PBXProject "PixelPoems" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EAE48A761A83B5AF0086F0B6 /* Debug */,
@@ -498,7 +523,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EAE48A781A83B5AF0086F0B6 /* Build configuration list for PBXNativeTarget "FridgeWords" */ = {
+		EAE48A781A83B5AF0086F0B6 /* Build configuration list for PBXNativeTarget "PixelPoems" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EAE48A791A83B5AF0086F0B6 /* Debug */,
@@ -507,7 +532,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EAE48A7B1A83B5AF0086F0B6 /* Build configuration list for PBXNativeTarget "FridgeWordsTests" */ = {
+		EAE48A7B1A83B5AF0086F0B6 /* Build configuration list for PBXNativeTarget "PixelPoemsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EAE48A7C1A83B5AF0086F0B6 /* Debug */,

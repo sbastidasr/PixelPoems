@@ -10,27 +10,62 @@
 
 @implementation WordPack
 
--(NSArray *)words{
++ (NSArray *)loadWordPacks{
     
-     
-    NSString *myString;
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"wordPacks" withExtension:@"json"];
     
-    if (!_words){
-        _words =[NSArray arrayWithObjects: @"She", @"is", @"a", @"goddess", @"to", @"me", @"my", @"sun", @"and", @"my", @"moon", @"luscious", @"garden", @"of", @"beauty", @"my", @"ship", @"through", @"the", @"storm", @"and", @"d", @"at", @"butt", @"hot", nil];
+   /* make it async
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        int i =0;
+    });*/
+    
+    // Create a NSURLRequest with the given URL
+    NSURLRequest *request = [NSURLRequest requestWithURL:url
+                                             cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                         timeoutInterval:30.0];
+    
+    // Get the data
+    NSURLResponse *response;
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+    
+    // Now create a NSDictionary from the JSON data
+    NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    
+    // Create a new array to hold the locations
+    NSMutableArray *wordPacks = [[NSMutableArray alloc] init];
+    
+    // Get an array of dictionaries with the key "locations"
+    NSArray *array = [jsonDictionary objectForKey:@"packs"];
+    
+    
+    // Iterate through the array of dictionaries
+    for(NSDictionary *dict in array) {
+        // Create a new Location object for each one and initialise it with information in the dictionary
+        WordPack *wordPack = [[WordPack alloc] initWithJSONDictionary:dict];
+        // Add the Location object to the array
+        [wordPacks addObject:wordPack];
     }
-    return _words;
     
-    //  NSString *myString = @"Now the night is coming to an end The sun will rise and we will try again stay alive, stay alive for me You will die but now your life is free Take pride in what is sure to die I will fear the night again I hope I'm not my only friend Stay alive stay alive for me You will die but now your life is free Take pride in what is sure to die";
-    
-    //myString = @"& a a a a a all always am an an and and and and angel another are are are arm as as ask at at at away be be been believe belong beside best better between big bloom blue boy bread brother but but by by can care charm cheer child chocolate come compare coul d dd dance day devote dew did do do dream drink each eat ed ed emotion enjoy er er es est evening ever every eye faith family fascinate father favorite feel felt fight fill find flower for for friend ful full fun gentle get gift girl give glad go god goddess good grow guy had hand happy has have he he he heart help her here hero him his his hold home honor hope hour hug I I I I if in in ing ing ing innocent is is it it join joy keep kind know language laugh let life life lift light like like listen little live look love love luck ly ly make make man me me me mind moment morning mother music must mutual my my my near need neighbor never nice night no not of of off old on on one only open or our out over peace pink play please positive power promise protect quiet r receive regard remember respect rhapsody river run s s s s s sacred sad say search see share she she she sister sit sky smile so soar soft some song soul sound spirit star strong sun sweet take tear tell than thank that the the the the the their them then there they thing think this though thousand through time time tiny to to to together touch true trust two under universe up us use voice want want warm was we we we were when where which will wing wish with with woman word work world y y you you you you your";
-    
-    //   NSArray *palabras = [myString componentsSeparatedByString:@" "];
-    
-
-    
-    
+    // Return the array of Location objects
+    return wordPacks;
 }
 
+
+
+// Init the object with information from a dictionary
+- (id)initWithJSONDictionary:(NSDictionary *)jsonDictionary {
+    if(self = [self init]) {
+        // Assign all properties with keyed values from the dictionary
+        _packName = [jsonDictionary objectForKey:@"packName"];
+        _words = [jsonDictionary objectForKey:@"words"];
+       
+    }
+    return self;
+}
+
+
+
+//  NSString *myString = @"Now the night is coming to an end The sun will rise and we will try again stay alive, stay alive for me You will die but now your life is free Take pride in what is sure to die I will fear the night again I hope I'm not my only friend Stay alive stay alive for me You will die but now your life is free Take pride in what is sure to die";
 
 
 @end

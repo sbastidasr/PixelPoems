@@ -26,6 +26,7 @@
 //color (border+font)
 //background color or image.
 
+
     
 #pragma mark - Initialization
     - (instancetype)initWithFrame:(CGRect)frame{
@@ -38,19 +39,10 @@
     }
     
     -(void)setup{
-        
         self.layer.borderColor = [UIColor whiteColor].CGColor;
-        self.layer.borderWidth = 2.0;
         self.backgroundColor = nil;
         self.textColor = [UIColor whiteColor];
-        self.font = [UIFont systemFontOfSize:30];
- 
         self.textAlignment = NSTextAlignmentCenter;
-        
-   
-      //  self.opaque=NO;
-  
-    //    self.contentMode=UIViewContentModeRedraw;
     }
     
     -(void)awakeFromNib{

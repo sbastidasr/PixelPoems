@@ -9,9 +9,11 @@
 #import "GameViewController.h"
 #import "WordLabel.h"
 #import "GameView.h"
+#import "WordPack.h"
+
 @interface GameViewController ()
 @property (strong, nonatomic) IBOutlet UIView *movableLabel;
-
+@property(strong,nonatomic) UIScrollView *gameView;
 @end
 
 @implementation GameViewController
@@ -31,50 +33,52 @@
 }
 
 
-
+-(void)createGameView{
+    //Setup scrollable view for words.
+    self.gameView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:self.gameView];
+    [self.gameView setContentSize:CGSizeMake(self.gameView.bounds.size.width*3, self.gameView.bounds.size.height*3)];
+    self.gameView.backgroundColor=[UIColor blackColor];
+    [self.view addSubview:self.gameView];
+    
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self createGameView];
+  
     
-    NSMutableArray *arrayForLabels=   [NSMutableArray array];
-   
+    //Create labels array
+    NSMutableArray *arrayForLabels = [NSMutableArray array];
     
-    
-    GameView *gameView = [[GameView alloc] initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-120)];
-    gameView.backgroundColor=[UIColor blackColor];
-    [self.view addSubview:gameView];
-    
-    
-    
-    for (int i=0; i< self.level.wordPack.words.count; i++)
+    //Iterate through labels.
+    for (int i=0; i< self.level.currentWordPack.words.count; i++)
     {
-        WordLabel *label = [[WordLabel alloc] initWithFrame:CGRectMake(100,40+(i*40), 100, 100)];
-     
-      
-        NSString *labelText = self.level.wordPack.words[i];
-       
+        //sets start point of label. Size is reset later.
+        WordLabel *label = [[WordLabel alloc] initWithFrame:CGRectMake(100,40+(i*40), 0, 0)];
         
-        
-         NSMutableAttributedString *attributedString;
-        attributedString = [[NSMutableAttributedString alloc] initWithString: [labelText uppercaseString]];
+        //Set label text
+        NSString *labelText = self.level.currentWordPack.words[i];
+        NSMutableAttributedString *attributedString= [[NSMutableAttributedString alloc] initWithString: [labelText uppercaseString]];
         [attributedString addAttribute:NSKernAttributeName value:@(6.0) range:NSMakeRange(0, attributedString.length)];
-  [label setAttributedText:attributedString];
+        [label setAttributedText:attributedString];
+        
+        
         
         label.userInteractionEnabled = YES;  //enable user interaction
         UIPanGestureRecognizer *gesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)] ;
         [label addGestureRecognizer:gesture];
         
+        
+        //SetupLooks
+        label.layer.borderWidth = 2.0;
         label.font = [UIFont fontWithName:@"ProximaNova-Bold" size:18];
-        
         [label sizeToFit];
-    
         [label setFrame:CGRectMake(label.frame.origin.x, label.frame.origin.y, label.frame.size.width+32, label.frame.size.height+17)];
-       // NSLog(@"Label's frame is: %@", NSStringFromCGRect(label.frame));
-        
+
         [arrayForLabels addObject:label];//add to arrayforlabels
-        
-        [gameView addSubview:label]; // add to view
+        [self.gameView addSubview:label]; // add to view
     }
 }
 

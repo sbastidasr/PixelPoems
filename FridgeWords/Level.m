@@ -10,10 +10,13 @@
 
 @implementation Level
 
--(WordPack *)wordPack{
-    if(!_wordPack){
-        _wordPack=[[WordPack alloc]init];
+-(WordPack *)currentWordPack{
+    if(!_currentWordPack){
+        NSArray *wordPacks  =  [ WordPack loadWordPacks];
+        
+        _currentWordPack=[wordPacks firstObject];   ///HERE CHANGE FOR OTHER WORDPACKS
+        
     }
-    return _wordPack;
+    return _currentWordPack;
 }
 @end
