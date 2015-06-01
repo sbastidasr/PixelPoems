@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GameView : UIView 
+@interface CutGameView : UIView 
 
 @end

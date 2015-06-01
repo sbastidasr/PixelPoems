@@ -25,7 +25,7 @@
 		EA16BDF91B1951EC00FA1FD9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EA16BDF81B1951EC00FA1FD9 /* libz.dylib */; };
 		EA16BDFB1B1951F400FA1FD9 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EA16BDFA1B1951F400FA1FD9 /* libsqlite3.dylib */; };
 		EA829C061B0CF71F0016E201 /* WordLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EA829C051B0CF71F0016E201 /* WordLabel.m */; };
-		EA829C091B0CFB3D0016E201 /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA829C081B0CFB3D0016E201 /* GameView.m */; };
+		EA829C091B0CFB3D0016E201 /* CutGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA829C081B0CFB3D0016E201 /* CutGameView.m */; };
 		EA829C211B0D00720016E201 /* ProximaNova-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA829C0A1B0CFFE00016E201 /* ProximaNova-Black.otf */; };
 		EA829C221B0D00750016E201 /* ProximaNova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA829C0B1B0CFFE00016E201 /* ProximaNova-Bold.otf */; };
 		EA829C231B0D00750016E201 /* ProximaNova-BoldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA829C0C1B0CFFE00016E201 /* ProximaNova-BoldIt.otf */; };
@@ -82,8 +82,8 @@
 		EA16BDFA1B1951F400FA1FD9 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		EA829C041B0CF71F0016E201 /* WordLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordLabel.h; sourceTree = "<group>"; };
 		EA829C051B0CF71F0016E201 /* WordLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordLabel.m; sourceTree = "<group>"; };
-		EA829C071B0CFB3D0016E201 /* GameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameView.h; sourceTree = "<group>"; };
-		EA829C081B0CFB3D0016E201 /* GameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameView.m; sourceTree = "<group>"; };
+		EA829C071B0CFB3D0016E201 /* CutGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CutGameView.h; sourceTree = "<group>"; };
+		EA829C081B0CFB3D0016E201 /* CutGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CutGameView.m; sourceTree = "<group>"; };
 		EA829C0A1B0CFFE00016E201 /* ProximaNova-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Black.otf"; sourceTree = "<group>"; };
 		EA829C0B1B0CFFE00016E201 /* ProximaNova-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Bold.otf"; sourceTree = "<group>"; };
 		EA829C0C1B0CFFE00016E201 /* ProximaNova-BoldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-BoldIt.otf"; sourceTree = "<group>"; };
@@ -211,8 +211,8 @@
 			children = (
 				EA829C041B0CF71F0016E201 /* WordLabel.h */,
 				EA829C051B0CF71F0016E201 /* WordLabel.m */,
-				EA829C071B0CFB3D0016E201 /* GameView.h */,
-				EA829C081B0CFB3D0016E201 /* GameView.m */,
+				EA829C071B0CFB3D0016E201 /* CutGameView.h */,
+				EA829C081B0CFB3D0016E201 /* CutGameView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -422,7 +422,7 @@
 				EAC2028E1B14CFBD001C6692 /* NSMutableArray+Shuffling.m in Sources */,
 				EAE48A611A83B5AF0086F0B6 /* GameViewController.m in Sources */,
 				EAE48A5E1A83B5AF0086F0B6 /* AppDelegate.m in Sources */,
-				EA829C091B0CFB3D0016E201 /* GameView.m in Sources */,
+				EA829C091B0CFB3D0016E201 /* CutGameView.m in Sources */,
 				EAD35B671AC0CBEA00D3901A /* WordPackLoader.m in Sources */,
 				EAD35B5C1AC0C9B000D3901A /* Level.m in Sources */,
 				EAE48A5B1A83B5AF0086F0B6 /* main.m in Sources */,

@@ -8,7 +8,7 @@
 
 #import "GameViewController.h"
 #import "WordLabel.h"
-#import "GameView.h"
+#import "CutGameView.h"
 #import <Parse/Parse.h>
 
 @interface GameViewController ()
@@ -56,15 +56,18 @@ const CGSize CGRectOne = {.width = 2000.0, .height = 2000.0};
     self.gameView.backgroundColor=[UIColor blackColor];
     
 
-    self.gameView.contentOffset= CGPointMake(self.gameView.frame.size.width/2, self.gameView.frame.size.height/2);
+   // self.gameView.contentOffset= CGPointMake(self.gameView.frame.size.width/2, self.gameView.frame.size.height/2);
     
     self.gameView.delegate=self;
     self.gameView.minimumZoomScale=0.5;
-    self.gameView.maximumZoomScale=1.5;
+    self.gameView.maximumZoomScale=2;
  
-    UIView *contentView =[[UIView alloc]initWithFrame:self.gameView.frame];
+    UIView *contentView =[[UIView alloc]initWithFrame:CGRectMake(0, 0, 1000, 2000)];
+  
     [self.gameView addSubview:contentView];
     [contentView setTag:ZOOM_VIEW_TAG];
+    
+    [self.gameView setNeedsDisplay];
     
     [self.view addSubview:self.gameView];
    }
@@ -77,9 +80,21 @@ const CGSize CGRectOne = {.width = 2000.0, .height = 2000.0};
 - (void)viewDidLoad{
     [super viewDidLoad];
     [self createGameView];
+    
+    // ViewToCut game  DELETE FROM HERE
+    CutGameView *cutView=[[CutGameView alloc]initWithFrame:self.gameView.frame];
+    [self.view addSubview:cutView ];
+    cutView.opaque=NO;
+    cutView.backgroundColor=[UIColor clearColor];
+    
+    cutView.userInteractionEnabled=NO;
+    //se
+                    //DELETE UP TO HERE
+    
     [self setupLabels:self.level.currentWordPack.words isWOD:NO]; //for WordPack
-
     [self loadWoD];
+
+    [self addLabelsToView];
  //   [self addLabelsToView];
 }
 
@@ -120,6 +135,8 @@ const CGSize CGRectOne = {.width = 2000.0, .height = 2000.0};
 -(void)addLabelsToView{
     int x=80;
     int y=40;
+    
+   
     for (int i=0; i< self.wordLabels.count; i++){
         
         WordLabel *label = [[WordLabel alloc]init];
@@ -150,7 +167,7 @@ const CGSize CGRectOne = {.width = 2000.0, .height = 2000.0};
             wordDict[@"sizeY"]=[NSNumber numberWithFloat:label.frame.size.height+17];
         }
 
-       label.frame=CGRectMake(0,0, [wordDict[@"sizeX"] floatValue], [wordDict[@"sizeY"] floatValue]);
+       label.frame=CGRectMake(x,y, [wordDict[@"sizeX"] floatValue], [wordDict[@"sizeY"] floatValue]);
      /*
         
         if (i>0){
@@ -179,7 +196,9 @@ const CGSize CGRectOne = {.width = 2000.0, .height = 2000.0};
          */
         [[self.gameView viewWithTag:ZOOM_VIEW_TAG] addSubview:label]; // add to view
     }
-    self.gameView.zoomScale=12.0;
+    self.gameView.zoomScale=0.9;
+    
+
     
 }
 
