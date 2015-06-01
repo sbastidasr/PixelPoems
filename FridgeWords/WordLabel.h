@@ -10,4 +10,6 @@
 
 @interface WordLabel : UILabel
 
+@property BOOL isWordOfTheDay;
+
 @end

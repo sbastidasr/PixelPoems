@@ -10,7 +10,7 @@
 #import "NSMutableArray+Shuffling.h"
 @implementation Level
 
--(WordPack *)currentWordPack{
+-(WordSet *)currentWordPack{
     if(!_currentWordPack){
 
         _currentWordPack=[WordPackLoader WordPackNamed:@"asd"];///HERE CHANGE FOR OTHER WORDPACKS

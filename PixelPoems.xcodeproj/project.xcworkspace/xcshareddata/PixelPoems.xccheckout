@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>CF300456-A9F4-4349-9A70-CF2CB3097CC1</string>
 	<key>IDESourceControlProjectName</key>
-	<string>PixelPoems</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>EEB8A76331AA56341E79D946F9E3C11751CCF5CE</key>
 		<string>https://bitbucket.org/sbastidasr/bitspoems..git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>PixelPoems.xcodeproj</string>
+	<string>PixelPoems.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>EEB8A76331AA56341E79D946F9E3C11751CCF5CE</key>

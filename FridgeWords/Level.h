@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "WordPackLoader.h"
-#import "WordPack.h"
+#import "WordSet.h"
 @interface Level : NSObject
 
-@property(nonatomic, strong) WordPack* currentWordPack;
+@property(nonatomic, strong) WordSet* levelWords; //words That MUST go.
+@property(nonatomic, strong) WordSet* currentWordPack;  //words from wordpack
 //Words that must go.
 //Wordpack
 
