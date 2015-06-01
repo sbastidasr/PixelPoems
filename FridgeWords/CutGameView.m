@@ -15,6 +15,7 @@
    
         [[UIColor whiteColor] setStroke];
     //[[UIColor blueColor]setFill];
+    
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     
     
@@ -22,6 +23,11 @@
         [aPath setLineWidth:4.0];
        [aPath stroke];
   //  [aPath fill];
+    
+    
+    
+    
+    //Now, draw a blue rect at the center.
 
 }
 

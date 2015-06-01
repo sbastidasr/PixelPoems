@@ -19,10 +19,10 @@
 @implementation GameViewController
 
 #define ZOOM_VIEW_TAG 100
-
+#define ARC4RANDOM_MAX 0x100000000
 static float const borderWidth = 2.0;
 static float const fontSize = 18.0;
-const CGSize CGRectOne = {.width = 2000.0, .height = 2000.0};
+const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
 
 
 //allocs the level, that has the wordpack.
@@ -52,17 +52,23 @@ const CGSize CGRectOne = {.width = 2000.0, .height = 2000.0};
     //Setup scrollable view for words.
     self.gameView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.gameView];
-    [self.gameView setContentSize:CGRectOne];
+    [self.gameView setContentSize:sizeOfScrollableArea];
     self.gameView.backgroundColor=[UIColor blackColor];
     
-
-   // self.gameView.contentOffset= CGPointMake(self.gameView.frame.size.width/2, self.gameView.frame.size.height/2);
+    //center the game view
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    float viewStartPointX = (sizeOfScrollableArea.width-screenRect.size.width)/2;
+    float viewStartPointY = (sizeOfScrollableArea.height-screenRect.size.height)/2;
+    
+    self.gameView.contentOffset= CGPointMake(viewStartPointX, viewStartPointY);
+    
+    
     
     self.gameView.delegate=self;
     self.gameView.minimumZoomScale=0.5;
     self.gameView.maximumZoomScale=2;
  
-    UIView *contentView =[[UIView alloc]initWithFrame:CGRectMake(0, 0, 1000, 2000)];
+    UIView *contentView =[[UIView alloc]initWithFrame:CGRectMake(0, 0, sizeOfScrollableArea.width, sizeOfScrollableArea.height)];
   
     [self.gameView addSubview:contentView];
     [contentView setTag:ZOOM_VIEW_TAG];
@@ -76,20 +82,20 @@ const CGSize CGRectOne = {.width = 2000.0, .height = 2000.0};
     return [self.gameView viewWithTag:ZOOM_VIEW_TAG];
 }
 
+-(void)addCutView{
+
+    CutGameView *cutView=[[CutGameView alloc]initWithFrame:self.gameView.frame];
+    [self.view addSubview:cutView];
+    cutView.opaque=NO;
+    cutView.backgroundColor=[UIColor clearColor];
+    cutView.userInteractionEnabled=NO;
+}
 
 - (void)viewDidLoad{
     [super viewDidLoad];
     [self createGameView];
-    
-    // ViewToCut game  DELETE FROM HERE
-    CutGameView *cutView=[[CutGameView alloc]initWithFrame:self.gameView.frame];
-    [self.view addSubview:cutView ];
-    cutView.opaque=NO;
-    cutView.backgroundColor=[UIColor clearColor];
-    
-    cutView.userInteractionEnabled=NO;
-    //se
-                    //DELETE UP TO HERE
+    [self addCutView];
+  
     
     [self setupLabels:self.level.currentWordPack.words isWOD:NO]; //for WordPack
     [self loadWoD];
@@ -166,8 +172,16 @@ const CGSize CGRectOne = {.width = 2000.0, .height = 2000.0};
             wordDict[@"sizeX"]=[NSNumber numberWithFloat:label.frame.size.width+32];
             wordDict[@"sizeY"]=[NSNumber numberWithFloat:label.frame.size.height+17];
         }
+        
+        
+        float minRange=0;
+        float maxRangeX=sizeOfScrollableArea.width -200; //200 should instead be maxwordView
+        float maxRangeY=sizeOfScrollableArea.height-60;
+        
+        double valX = ((double)arc4random() / ARC4RANDOM_MAX) * (maxRangeX - minRange) + minRange ;
+        double valY = ((double)arc4random() / ARC4RANDOM_MAX) * (maxRangeY - minRange) + minRange ;
 
-       label.frame=CGRectMake(x,y, [wordDict[@"sizeX"] floatValue], [wordDict[@"sizeY"] floatValue]);
+       label.frame=CGRectMake(valX,valY, [wordDict[@"sizeX"] floatValue], [wordDict[@"sizeY"] floatValue]);
      /*
         
         if (i>0){
@@ -175,7 +189,7 @@ const CGSize CGRectOne = {.width = 2000.0, .height = 2000.0};
             int currentX = x + lastLabel.frame.size.width;
              x= currentX+40;
         }
-        if ((x + label.frame.size.width)>CGRectOne.width){
+        if ((x + label.frame.size.width)>sizeOfScrollableArea.width){
             y+=70;
             x=40;
         }
