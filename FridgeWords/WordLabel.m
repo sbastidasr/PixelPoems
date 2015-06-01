@@ -39,10 +39,10 @@
     }
     
     -(void)setup{
-        self.layer.borderColor = [UIColor whiteColor].CGColor;
-        self.backgroundColor = nil;
-        self.textColor = [UIColor whiteColor];
-        self.textAlignment = NSTextAlignmentCenter;
+    //    self.layer.borderColor = [UIColor whiteColor].CGColor;
+      //  self.backgroundColor = nil;
+       // self.textColor = [UIColor whiteColor];
+       // self.textAlignment = NSTextAlignmentCenter;
     }
     
     -(void)awakeFromNib{

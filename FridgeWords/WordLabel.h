@@ -10,6 +10,6 @@
 
 @interface WordLabel : UILabel
 
-@property BOOL isWordOfTheDay;
+@property (nonatomic,strong) NSMutableDictionary *data;
 
 @end
