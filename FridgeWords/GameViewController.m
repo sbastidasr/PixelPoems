@@ -166,6 +166,7 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
             label.backgroundColor=[UIColor redColor];
         }
         
+        /*
         //Code to slightly twist words by 1 degree
         int minRange = -1;
         int maxRange = 1;
@@ -173,6 +174,7 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
         double val = ((double)arc4random() / ARC4RANDOM_MAX)* (maxRange - minRange) + minRange;
         [label setTransform:CGAffineTransformMakeRotation((M_PI /180)*val)];
         [[self.gameView viewWithTag:ZOOM_VIEW_TAG] addSubview:label]; // add to view
+        */
     }
     self.gameView.zoomScale=0.9;
 }
