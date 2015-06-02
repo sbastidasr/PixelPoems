@@ -18,16 +18,10 @@
     return [wordPacks firstObject];//HERE CHANGE FOR MORE WORDPACKS
 }
 
-
 +(NSArray *)loadWordPacks{
     
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"wordPacks" withExtension:@"json"];
-    
-   /* make it async
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        int i =0;
-    });*/
-    
+
     // Create a NSURLRequest with the given URL
     NSURLRequest *request = [NSURLRequest requestWithURL:url
                                              cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
@@ -46,7 +40,6 @@
     // Get an array of dictionaries with the key "locations"
     NSArray *array = [jsonDictionary objectForKey:@"packs"];
     
-    
     // Iterate through the array of dictionaries
     for(NSDictionary *dict in array) {
         // Create a new Location object for each one and initialise it with information in the dictionary
@@ -59,8 +52,6 @@
     return wordPacks;
 }
 
-
 //  NSString *myString = @"Now the night is coming to an end The sun will rise and we will try again stay alive, stay alive for me You will die but now your life is free Take pride in what is sure to die I will fear the night again I hope I'm not my only friend Stay alive stay alive for me You will die but now your life is free Take pride in what is sure to die";
-
 
 @end

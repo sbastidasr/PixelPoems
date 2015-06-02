@@ -14,17 +14,11 @@
 @property (nonatomic, strong) Level* level; //1 Level. that has necessary words+wordpack.
 @property (nonatomic, strong) NSMutableArray* wordLabels; 
 
-
-
 //Theme (Contains WordStyle&Background  )
 //WordStyle (i.e. font etc)
 //Background {image | Pattern}
 
-
 //Game Title  (For saving)
-
-
-
 
 #pragma mark - Methods
 //Saving

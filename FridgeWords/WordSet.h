@@ -15,9 +15,7 @@
 @property (nonatomic, strong) NSMutableArray* words;
 @property (nonatomic, strong) NSString* packName;
 
-
 - (id)initWithJSONDictionary:(NSDictionary *)jsonDictionary;
-
-
 -(void)shuffleWordPack;
+
 @end

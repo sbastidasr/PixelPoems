@@ -24,17 +24,13 @@
 
 
 -(void)shuffleWordPack{
-    
     NSMutableArray *asd = [self.words mutableCopy];
-    
     NSInteger count = [asd count];
-    for (NSInteger i = 0; i < count - 1; i++)
-    {
+    for (NSInteger i = 0; i < count - 1; i++){
         NSInteger swap = random() % (count - i) + i;
         [asd exchangeObjectAtIndex:swap withObjectAtIndex:i];
     }
     self.words =asd;
-    
 }
 
 @end
