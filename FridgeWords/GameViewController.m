@@ -84,10 +84,11 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
 - (void)viewDidLoad{
     [super viewDidLoad];
     [self createGameView];
-    //[self addCutView];
+//[self addCutView];
+
     [self setupLabels:self.level.currentWordPack.words isWOD:NO]; //for WordPack
-    [self loadWoD];
-    //[self addLabelsToView];
+ //   [self loadWoD];
+   [self addLabelsToView];
 }
 
 -(void)loadWoD{
