@@ -51,7 +51,8 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
     self.gameView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.gameView];
     [self.gameView setContentSize:sizeOfScrollableArea];
-    self.gameView.backgroundColor=[UIColor blackColor];
+   // self.gameView.backgroundColor=[UIColor blackColor];
+    self.gameView.backgroundColor=[UIColor colorWithRed:36.0/255 green:41.0/255 blue:45.0/255.0 alpha:1];
     
     //center the game view
     CGRect screenRect = [[UIScreen mainScreen] bounds];
@@ -85,10 +86,12 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
     [super viewDidLoad];
     [self createGameView];
     //[self addCutView];
-    [self setupLabels:self.level.currentWordPack.words isWOD:NO]; //for WordPack
-    [self loadWoD];
-    //[self addLabelsToView];
     
+    [self setupLabels:self.level.currentWordPack.words isWOD:NO]; //for WordPack
+    [self addLabelsToView];
+    [self loadWoD];
+
+ 
     }
 
 -(void)loadWoD{
@@ -101,8 +104,9 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
             NSString *wordsOfTheDay=object[@"words"];
             NSArray *stringArray = [wordsOfTheDay componentsSeparatedByString: @" "];
             [self setupLabels:stringArray isWOD:YES];
+            [self addLabelsToView];
         }
-          [self addLabelsToView];
+        
     }];
 }
 
@@ -123,8 +127,6 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
 }
 
 -(void)addLabelsToView{
-    int x=80;
-    int y=40;
     for (int i=0; i< self.wordLabels.count; i++){
         WordLabel *label = [[WordLabel alloc]init];
         NSMutableDictionary *wordDict=self.wordLabels[i];
@@ -163,7 +165,7 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
         
        label.frame=CGRectMake([wordDict[@"X"] floatValue],[wordDict[@"Y"] floatValue], [wordDict[@"sizeX"] floatValue], [wordDict[@"sizeY"] floatValue]);
         
-        if (wordDict[@"isWordOfTheDay"]==@YES){
+        if ([wordDict[@"isWordOfTheDay"] isEqual:@YES]){
             label.backgroundColor=[UIColor redColor];
         }
         
@@ -175,8 +177,13 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
         double val = ((double)arc4random() / ARC4RANDOM_MAX)* (maxRange - minRange) + minRange;
         [label setTransform:CGAffineTransformMakeRotation((M_PI /180)*val)];
         */
-        [[self.gameView viewWithTag:ZOOM_VIEW_TAG] addSubview:label]; // add to view
-      
+        
+        if ([[wordDict objectForKey:@"inView"] boolValue]==NO){
+            [[self.gameView viewWithTag:ZOOM_VIEW_TAG] addSubview:label]; // add to view
+            wordDict[@"inView"]=[NSNumber numberWithBool:YES];
+            
+        }
+
     }
     self.gameView.zoomScale=0.9;
 }
