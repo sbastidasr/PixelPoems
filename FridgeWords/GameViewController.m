@@ -88,7 +88,8 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
     [self setupLabels:self.level.currentWordPack.words isWOD:NO]; //for WordPack
     [self loadWoD];
     //[self addLabelsToView];
-}
+    
+    }
 
 -(void)loadWoD{
     PFQuery *query = [PFQuery queryWithClassName:@"WordsOfTheDay"];
@@ -173,8 +174,9 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
         #define ARC4RANDOM_MAX 0x100000000
         double val = ((double)arc4random() / ARC4RANDOM_MAX)* (maxRange - minRange) + minRange;
         [label setTransform:CGAffineTransformMakeRotation((M_PI /180)*val)];
-        [[self.gameView viewWithTag:ZOOM_VIEW_TAG] addSubview:label]; // add to view
         */
+        [[self.gameView viewWithTag:ZOOM_VIEW_TAG] addSubview:label]; // add to view
+      
     }
     self.gameView.zoomScale=0.9;
 }
