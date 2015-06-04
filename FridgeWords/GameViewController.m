@@ -49,14 +49,15 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
 
 -(void)createGameView{
     //Setup scrollable view for words.
-    UIView *header =[self.gameView viewWithTag:GAME_HEADER_VIEW_TAG];
+    UIView *header =[self.view viewWithTag:GAME_HEADER_VIEW_TAG];
     
     CGRect gameViewFrame = CGRectMake(0,
-                                      header.frame.size.height,
+                                      header.bounds.size.height,
                                       self.view.bounds.size.width,
-                                      self.view.bounds.size.height-header.frame.size.height);
-        
-    self.gameView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+                                      self.view.bounds.size.height-header.bounds.size.height);
+  
+  //    self.gameView = [[UIScrollView alloc] initWithFrame:gameViewFrame];
+   // self.gameView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     
     [self.gameView setContentSize:sizeOfScrollableArea];
     self.gameView.backgroundColor=[UIColor colorWithRed:36.0/255 green:41.0/255 blue:45.0/255.0 alpha:1];
