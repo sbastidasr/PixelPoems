@@ -48,8 +48,10 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
 
 -(void)createGameView{
     //Setup scrollable view for words.
+    
+    
     self.gameView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:self.gameView];
+ //   [self.view addSubview:self.gameView];
     [self.gameView setContentSize:sizeOfScrollableArea];
    // self.gameView.backgroundColor=[UIColor blackColor];
     self.gameView.backgroundColor=[UIColor colorWithRed:36.0/255 green:41.0/255 blue:45.0/255.0 alpha:1];
@@ -67,7 +69,7 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
     [self.gameView addSubview:contentView];
     [contentView setTag:ZOOM_VIEW_TAG];
     [self.gameView setNeedsDisplay];
-    [self.view addSubview:self.gameView];
+ //   [self.view addSubview:self.gameView];
    }
 
 -(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{

@@ -2,24 +2,96 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="pgE-JI-Bay">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Game View Controller-->
+        <!--View Controller-->
         <scene sceneID="dXH-ld-TlD">
             <objects>
-                <viewController id="pgE-JI-Bay" customClass="GameViewController" sceneMemberID="viewController">
+                <viewController wantsFullScreenLayout="YES" id="pgE-JI-Bay" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dMZ-7B-96r"/>
                         <viewControllerLayoutGuide type="bottom" id="Oxt-hI-oNG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MPv-re-9Py">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tJM-fn-H24">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="230"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WORDS + Rectangle 148 Copy 7@1x" translatesAutoresizingMaskIntoConstraints="NO" id="oBB-in-DZ9">
+                                        <rect key="frame" x="20" y="20" width="104" height="104"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="16" y="16" width="113" height="113"/>
+                                        </variation>
+                                        <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="16" y="16" width="113" height="113"/>
+                                        </variation>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Title" translatesAutoresizingMaskIntoConstraints="NO" id="Nwg-wb-aB9">
+                                        <rect key="frame" x="144" y="20" width="176" height="23"/>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="139" y="16" width="169" height="23"/>
+                                        </variation>
+                                        <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="145" y="16" width="188" height="26"/>
+                                        </variation>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tJM-fn-H24" secondAttribute="height" multiplier="125:48" id="LOQ-Ux-gTH"/>
+                                </constraints>
+                                <variation key="widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="oBB-in-DZ9"/>
+                                        <include reference="Nwg-wb-aB9"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tJM-fn-H24" firstAttribute="leading" secondItem="MPv-re-9Py" secondAttribute="leadingMargin" constant="-16" id="3g8-Pr-0DX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tJM-fn-H24" secondAttribute="trailing" constant="-16" id="UWx-Sa-GDu"/>
+                            <constraint firstItem="tJM-fn-H24" firstAttribute="leading" secondItem="MPv-re-9Py" secondAttribute="leadingMargin" constant="-16" id="UjO-9V-mC4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tJM-fn-H24" secondAttribute="trailing" constant="-16" id="dNq-s7-zNF"/>
+                            <constraint firstItem="tJM-fn-H24" firstAttribute="top" secondItem="MPv-re-9Py" secondAttribute="topMargin" id="hlt-bA-Pta"/>
+                            <constraint firstItem="tJM-fn-H24" firstAttribute="top" secondItem="MPv-re-9Py" secondAttribute="topMargin" id="zDt-Mf-nrI"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="UWx-Sa-GDu"/>
+                                <exclude reference="UjO-9V-mC4"/>
+                                <exclude reference="zDt-Mf-nrI"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="UWx-Sa-GDu"/>
+                                <include reference="UjO-9V-mC4"/>
+                                <include reference="zDt-Mf-nrI"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="tJM-fn-H24"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cyd-pY-6OL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2524.5" y="309"/>
+            <point key="canvasLocation" x="2564.5" y="333.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Title" width="599" height="81"/>
+        <image name="WORDS + Rectangle 148 Copy 7@1x" width="220" height="220"/>
+    </resources>
 </document>
