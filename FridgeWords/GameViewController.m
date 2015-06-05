@@ -50,20 +50,6 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
 
 -(void)createGameView{
     //Setup scrollable view for words.
-    
-   
-    //CGRectGetMaxY(view.frame) // will return the bottommost y coordinate of the view
-    //CGRectGetMinX(view.frame)
-    
-    
-    CGRect gameViewFrame = CGRectMake(0,
-                                      CGRectGetMaxY(self.headerView.frame),//+(self.headerView.frame.origin.y*2),
-                                      self.view.bounds.size.width,
-                                      self.view.bounds.size.height);
-  
-    // self.gameView = [[UIScrollView alloc] initWithFrame:gameViewFrame];
-   // self.gameView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-    
     [self.gameView setContentSize:sizeOfScrollableArea];
     self.gameView.backgroundColor=[UIColor colorWithRed:36.0/255 green:41.0/255 blue:45.0/255.0 alpha:1];
     
@@ -79,13 +65,10 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
     UIView *contentView =[[UIView alloc]initWithFrame:CGRectMake(0, 0, sizeOfScrollableArea.width, sizeOfScrollableArea.height)];
     [self.gameView addSubview:contentView];
     [contentView setTag:ZOOM_VIEW_TAG];
-    
     [self.view addSubview:self.gameView];
-    
     [self.gameView setNeedsDisplay];
     
-    self.gameView.backgroundColor=[UIColor redColor];
-
+   // self.gameView.backgroundColor=[UIColor redColor];
    }
 
 -(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
@@ -182,6 +165,8 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
         }
         
        label.frame=CGRectMake([wordDict[@"X"] floatValue],[wordDict[@"Y"] floatValue], [wordDict[@"sizeX"] floatValue], [wordDict[@"sizeY"] floatValue]);
+        
+        label.backgroundColor=self.gameView.backgroundColor;
         
         if ([wordDict[@"isWordOfTheDay"] isEqual:@YES]){
             label.backgroundColor=[UIColor redColor];

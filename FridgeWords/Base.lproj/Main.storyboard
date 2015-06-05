@@ -68,7 +68,7 @@
                                 <rect key="frame" x="0.0" y="188" width="600" height="412"/>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.14117647058823529" green="0.16078431372549018" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="syC-Ev-DRd" firstAttribute="bottom" secondItem="Oxt-hI-oNG" secondAttribute="top" id="9vc-36-yok"/>
                             <constraint firstItem="syC-Ev-DRd" firstAttribute="leading" secondItem="MPv-re-9Py" secondAttribute="leading" id="NAO-52-7uI"/>
