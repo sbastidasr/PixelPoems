@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -15,13 +16,13 @@
                         <viewControllerLayoutGuide type="bottom" id="Oxt-hI-oNG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MPv-re-9Py">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="WORDS + Rectangle 148 Copy 7@1x" translatesAutoresizingMaskIntoConstraints="NO" id="Fa9-2l-xmk">
-                                <rect key="frame" x="336" y="18" width="23" height="23"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WORDS + Rectangle 148 Copy 7@1x" translatesAutoresizingMaskIntoConstraints="NO" id="Fa9-2l-xmk">
+                                <rect key="frame" x="488" y="20" width="53" height="53"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Fa9-2l-xmk" secondAttribute="height" multiplier="1:1" id="R5W-ac-CL6"/>
+                                    <constraint firstAttribute="width" secondItem="Fa9-2l-xmk" secondAttribute="height" multiplier="1:1" id="2lU-Jw-gQM"/>
                                 </constraints>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="16" y="16" width="110" height="110"/>
@@ -33,10 +34,10 @@
                                     <rect key="frame" x="16" y="16" width="113" height="113"/>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="WORDS + Rectangle 148 Copy 7@1x" translatesAutoresizingMaskIntoConstraints="NO" id="oBB-in-DZ9">
-                                <rect key="frame" x="16" y="20" width="100" height="100"/>
+                            <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WORDS + Rectangle 148 Copy 7@1x" translatesAutoresizingMaskIntoConstraints="NO" id="oBB-in-DZ9">
+                                <rect key="frame" x="16" y="20" width="160" height="160"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="oBB-in-DZ9" secondAttribute="height" multiplier="1:1" id="Zfz-3h-KGT"/>
+                                    <constraint firstAttribute="width" secondItem="oBB-in-DZ9" secondAttribute="height" multiplier="1:1" id="w5s-Io-5cz"/>
                                 </constraints>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="16" y="16" width="110" height="110"/>
@@ -48,10 +49,10 @@
                                     <rect key="frame" x="16" y="16" width="113" height="113"/>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Title" translatesAutoresizingMaskIntoConstraints="NO" id="Nwg-wb-aB9">
-                                <rect key="frame" x="135" y="19" width="170" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Title" translatesAutoresizingMaskIntoConstraints="NO" id="Nwg-wb-aB9">
+                                <rect key="frame" x="196" y="20" width="272" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Nwg-wb-aB9" secondAttribute="height" multiplier="170:21" id="FkI-yN-tOW"/>
+                                    <constraint firstAttribute="width" secondItem="Nwg-wb-aB9" secondAttribute="height" multiplier="170:21" id="wf7-kj-LqT"/>
                                 </constraints>
                                 <variation key="widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="134" y="16" width="232" height="31"/>
@@ -63,19 +64,41 @@
                                     <rect key="frame" x="145" y="16" width="188" height="26"/>
                                 </variation>
                             </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="syC-Ev-DRd">
+                                <rect key="frame" x="0.0" y="188" width="600" height="412"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="oBB-in-DZ9" secondAttribute="width" multiplier="3.75" id="19O-ha-yrc"/>
-                            <constraint firstItem="Fa9-2l-xmk" firstAttribute="width" secondItem="MPv-re-9Py" secondAttribute="width" multiplier="0.06" id="D63-M1-bWE"/>
-                            <constraint firstAttribute="width" secondItem="Nwg-wb-aB9" secondAttribute="width" multiplier="2.2" id="M7c-Pv-Kf9"/>
+                            <constraint firstItem="syC-Ev-DRd" firstAttribute="bottom" secondItem="Oxt-hI-oNG" secondAttribute="top" id="9vc-36-yok"/>
+                            <constraint firstItem="syC-Ev-DRd" firstAttribute="leading" secondItem="MPv-re-9Py" secondAttribute="leading" id="NAO-52-7uI"/>
+                            <constraint firstItem="oBB-in-DZ9" firstAttribute="top" secondItem="Nwg-wb-aB9" secondAttribute="top" id="PmQ-Ig-CSv"/>
+                            <constraint firstItem="syC-Ev-DRd" firstAttribute="top" secondItem="oBB-in-DZ9" secondAttribute="bottom" constant="8" symbolic="YES" id="Pxj-jr-6Bn"/>
+                            <constraint firstAttribute="trailing" secondItem="syC-Ev-DRd" secondAttribute="trailing" id="Se8-Hu-Ti0"/>
+                            <constraint firstItem="Fa9-2l-xmk" firstAttribute="leading" secondItem="Nwg-wb-aB9" secondAttribute="trailing" constant="20" id="XWZ-D3-wRp"/>
+                            <constraint firstItem="oBB-in-DZ9" firstAttribute="leading" secondItem="MPv-re-9Py" secondAttribute="leadingMargin" id="Zdp-xb-phI"/>
+                            <constraint firstItem="Nwg-wb-aB9" firstAttribute="leading" secondItem="oBB-in-DZ9" secondAttribute="trailing" constant="20" id="c9j-Xv-h7k"/>
+                            <constraint firstItem="Nwg-wb-aB9" firstAttribute="width" secondItem="oBB-in-DZ9" secondAttribute="width" multiplier="1.7" id="fa0-kD-c0K"/>
+                            <constraint firstItem="oBB-in-DZ9" firstAttribute="top" secondItem="dMZ-7B-96r" secondAttribute="bottom" id="oSp-6U-hgm"/>
+                            <constraint firstAttribute="width" secondItem="oBB-in-DZ9" secondAttribute="width" multiplier="3.75" id="rYB-Rf-hAU"/>
+                            <constraint firstItem="oBB-in-DZ9" firstAttribute="width" secondItem="Fa9-2l-xmk" secondAttribute="width" multiplier="3" id="uVx-dn-CUE"/>
+                            <constraint firstItem="Nwg-wb-aB9" firstAttribute="width" secondItem="Fa9-2l-xmk" secondAttribute="width" multiplier="1.7" id="ubw-SH-Kbx"/>
+                            <constraint firstItem="Nwg-wb-aB9" firstAttribute="top" secondItem="Fa9-2l-xmk" secondAttribute="top" id="wsA-bp-4DW"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ubw-SH-Kbx"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="gameView" destination="syC-Ev-DRd" id="Oip-94-fmg"/>
+                        <outlet property="headerView" destination="oBB-in-DZ9" id="dug-fS-fJ0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cyd-pY-6OL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2678.5" y="659.5"/>
+            <point key="canvasLocation" x="2678" y="659"/>
         </scene>
     </scenes>
     <resources>

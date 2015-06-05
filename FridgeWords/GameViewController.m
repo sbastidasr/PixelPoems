@@ -12,14 +12,15 @@
 #import <Parse/Parse.h>
 
 @interface GameViewController ()
-@property (strong, nonatomic) IBOutlet UIView *movableLabel;
-@property(strong,nonatomic) UIScrollView *gameView;
+@property (weak, nonatomic) IBOutlet UIImageView *headerView;
+@property (weak, nonatomic) IBOutlet UIScrollView *gameView;
+
 @end
 
 @implementation GameViewController
 
 #define ZOOM_VIEW_TAG 100
-#define GAME_HEADER_VIEW_TAG 2
+
 #define ARC4RANDOM_MAX 0x100000000
 static float const borderWidth = 2.0;
 static float const fontSize = 18.0;
@@ -49,14 +50,18 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
 
 -(void)createGameView{
     //Setup scrollable view for words.
-    UIView *header =[self.view viewWithTag:GAME_HEADER_VIEW_TAG];
+    
+   
+    //CGRectGetMaxY(view.frame) // will return the bottommost y coordinate of the view
+    //CGRectGetMinX(view.frame)
+    
     
     CGRect gameViewFrame = CGRectMake(0,
-                                      header.bounds.size.height,
+                                      CGRectGetMaxY(self.headerView.frame),//+(self.headerView.frame.origin.y*2),
                                       self.view.bounds.size.width,
-                                      self.view.bounds.size.height-header.bounds.size.height);
+                                      self.view.bounds.size.height);
   
-  //    self.gameView = [[UIScrollView alloc] initWithFrame:gameViewFrame];
+    // self.gameView = [[UIScrollView alloc] initWithFrame:gameViewFrame];
    // self.gameView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     
     [self.gameView setContentSize:sizeOfScrollableArea];
