@@ -51,7 +51,7 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
 -(void)createGameView{
     //Setup scrollable view for words.
     [self.gameView setContentSize:sizeOfScrollableArea];
-    self.gameView.backgroundColor=[UIColor colorWithRed:36.0/255 green:41.0/255 blue:45.0/255.0 alpha:1];
+    self.gameView.backgroundColor=self.headerView.backgroundColor;
     
     //center the game view
     CGRect screenRect = [[UIScreen mainScreen] bounds];
@@ -139,40 +139,92 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
         UIPanGestureRecognizer *gesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)] ;
         [label addGestureRecognizer:gesture];
         
+        if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
+        {
+            label.layer.borderWidth = borderWidth*1.5;
+            label.font = [UIFont fontWithName:@"ProximaNova-Bold" size:fontSize*1.5];
+        }
+        else{
+            label.layer.borderWidth = borderWidth;
+            label.font = [UIFont fontWithName:@"ProximaNova-Bold" size:fontSize];
+        }
+        
         //SetupLooks
-        label.layer.borderWidth = borderWidth;
-        label.font = [UIFont fontWithName:@"ProximaNova-Bold" size:fontSize];
+    
         label.layer.borderColor = [UIColor whiteColor].CGColor;
         label.backgroundColor = nil;
         label.textColor = [UIColor whiteColor];
         label.textAlignment = NSTextAlignmentCenter;
+        label.backgroundColor=self.gameView.backgroundColor;
+
         
         if([wordDict objectForKey:@"sizeX"]==nil){
             //SetupSize
             [label sizeToFit];
-            wordDict[@"sizeX"]=[NSNumber numberWithFloat:label.frame.size.width+32];
-            wordDict[@"sizeY"]=[NSNumber numberWithFloat:label.frame.size.height+17];
+            
+            if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
+            {
+                wordDict[@"sizeX"]=[NSNumber numberWithFloat:label.frame.size.width+(32*1.5)];
+                wordDict[@"sizeY"]=[NSNumber numberWithFloat:label.frame.size.height+(17*1.5)];
+            }
+            else{
+                wordDict[@"sizeX"]=[NSNumber numberWithFloat:label.frame.size.width+32];
+                wordDict[@"sizeY"]=[NSNumber numberWithFloat:label.frame.size.height+17];
+            }
+            
+            
+            
+    
         }
-        
-        if(wordDict[@"X"]==nil){
-        float minRange=0;
-        float maxRangeX=sizeOfScrollableArea.width -200; //200 should instead be maxwordView
-        float maxRangeY=sizeOfScrollableArea.height-60;
-        double valX = ((double)arc4random() / ARC4RANDOM_MAX) * (maxRangeX - minRange) + minRange ;
-        double valY = ((double)arc4random() / ARC4RANDOM_MAX) * (maxRangeY - minRange) + minRange ;
-        wordDict[@"X"]=[NSNumber numberWithFloat:valX];
-        wordDict[@"Y"]=[NSNumber numberWithFloat:valY];
+        /*if(wordDict[@"X"]==nil){//if it has no place in map, yet.
+         
+         float minRange=0;
+         float maxRangeX=sizeOfScrollableArea.width -200; //should instead be maxwordView
+         float maxRangeY=sizeOfScrollableArea.height-60;
+         double valX = ((double)arc4random() / ARC4RANDOM_MAX) * (maxRangeX - minRange) + minRange ;
+         double valY = ((double)arc4random() / ARC4RANDOM_MAX) * (maxRangeY - minRange) + minRange ;
+         wordDict[@"X"]=[NSNumber numberWithFloat:valX];
+         wordDict[@"Y"]=[NSNumber numberWithFloat:valY];
+         }
+         */
+        if(wordDict[@"X"]==nil){//if it has no place in map, yet.
+            if ([wordDict[@"isWordOfTheDay"] isEqual:@YES]){
+                label.backgroundColor=[UIColor redColor];
+                
+                CGRect screenRect = [[UIScreen mainScreen] bounds];
+
+                float minRangeX = (sizeOfScrollableArea.width-screenRect.size.width)/2;
+                float minRangeY = (sizeOfScrollableArea.height-screenRect.size.height)/2;
+                
+                float maxRangeX=minRangeX+screenRect.size.width-100; //should instead be maxwordView
+                float maxRangeY=minRangeY+screenRect.size.height-self.headerView.frame.size.height -60;
+                
+                if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
+                {
+                    //label.transform = CGAffineTransformMakeScale(1.5, 1.5);
+                    minRangeX+=100;
+                    maxRangeX-=100;
+                    minRangeY+=140;
+                    maxRangeY-=200;
+                }
+                double valX = ((double)arc4random() / ARC4RANDOM_MAX) * (maxRangeX - minRangeX) + minRangeX ;
+                double valY = ((double)arc4random() / ARC4RANDOM_MAX) * (maxRangeY - minRangeY) + minRangeY;
+                wordDict[@"X"]=[NSNumber numberWithFloat:valX];
+                wordDict[@"Y"]=[NSNumber numberWithFloat:valY];
+            }
+            else{
+                float minRange=0;
+                float maxRangeX=sizeOfScrollableArea.width -200; //should instead be maxwordView
+                float maxRangeY=sizeOfScrollableArea.height-60;
+                double valX = ((double)arc4random() / ARC4RANDOM_MAX) * (maxRangeX - minRange) + minRange ;
+                double valY = ((double)arc4random() / ARC4RANDOM_MAX) * (maxRangeY - minRange) + minRange ;
+                wordDict[@"X"]=[NSNumber numberWithFloat:valX];
+                wordDict[@"Y"]=[NSNumber numberWithFloat:valY];
+            }
         }
+        label.frame=CGRectMake([wordDict[@"X"] floatValue],[wordDict[@"Y"] floatValue], [wordDict[@"sizeX"] floatValue], [wordDict[@"sizeY"] floatValue]);
         
-       label.frame=CGRectMake([wordDict[@"X"] floatValue],[wordDict[@"Y"] floatValue], [wordDict[@"sizeX"] floatValue], [wordDict[@"sizeY"] floatValue]);
-        
-        label.backgroundColor=self.gameView.backgroundColor;
-        
-        if ([wordDict[@"isWordOfTheDay"] isEqual:@YES]){
-            label.backgroundColor=[UIColor redColor];
-        }
-        
-        /*
+        /* s;
         //Code to slightly twist words by 1 degree
         int minRange = -1;
         int maxRange = 1;
@@ -188,7 +240,11 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
         }
 
     }
-    self.gameView.zoomScale=0.9;
+   
+}
+
+- (IBAction)HomeButton:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 -(NSMutableArray *)wordLabels{
@@ -202,5 +258,7 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
 // PFObject *testObject = [PFObject objectWithClassName:@"WordsOfTheDay"];
 // testObject[@"words"] = @"hvgjhv.kbar";
 // [testObject saveInBackground];
+
+
 
 @end
