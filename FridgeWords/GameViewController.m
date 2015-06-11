@@ -86,12 +86,14 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
 - (void)viewDidLoad{
     [super viewDidLoad];
     [self createGameView];
-    //[self addCutView];
     
+    
+    //If coming from Words of the day:
     [self setupLabels:self.level.currentWordPack.words isWOD:NO]; //for WordPack
     [self addLabelsToView];
     [self loadWoD];
-
+    
+    //If coming from savegames.
  
     }
 
@@ -132,15 +134,14 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
         WordLabel *label = [[WordLabel alloc]init];
         NSMutableDictionary *wordDict=self.wordLabels[i];
         [label setAttributedText:wordDict[@"attributedText"]];
-        label.data=wordDict;
+        label.wordDictionary=wordDict;
         
         //PLACE ON LABEL
         label.userInteractionEnabled = YES;
         UIPanGestureRecognizer *gesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)] ;
         [label addGestureRecognizer:gesture];
         
-        if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
-        {
+        if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ){
             label.layer.borderWidth = borderWidth*1.5;
             label.font = [UIFont fontWithName:@"ProximaNova-Bold" size:fontSize*1.5];
         }
@@ -171,10 +172,6 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
                 wordDict[@"sizeX"]=[NSNumber numberWithFloat:label.frame.size.width+32];
                 wordDict[@"sizeY"]=[NSNumber numberWithFloat:label.frame.size.height+17];
             }
-            
-            
-            
-    
         }
         /*if(wordDict[@"X"]==nil){//if it has no place in map, yet.
          
@@ -187,9 +184,13 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
          wordDict[@"Y"]=[NSNumber numberWithFloat:valY];
          }
          */
+        
+        if ([wordDict[@"isWordOfTheDay"] isEqual:@YES]){
+            label.backgroundColor=[UIColor redColor];
+        }
+        
         if(wordDict[@"X"]==nil){//if it has no place in map, yet.
             if ([wordDict[@"isWordOfTheDay"] isEqual:@YES]){
-                label.backgroundColor=[UIColor redColor];
                 
                 CGRect screenRect = [[UIScreen mainScreen] bounds];
 
@@ -243,8 +244,64 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
    
 }
 
+
+-(void)removeLabelsFromView{
+    [[[self.gameView viewWithTag:ZOOM_VIEW_TAG] subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];  //Clears words
+    for (int i=0; i< self.wordLabels.count; i++){
+        NSMutableDictionary *wordDict=self.wordLabels[i];
+        wordDict[@"inView"]=[NSNumber numberWithBool:NO];
+    }
+}
+
+-(void)updateWordPositionsOnDict{
+
+    NSArray *labels = [[self.gameView viewWithTag:ZOOM_VIEW_TAG] subviews];
+    
+  for (int i=0; i< labels.count; i++){
+      WordLabel *label=labels[i];
+      NSMutableDictionary *wordDict = label.wordDictionary;
+      
+      wordDict[@"X"]=[NSNumber numberWithFloat:label.frame.origin.x];
+      wordDict[@"Y"]=[NSNumber numberWithFloat:label.frame.origin.y];
+  
+  }
+
+}
+
+-(void)saveGame{
+    NSDictionary *nameDetails = @{@"name": @"Albert", @"password": @"emc2"};
+    
+    
+    
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0];
+    
+    NSString *photoCacheFilename = [documentsPath stringByAppendingPathComponent:@"photoCache.plist"]; // Correct path to Documents Dir in the App Sand box
+    
+    [nameDetails writeToFile:photoCacheFilename atomically:YES]; //Write
+    
+    
+           //read
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:photoCacheFilename];
+    if (fileExists)
+    {
+        NSDictionary *asd= [NSDictionary dictionaryWithContentsOfFile:photoCacheFilename];
+      NSLog(@"asd");
+    }
+
+}
 - (IBAction)HomeButton:(id)sender {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+     [self updateWordPositionsOnDict];   //saves the pos.
+    
+    [self removeLabelsFromView]; //removes every label on screen.
+   
+    [self addLabelsToView]; //recreates labels, from self.wordLabels Array of label Dictinaries.
+    
+    
+    [self saveGame];
+    
+   // [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 -(NSMutableArray *)wordLabels{

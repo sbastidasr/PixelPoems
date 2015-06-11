@@ -12,7 +12,9 @@
 @interface GameViewController : UIViewController  <UIScrollViewDelegate>  //most user custmizable settings of current level.
 
 @property (nonatomic, strong) Level* level; //1 Level. that has necessary words+wordpack.
-@property (nonatomic, strong) NSMutableArray* wordLabels; 
+
+
+@property (nonatomic, strong) NSMutableArray* wordLabels; //of dictionaries containing a word+attributes
 
 //Theme (Contains WordStyle&Background  )
 //WordStyle (i.e. font etc)

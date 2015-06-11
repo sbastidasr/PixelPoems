@@ -10,6 +10,6 @@
 
 @interface WordLabel : UILabel
 
-@property (nonatomic,strong) NSMutableDictionary *data;
+@property (nonatomic,strong) NSMutableDictionary *wordDictionary;
 
 @end
