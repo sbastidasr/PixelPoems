@@ -121,11 +121,8 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
         label[@"isWordOfTheDay"]=[NSNumber numberWithBool:areWordsOfTheDay];
 
         //Set label text
-        NSString *labelText = wordArray[i];
-        NSMutableAttributedString *attributedString= [[NSMutableAttributedString alloc] initWithString: [labelText uppercaseString]];
-        [attributedString addAttribute:NSKernAttributeName value:@(6.0) range:NSMakeRange(0, attributedString.length)];
-        label[@"attributedText"]=attributedString;
-        [self.wordLabels addObject:label];//add to arrayforlabels
+        label[@"attributedText"] = wordArray[i];
+       [self.wordLabels addObject:label];//add to arrayforlabels
     }
 }
 
@@ -133,7 +130,11 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
     for (int i=0; i< self.wordLabels.count; i++){
         WordLabel *label = [[WordLabel alloc]init];
         NSMutableDictionary *wordDict=self.wordLabels[i];
-        [label setAttributedText:wordDict[@"attributedText"]];
+        
+        NSMutableAttributedString *attributedString= [[NSMutableAttributedString alloc] initWithString: [wordDict[@"attributedText"] uppercaseString]];
+        [attributedString addAttribute:NSKernAttributeName value:@(6.0) range:NSMakeRange(0, attributedString.length)];
+
+        [label setAttributedText: attributedString];
         label.wordDictionary=wordDict;
         
         //PLACE ON LABEL
@@ -267,41 +268,47 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
   }
 
 }
-
--(void)saveGame{
-    NSDictionary *nameDetails = @{@"name": @"Albert", @"password": @"emc2"};
-    
-    
-    
-    
+-(void)loadGame{//reads games from plist.
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsPath = [paths objectAtIndex:0];
+    NSString *savedGamesFilePath = [documentsPath stringByAppendingPathComponent:@"savedGames.plist"]; //
+    //read
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:savedGamesFilePath];
     
-    NSString *photoCacheFilename = [documentsPath stringByAppendingPathComponent:@"photoCache.plist"]; // Correct path to Documents Dir in the App Sand box
-    
-    [nameDetails writeToFile:photoCacheFilename atomically:YES]; //Write
-    
-    
-           //read
-    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:photoCacheFilename];
     if (fileExists)
     {
-        NSDictionary *asd= [NSDictionary dictionaryWithContentsOfFile:photoCacheFilename];
-      NSLog(@"asd");
+        NSDictionary *asd= [NSDictionary dictionaryWithContentsOfFile:savedGamesFilePath];
+        
+        self.wordLabels=(NSMutableArray *)asd[@"Today"];
     }
 
 }
+
+-(void)saveGame{ //writes dictionaries to plist
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0];
+    NSString *savedGamesFilePath = [documentsPath stringByAppendingPathComponent:@"savedGames.plist"];
+    
+    NSMutableDictionary *asd = [[NSMutableDictionary alloc]init];
+    asd[@"Today"]=self.wordLabels;
+    
+    [asd writeToFile:savedGamesFilePath atomically:YES]; //Write
+}
+
+
 - (IBAction)HomeButton:(id)sender {
-     [self updateWordPositionsOnDict];   //saves the pos.
-    
-    [self removeLabelsFromView]; //removes every label on screen.
-   
-    [self addLabelsToView]; //recreates labels, from self.wordLabels Array of label Dictinaries.
-    
+    [self updateWordPositionsOnDict];   //saves the pos.
     
     [self saveGame];
+   
+    [self removeLabelsFromView]; //removes every label on screen.
+    self.wordLabels=nil;
     
-   // [self.navigationController popToRootViewControllerAnimated:YES];
+    [self loadGame];
+    [self removeLabelsFromView];
+    [self addLabelsToView]; //recreates labels, from self.wordLabels Array of label Dictinaries.
+    
+ //  [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 -(NSMutableArray *)wordLabels{
