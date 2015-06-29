@@ -190,8 +190,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="syC-Ev-DRd">
                                 <rect key="frame" x="0.0" y="128" width="375" height="539"/>
                             </scrollView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Title" translatesAutoresizingMaskIntoConstraints="NO" id="Nwg-wb-aB9">
-                                <rect key="frame" x="136" y="20" width="170" height="45"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Title" translatesAutoresizingMaskIntoConstraints="NO" id="Nwg-wb-aB9">
+                                <rect key="frame" x="130" y="20" width="170" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Nwg-wb-aB9" secondAttribute="height" multiplier="34:9" id="Jyp-bw-aWd"/>
                                     <constraint firstAttribute="width" secondItem="Nwg-wb-aB9" secondAttribute="height" multiplier="170:21" constant="-194.28571428571428" id="uni-Nd-jyr"/>
@@ -219,18 +219,18 @@
                                     <action selector="HomeButton:" destination="pgE-JI-Bay" eventType="touchUpInside" id="D1o-Xw-ILc"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="WordPack: Love" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEK-IE-JMO">
-                                <rect key="frame" x="136" y="73" width="211" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WordPack: Love" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEK-IE-JMO">
+                                <rect key="frame" x="130" y="73" width="141" height="20"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0gt-Rc-PHB">
-                                <rect key="frame" x="118" y="21" width="17" height="43"/>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0gt-Rc-PHB">
+                                <rect key="frame" x="116" y="20" width="14" height="0.0"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jwe-VB-9oy">
-                                <rect key="frame" x="308" y="22" width="5" height="43"/>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jwe-VB-9oy">
+                                <rect key="frame" x="300" y="20" width="14" height="0.0"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -261,6 +261,7 @@
                             <constraint firstItem="1Fy-bl-83a" firstAttribute="leading" secondItem="Nwg-wb-aB9" secondAttribute="trailing" constant="8" id="lBI-43-JTI"/>
                             <constraint firstItem="oBB-in-DZ9" firstAttribute="top" secondItem="dMZ-7B-96r" secondAttribute="bottom" id="oSp-6U-hgm"/>
                             <constraint firstAttribute="width" secondItem="oBB-in-DZ9" secondAttribute="width" multiplier="3.75" id="rYB-Rf-hAU"/>
+                            <constraint firstItem="0gt-Rc-PHB" firstAttribute="bottom" secondItem="dMZ-7B-96r" secondAttribute="bottom" id="uKt-eT-bkJ"/>
                             <constraint firstItem="1Fy-bl-83a" firstAttribute="height" secondItem="Nwg-wb-aB9" secondAttribute="height" id="yBd-Dv-hlV"/>
                         </constraints>
                         <variation key="default">
