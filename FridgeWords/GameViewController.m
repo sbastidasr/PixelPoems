@@ -94,19 +94,18 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
 - (void)viewDidLoad{
     [super viewDidLoad];
     [self createGameView];
-    
-    
+  
     //If coming from Words of the day:
-   //[self setupLabels:self.level.currentWordPack.words isWOD:NO]; //for WordPack
-//[self loadWoD];
-    
-    //If coming from savegames.
- 
-    
-    //add
+    if(_wordLabels==nil){
+        _wordLabels = [[NSMutableArray alloc]init];
+        [self setupLabels:self.level.currentWordPack.words isWOD:NO]; //for WordPack
+        [self loadWoD];
+    }
+    else { //If coming from savegames.
     [self removeLabelsFromView];
     [self addLabelsToView];
     }
+}
 
 -(void)loadWoD{
     PFQuery *query = [PFQuery queryWithClassName:@"WordsOfTheDay"];
@@ -327,10 +326,4 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
     }else{return YES;}
 }
 
--(NSMutableArray *)wordLabels{
-    if(_wordLabels==nil){
-        _wordLabels = [[NSMutableArray alloc]init];
-    }
-    return _wordLabels;
-}
 @end
