@@ -11,6 +11,9 @@
 #import "CutGameView.h"
 #import <Parse/Parse.h>
 
+
+
+//self.WordLabels  contains array of 
 @interface GameViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *headerView;
 @property (weak, nonatomic) IBOutlet UIScrollView *gameView;
@@ -268,26 +271,32 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
   }
 
 }
--(void)loadGame{//reads games from plist.
+
+-(NSString *)getSavedGamesFilePath{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsPath = [paths objectAtIndex:0];
-    NSString *savedGamesFilePath = [documentsPath stringByAppendingPathComponent:@"savedGames.plist"]; //
-    //read
-    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:savedGamesFilePath];
-    
-    if (fileExists)
-    {
-        NSDictionary *asd= [NSDictionary dictionaryWithContentsOfFile:savedGamesFilePath];
-        
-        self.wordLabels=(NSMutableArray *)asd[@"Today"];
-    }
+    return [documentsPath stringByAppendingPathComponent:@"savedGames.plist"];
+}
 
+-(NSDictionary *)getSavedGameDictionary{
+    NSString *savedGamesFilePath = [self getSavedGamesFilePath];
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:savedGamesFilePath];
+    if (fileExists){
+        return [NSDictionary dictionaryWithContentsOfFile:savedGamesFilePath];
+    }
+    return nil;
+}
+
+-(void)loadGame{//reads games from plist.
+    NSDictionary *savedGameDictionary =  [self getSavedGameDictionary];
+    if (savedGameDictionary!=nil){
+        self.wordLabels=(NSMutableArray *)savedGameDictionary[@"Today"];
+    }
 }
 
 -(void)saveGame{ //writes dictionaries to plist
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsPath = [paths objectAtIndex:0];
-    NSString *savedGamesFilePath = [documentsPath stringByAppendingPathComponent:@"savedGames.plist"];
+  
+    NSString *savedGamesFilePath = [self getSavedGamesFilePath];
     
     NSMutableDictionary *asd = [[NSMutableDictionary alloc]init];
     asd[@"Today"]=self.wordLabels;
@@ -295,11 +304,12 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
     [asd writeToFile:savedGamesFilePath atomically:YES]; //Write
 }
 
-
 - (IBAction)HomeButton:(id)sender {
-    [self updateWordPositionsOnDict];   //saves the pos.
     
-    [self saveGame];
+    [self getSavegameName];
+    
+    [self updateWordPositionsOnDict];   //saves the position of current word on Each label's word Dict
+    [self saveGame]; //saves self.wordlabels to plist
    
     [self removeLabelsFromView]; //removes every label on screen.
     self.wordLabels=nil;
@@ -310,6 +320,59 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
     
  //  [self.navigationController popToRootViewControllerAnimated:YES];
 }
+
+
+
+
+- (IBAction)getSavegameName {
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@""
+                                                      message:@"Please enter a title to save your game"
+                                                     delegate:self
+                                            cancelButtonTitle:@"Don't Save"
+                                            otherButtonTitles:@"Save Game", nil];
+    
+    message.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [message show];
+    
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+    if([title isEqualToString:@"Save Game"])
+    {
+        NSLog(@"Save Game with name %@", [[alertView textFieldAtIndex:0] text]);
+        
+    }
+    else if([title isEqualToString:@"Don't Save"])
+    {
+        NSLog(@"Dont save selected.");
+        //here is where we need to find how to call saveDrawing.
+        
+        
+    }
+    else if([title isEqualToString:@"Ok"])
+    {
+        NSLog(@"OK selected");
+        UITextField *fName= [alertView textFieldAtIndex:0];
+        NSString *NameFile = fName.text;
+    }
+}
+- (BOOL)alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView
+{
+    if (alertView.alertViewStyle == UIAlertViewStylePlainTextInput) {
+        if([[[alertView textFieldAtIndex:0] text] length] >= 1 )
+        {
+            return YES;
+        }
+        else
+        {
+            return NO;
+        }
+    }else{
+        return YES;
+    }
+}
+
 
 -(NSMutableArray *)wordLabels{
     if(_wordLabels==nil){

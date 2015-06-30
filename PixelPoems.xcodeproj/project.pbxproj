@@ -37,6 +37,7 @@
 		EA829C291B0D00750016E201 /* ProximaNova-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA829C121B0CFFE00016E201 /* ProximaNova-RegularItalic.otf */; };
 		EA829C2A1B0D00750016E201 /* ProximaNova-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA829C131B0CFFE00016E201 /* ProximaNova-Semibold.otf */; };
 		EA829C2B1B0D00750016E201 /* ProximaNova-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA829C141B0CFFE00016E201 /* ProximaNova-SemiboldItalic.otf */; };
+		EAB394541B42F2BE005E27B7 /* SavedGamesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB394531B42F2BE005E27B7 /* SavedGamesTableViewController.m */; };
 		EAC202821B137D60001C6692 /* wordPacks.json in Resources */ = {isa = PBXBuildFile; fileRef = EAC202811B137D60001C6692 /* wordPacks.json */; };
 		EAC202891B1380E2001C6692 /* locations.json in Resources */ = {isa = PBXBuildFile; fileRef = EAC202841B1380E2001C6692 /* locations.json */; };
 		EAC2028E1B14CFBD001C6692 /* NSMutableArray+Shuffling.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2028D1B14CFBD001C6692 /* NSMutableArray+Shuffling.m */; };
@@ -95,6 +96,8 @@
 		EA829C121B0CFFE00016E201 /* ProximaNova-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-RegularItalic.otf"; sourceTree = "<group>"; };
 		EA829C131B0CFFE00016E201 /* ProximaNova-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Semibold.otf"; sourceTree = "<group>"; };
 		EA829C141B0CFFE00016E201 /* ProximaNova-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-SemiboldItalic.otf"; sourceTree = "<group>"; };
+		EAB394521B42F2BE005E27B7 /* SavedGamesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedGamesTableViewController.h; sourceTree = "<group>"; };
+		EAB394531B42F2BE005E27B7 /* SavedGamesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedGamesTableViewController.m; sourceTree = "<group>"; };
 		EAC202811B137D60001C6692 /* wordPacks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = wordPacks.json; path = ../wordPacks.json; sourceTree = "<group>"; };
 		EAC202841B1380E2001C6692 /* locations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locations.json; sourceTree = "<group>"; };
 		EAC2028C1B14CFBD001C6692 /* NSMutableArray+Shuffling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+Shuffling.h"; path = "../NSMutableArray+Shuffling.h"; sourceTree = "<group>"; };
@@ -267,6 +270,8 @@
 				EAD35B641AC0CB8200D3901A /* Controllers. */,
 				EAD35B5D1AC0C9B800D3901A /* Model */,
 				EAE48A621A83B5AF0086F0B6 /* Main.storyboard */,
+				EAB394521B42F2BE005E27B7 /* SavedGamesTableViewController.h */,
+				EAB394531B42F2BE005E27B7 /* SavedGamesTableViewController.m */,
 				EAE48A581A83B5AF0086F0B6 /* Supporting Files */,
 			);
 			name = PixelPoems;
@@ -421,6 +426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAC2028E1B14CFBD001C6692 /* NSMutableArray+Shuffling.m in Sources */,
+				EAB394541B42F2BE005E27B7 /* SavedGamesTableViewController.m in Sources */,
 				EAE48A611A83B5AF0086F0B6 /* GameViewController.m in Sources */,
 				EAE48A5E1A83B5AF0086F0B6 /* AppDelegate.m in Sources */,
 				EA829C091B0CFB3D0016E201 /* CutGameView.m in Sources */,
