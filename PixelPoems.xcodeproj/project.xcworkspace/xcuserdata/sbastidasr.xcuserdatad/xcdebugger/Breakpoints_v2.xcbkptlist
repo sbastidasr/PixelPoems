@@ -9,7 +9,7 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../FridgeWords/WordPackLoader.m"
+            filePath = "../FridgeWords/PlistLoader.m"
             timestampString = "454900572.947839"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"

@@ -10,7 +10,7 @@
 #import "WordLabel.h"
 #import "CutGameView.h"
 #import <Parse/Parse.h>
-
+#import "PlistLoader.h"
 
 
 //self.WordLabels  contains array of 
@@ -40,6 +40,11 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
 
 -(void)handlePanGesture:(UIPanGestureRecognizer *)gestureRecognizer{
     gestureRecognizer.view.center =[gestureRecognizer locationInView:gestureRecognizer.view.superview];
+    
+    if(gestureRecognizer.state == UIGestureRecognizerStateEnded || gestureRecognizer.state == UIGestureRecognizerStateFailed || gestureRecognizer.state == UIGestureRecognizerStateCancelled)
+    {
+        [self updateWordPositionsOnDict];   //saves the position of current word on Each label's word Dict
+    }
 }
 
 - (void)drawRect:(CGRect)rect{
@@ -272,59 +277,25 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
 
 }
 
--(NSString *)getSavedGamesFilePath{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsPath = [paths objectAtIndex:0];
-    return [documentsPath stringByAppendingPathComponent:@"savedGames.plist"];
-}
 
--(NSDictionary *)getSavedGameDictionary{
-    NSString *savedGamesFilePath = [self getSavedGamesFilePath];
-    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:savedGamesFilePath];
-    if (fileExists){
-        return [NSDictionary dictionaryWithContentsOfFile:savedGamesFilePath];
-    }
-    return nil;
-}
-
--(void)loadGame{//reads games from plist.
-    NSDictionary *savedGameDictionary =  [self getSavedGameDictionary];
-    if (savedGameDictionary!=nil){
-        self.wordLabels=(NSMutableArray *)savedGameDictionary[@"Today"];
-    }
-}
-
--(void)saveGame{ //writes dictionaries to plist
-  
-    NSString *savedGamesFilePath = [self getSavedGamesFilePath];
-    
-    NSMutableDictionary *asd = [[NSMutableDictionary alloc]init];
-    asd[@"Today"]=self.wordLabels;
-    
-    [asd writeToFile:savedGamesFilePath atomically:YES]; //Write
-}
 
 - (IBAction)HomeButton:(id)sender {
-    
-    [self getSavegameName];
-    
-    [self updateWordPositionsOnDict];   //saves the position of current word on Each label's word Dict
-    [self saveGame]; //saves self.wordlabels to plist
    
+    [self showSaveAlert];
+    
+  //  [self loadGame];
+   // [self removeLabelsFromView];
+   // [self addLabelsToView]; //recreates labels, from self.wordLabels Array of label Dictinaries.
+ 
+}
+
+-(void)cleanGameView{
     [self removeLabelsFromView]; //removes every label on screen.
     self.wordLabels=nil;
-    
-    [self loadGame];
-    [self removeLabelsFromView];
-    [self addLabelsToView]; //recreates labels, from self.wordLabels Array of label Dictinaries.
-    
- //  [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 
-
-
-- (IBAction)getSavegameName {
+- (IBAction)showSaveAlert {
     UIAlertView *message = [[UIAlertView alloc] initWithTitle:@""
                                                       message:@"Please enter a title to save your game"
                                                      delegate:self
@@ -335,44 +306,26 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
     [message show];
     
 }
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
-    if([title isEqualToString:@"Save Game"])
-    {
-        NSLog(@"Save Game with name %@", [[alertView textFieldAtIndex:0] text]);
+    if([title isEqualToString:@"Save Game"]){
+        [PlistLoader saveGameArrayToPlist:self.wordLabels Named:[[alertView textFieldAtIndex:0] text]];
+        [self cleanGameView];
+        [self.navigationController popToRootViewControllerAnimated:YES];
         
     }
-    else if([title isEqualToString:@"Don't Save"])
-    {
-        NSLog(@"Dont save selected.");
-        //here is where we need to find how to call saveDrawing.
-        
-        
-    }
-    else if([title isEqualToString:@"Ok"])
-    {
-        NSLog(@"OK selected");
-        UITextField *fName= [alertView textFieldAtIndex:0];
-        NSString *NameFile = fName.text;
+    else if([title isEqualToString:@"Don't Save"]){
+        [self cleanGameView];
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }
 }
-- (BOOL)alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView
-{
+- (BOOL)alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView{
     if (alertView.alertViewStyle == UIAlertViewStylePlainTextInput) {
-        if([[[alertView textFieldAtIndex:0] text] length] >= 1 )
-        {
-            return YES;
-        }
-        else
-        {
-            return NO;
-        }
-    }else{
-        return YES;
-    }
+        if([[[alertView textFieldAtIndex:0] text] length] >= 1 ) {
+            return YES;}
+        else{return NO;}
+    }else{return YES;}
 }
-
 
 -(NSMutableArray *)wordLabels{
     if(_wordLabels==nil){
@@ -380,12 +333,4 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
     }
     return _wordLabels;
 }
-
-//CREATE PARSE OBJECT
-// PFObject *testObject = [PFObject objectWithClassName:@"WordsOfTheDay"];
-// testObject[@"words"] = @"hvgjhv.kbar";
-// [testObject saveInBackground];
-
-
-
 @end

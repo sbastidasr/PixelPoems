@@ -6,15 +6,15 @@
 //  Copyright (c) 2015 sbastidasr. All rights reserved.
 //
 
-#import "WordPackLoader.h"
+#import "PlistLoader.h"
 #import "WordSet.h"
 
-@implementation WordPackLoader
+@implementation PlistLoader
 
 
 
 +(WordSet *)WordPackNamed:(NSString *)packName{
-    NSArray *wordPacks  =  [ WordPackLoader loadWordPacks];
+    NSArray *wordPacks  =  [ PlistLoader loadWordPacks];
     return [wordPacks firstObject];//HERE CHANGE FOR MORE WORDPACKS
 }
 
@@ -52,6 +52,39 @@
     return wordPacks;
 }
 
-//  NSString *myString = @"Now the night is coming to an end The sun will rise and we will try again stay alive, stay alive for me You will die but now your life is free Take pride in what is sure to die I will fear the night again I hope I'm not my only friend Stay alive stay alive for me You will die but now your life is free Take pride in what is sure to die";
+
+#pragma mark - SAVE/LOAD Games
+
++(NSString *)getSavedGamesFilePath{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0];
+    return [documentsPath stringByAppendingPathComponent:@"savedGames.plist"];
+}
+
++(NSDictionary *)loadSavedGameDictionaryFromPList{
+    NSString *savedGamesFilePath = [self getSavedGamesFilePath];
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:savedGamesFilePath];
+    if (fileExists){
+        return [NSDictionary dictionaryWithContentsOfFile:savedGamesFilePath];
+    }
+    return nil;
+}
+
++(void)saveGameArrayToPlist:(NSArray *)wordLabels Named:(NSString *)name{ //saves wordlabels to plist
+    NSString *savedGamesFilePath = [self getSavedGamesFilePath];
+    NSMutableDictionary *savedGameDictionary =  [[self loadSavedGameDictionaryFromPList] mutableCopy];
+    if (savedGameDictionary!=nil){
+        savedGameDictionary[name]=wordLabels;
+    }
+    else{
+        savedGameDictionary = [[NSMutableDictionary alloc]init];
+        savedGameDictionary[name]=wordLabels;
+    }
+    [savedGameDictionary writeToFile:savedGamesFilePath atomically:YES]; //Write
+}
+
+
+
+
 
 @end

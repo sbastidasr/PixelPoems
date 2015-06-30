@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "WordPackLoader.h"
+#import "PlistLoader.h"
 #import "WordSet.h"
 @interface Level : NSObject
 

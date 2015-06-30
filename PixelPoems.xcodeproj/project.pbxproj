@@ -43,7 +43,7 @@
 		EAC2028E1B14CFBD001C6692 /* NSMutableArray+Shuffling.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2028D1B14CFBD001C6692 /* NSMutableArray+Shuffling.m */; };
 		EAC202911B14D823001C6692 /* WordSet.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC202901B14D823001C6692 /* WordSet.m */; };
 		EAD35B5C1AC0C9B000D3901A /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD35B5B1AC0C9B000D3901A /* Level.m */; };
-		EAD35B671AC0CBEA00D3901A /* WordPackLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD35B661AC0CBEA00D3901A /* WordPackLoader.m */; };
+		EAD35B671AC0CBEA00D3901A /* PlistLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD35B661AC0CBEA00D3901A /* PlistLoader.m */; };
 		EAE48A5B1A83B5AF0086F0B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE48A5A1A83B5AF0086F0B6 /* main.m */; };
 		EAE48A5E1A83B5AF0086F0B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE48A5D1A83B5AF0086F0B6 /* AppDelegate.m */; };
 		EAE48A611A83B5AF0086F0B6 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE48A601A83B5AF0086F0B6 /* GameViewController.m */; };
@@ -106,8 +106,8 @@
 		EAC202901B14D823001C6692 /* WordSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordSet.m; sourceTree = "<group>"; };
 		EAD35B5A1AC0C9B000D3901A /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
 		EAD35B5B1AC0C9B000D3901A /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
-		EAD35B651AC0CBEA00D3901A /* WordPackLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordPackLoader.h; sourceTree = "<group>"; };
-		EAD35B661AC0CBEA00D3901A /* WordPackLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPackLoader.m; sourceTree = "<group>"; };
+		EAD35B651AC0CBEA00D3901A /* PlistLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlistLoader.h; sourceTree = "<group>"; };
+		EAD35B661AC0CBEA00D3901A /* PlistLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlistLoader.m; sourceTree = "<group>"; };
 		EAE48A551A83B5AF0086F0B6 /* PixelPoems.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixelPoems.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE48A591A83B5AF0086F0B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAE48A5A1A83B5AF0086F0B6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -225,8 +225,8 @@
 			children = (
 				EAC2028F1B14D823001C6692 /* WordSet.h */,
 				EAC202901B14D823001C6692 /* WordSet.m */,
-				EAD35B651AC0CBEA00D3901A /* WordPackLoader.h */,
-				EAD35B661AC0CBEA00D3901A /* WordPackLoader.m */,
+				EAD35B651AC0CBEA00D3901A /* PlistLoader.h */,
+				EAD35B661AC0CBEA00D3901A /* PlistLoader.m */,
 				EAD35B5A1AC0C9B000D3901A /* Level.h */,
 				EAD35B5B1AC0C9B000D3901A /* Level.m */,
 			);
@@ -430,7 +430,7 @@
 				EAE48A611A83B5AF0086F0B6 /* GameViewController.m in Sources */,
 				EAE48A5E1A83B5AF0086F0B6 /* AppDelegate.m in Sources */,
 				EA829C091B0CFB3D0016E201 /* CutGameView.m in Sources */,
-				EAD35B671AC0CBEA00D3901A /* WordPackLoader.m in Sources */,
+				EAD35B671AC0CBEA00D3901A /* PlistLoader.m in Sources */,
 				EAD35B5C1AC0C9B000D3901A /* Level.m in Sources */,
 				EAE48A5B1A83B5AF0086F0B6 /* main.m in Sources */,
 				EAC202911B14D823001C6692 /* WordSet.m in Sources */,

@@ -8,9 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface WordPackLoader : NSObject
+@interface PlistLoader : NSObject
 @property (nonatomic,strong)NSArray *wordPacks;
 
-+(WordPackLoader *)WordPackNamed:(NSString *)packName;
++(PlistLoader *)WordPackNamed:(NSString *)packName;
 
+
+
++(NSDictionary *)loadSavedGameDictionaryFromPList;
++(void)saveGameArrayToPlist:(NSArray *)wordLabels Named:(NSString *)name;
+    
 @end

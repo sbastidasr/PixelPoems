@@ -12,7 +12,7 @@
 
 -(WordSet *)currentWordPack{
     if(!_currentWordPack){
-        _currentWordPack=[WordPackLoader WordPackNamed:@"asd"];///HERE CHANGE FOR OTHER WORDPACKS
+        _currentWordPack=[PlistLoader WordPackNamed:@"asd"];///HERE CHANGE FOR OTHER WORDPACKS
         [_currentWordPack  shuffleWordPack];
         
     }
