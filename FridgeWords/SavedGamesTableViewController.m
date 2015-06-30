@@ -19,16 +19,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setColorsAndFonts];
     self.savedGamesDictionary= [[PlistLoader loadSavedGameDictionaryFromPList]mutableCopy];
+    
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO];   //it hides
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:YES];    // it shows
+}
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
     return [[self.savedGamesDictionary allKeys]count];
 }
 
@@ -94,5 +103,39 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+////colors
+-(void)setColorsAndFonts{
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+        self.navigationItem.title=@"Saved Games";
+       self.tableView.backgroundColor=[UIColor colorWithRed:36.0/255.0  green:41.0/255.0 blue:45.0/255.0 alpha:1.0f];
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    cell.backgroundColor=[UIColor colorWithRed:36.0/255.0  green:41.0/255.0 blue:45.0/255.0 alpha:1.0f];
+   
+    NSMutableAttributedString *attributedString= [[NSMutableAttributedString alloc] initWithString:[cell.textLabel.text uppercaseString]];
+    [attributedString addAttribute:NSKernAttributeName value:@(6.0) range:NSMakeRange(0, attributedString.length)];
+    [cell.textLabel setAttributedText: attributedString];
+    
+    UIFont *myFont = [ UIFont fontWithName: @"ProximaNova-Bold" size: 18.0 ];
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ){
+        myFont = [UIFont fontWithName:@"ProximaNova-Bold" size:27];
+    }
+    cell.textLabel.font  = myFont;
+    cell.textLabel.textColor=[UIColor whiteColor];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ){
+        return 60;
+    }
+    return 50;
+}
+
+
+
 
 @end
