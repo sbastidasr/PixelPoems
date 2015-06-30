@@ -97,12 +97,15 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
     
     
     //If coming from Words of the day:
-    [self setupLabels:self.level.currentWordPack.words isWOD:NO]; //for WordPack
-    [self addLabelsToView];
-    [self loadWoD];
+   //[self setupLabels:self.level.currentWordPack.words isWOD:NO]; //for WordPack
+//[self loadWoD];
     
     //If coming from savegames.
  
+    
+    //add
+    [self removeLabelsFromView];
+    [self addLabelsToView];
     }
 
 -(void)loadWoD{
@@ -246,11 +249,8 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
         if ([[wordDict objectForKey:@"inView"] boolValue]==NO){
             [[self.gameView viewWithTag:ZOOM_VIEW_TAG] addSubview:label]; // add to view
             wordDict[@"inView"]=[NSNumber numberWithBool:YES];
-            
         }
-
     }
-   
 }
 
 

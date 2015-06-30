@@ -172,7 +172,7 @@
         <!--Game View Controller-->
         <scene sceneID="dXH-ld-TlD">
             <objects>
-                <viewController wantsFullScreenLayout="YES" id="pgE-JI-Bay" customClass="GameViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameViewController" wantsFullScreenLayout="YES" id="pgE-JI-Bay" customClass="GameViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dMZ-7B-96r"/>
                         <viewControllerLayoutGuide type="bottom" id="Oxt-hI-oNG"/>

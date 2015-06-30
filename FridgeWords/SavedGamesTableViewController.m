@@ -8,6 +8,7 @@
 
 #import "SavedGamesTableViewController.h"
 #import "PlistLoader.h"
+#import "GameViewController.h"
 
 @interface SavedGamesTableViewController ()
 
@@ -40,6 +41,15 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    GameViewController *viewController = (GameViewController *)[storyboard instantiateViewControllerWithIdentifier:@"GameViewController"];
+    
+    NSString *key = [self.savedGamesDictionary allKeys][indexPath.row];
+    NSMutableArray *wordArray = (NSMutableArray *)self.savedGamesDictionary[key];
+    viewController.wordLabels = wordArray;
+    [self.navigationController pushViewController:viewController animated:YES];
+}
 
 /*
 // Override to support conditional editing of the table view.
