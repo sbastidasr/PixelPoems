@@ -33,4 +33,12 @@
     self.words =asd;
 }
 
+-(NSMutableArray *)getNumberOfWordsFromWordPack:(int)number{
+    NSMutableArray *asd = [[NSMutableArray alloc]init];
+    
+    for (int i=0; i<number; i++){
+        [asd addObject:self.words[i]];
+    }
+    return asd;
+}
 @end

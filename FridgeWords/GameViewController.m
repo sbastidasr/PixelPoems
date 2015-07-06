@@ -90,8 +90,7 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
         
         WordPackWrapper *wp =[PlistLoader WordPackNamed:@"asd"];///HERE CHANGE FOR OTHER WORDPACKS
         [wp  shuffleWordPack];
-        
-        [self setupLabels:wp.words isWOD:NO]; //for WordPack
+        [self setupLabels:[wp getNumberOfWordsFromWordPack:100] isWOD:NO]; //restricted words to 100, check playability
         [self loadWoD];
     }
     

@@ -17,5 +17,5 @@
 
 - (id)initWithJSONDictionary:(NSDictionary *)jsonDictionary;
 -(void)shuffleWordPack;
-
+-(NSMutableArray *)getNumberOfWordsFromWordPack:(int)number;
 @end
