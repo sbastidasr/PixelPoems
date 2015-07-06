@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WordSet : NSObject
+@interface WordPackWrapper : NSObject
 
 
 //Words that arent necessary, can be chosen.

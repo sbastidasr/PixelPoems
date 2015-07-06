@@ -41,8 +41,7 @@
 		EAC202821B137D60001C6692 /* wordPacks.json in Resources */ = {isa = PBXBuildFile; fileRef = EAC202811B137D60001C6692 /* wordPacks.json */; };
 		EAC202891B1380E2001C6692 /* locations.json in Resources */ = {isa = PBXBuildFile; fileRef = EAC202841B1380E2001C6692 /* locations.json */; };
 		EAC2028E1B14CFBD001C6692 /* NSMutableArray+Shuffling.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2028D1B14CFBD001C6692 /* NSMutableArray+Shuffling.m */; };
-		EAC202911B14D823001C6692 /* WordSet.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC202901B14D823001C6692 /* WordSet.m */; };
-		EAD35B5C1AC0C9B000D3901A /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD35B5B1AC0C9B000D3901A /* Level.m */; };
+		EAC202911B14D823001C6692 /* WordPackWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC202901B14D823001C6692 /* WordPackWrapper.m */; };
 		EAD35B671AC0CBEA00D3901A /* PlistLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD35B661AC0CBEA00D3901A /* PlistLoader.m */; };
 		EAE48A5B1A83B5AF0086F0B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE48A5A1A83B5AF0086F0B6 /* main.m */; };
 		EAE48A5E1A83B5AF0086F0B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE48A5D1A83B5AF0086F0B6 /* AppDelegate.m */; };
@@ -102,10 +101,8 @@
 		EAC202841B1380E2001C6692 /* locations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locations.json; sourceTree = "<group>"; };
 		EAC2028C1B14CFBD001C6692 /* NSMutableArray+Shuffling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+Shuffling.h"; path = "../NSMutableArray+Shuffling.h"; sourceTree = "<group>"; };
 		EAC2028D1B14CFBD001C6692 /* NSMutableArray+Shuffling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+Shuffling.m"; path = "../NSMutableArray+Shuffling.m"; sourceTree = "<group>"; };
-		EAC2028F1B14D823001C6692 /* WordSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordSet.h; sourceTree = "<group>"; };
-		EAC202901B14D823001C6692 /* WordSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordSet.m; sourceTree = "<group>"; };
-		EAD35B5A1AC0C9B000D3901A /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
-		EAD35B5B1AC0C9B000D3901A /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
+		EAC2028F1B14D823001C6692 /* WordPackWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordPackWrapper.h; sourceTree = "<group>"; };
+		EAC202901B14D823001C6692 /* WordPackWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPackWrapper.m; sourceTree = "<group>"; };
 		EAD35B651AC0CBEA00D3901A /* PlistLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlistLoader.h; sourceTree = "<group>"; };
 		EAD35B661AC0CBEA00D3901A /* PlistLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlistLoader.m; sourceTree = "<group>"; };
 		EAE48A551A83B5AF0086F0B6 /* PixelPoems.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixelPoems.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,12 +220,10 @@
 		EAD35B5D1AC0C9B800D3901A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EAC2028F1B14D823001C6692 /* WordSet.h */,
-				EAC202901B14D823001C6692 /* WordSet.m */,
+				EAC2028F1B14D823001C6692 /* WordPackWrapper.h */,
+				EAC202901B14D823001C6692 /* WordPackWrapper.m */,
 				EAD35B651AC0CBEA00D3901A /* PlistLoader.h */,
 				EAD35B661AC0CBEA00D3901A /* PlistLoader.m */,
-				EAD35B5A1AC0C9B000D3901A /* Level.h */,
-				EAD35B5B1AC0C9B000D3901A /* Level.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -431,9 +426,8 @@
 				EAE48A5E1A83B5AF0086F0B6 /* AppDelegate.m in Sources */,
 				EA829C091B0CFB3D0016E201 /* CutGameView.m in Sources */,
 				EAD35B671AC0CBEA00D3901A /* PlistLoader.m in Sources */,
-				EAD35B5C1AC0C9B000D3901A /* Level.m in Sources */,
 				EAE48A5B1A83B5AF0086F0B6 /* main.m in Sources */,
-				EAC202911B14D823001C6692 /* WordSet.m in Sources */,
+				EAC202911B14D823001C6692 /* WordPackWrapper.m in Sources */,
 				EA829C061B0CF71F0016E201 /* WordLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

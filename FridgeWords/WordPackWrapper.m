@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 sbastidasr. All rights reserved.
 //
 
-#import "WordSet.h"
+#import "WordPackWrapper.h"
 
-@implementation WordSet
+@implementation WordPackWrapper
 
 
 // Init the object with information from a dictionary

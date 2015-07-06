@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Level.h"
+
 
 @interface GameViewController : UIViewController  <UIScrollViewDelegate>  //most user custmizable settings of current level.
 
-@property (nonatomic, strong) Level* level; //1 Level. that has necessary words+wordpack.
 
 
 @property (nonatomic, strong) NSMutableArray* wordLabels; //of dictionaries containing a word+attributes

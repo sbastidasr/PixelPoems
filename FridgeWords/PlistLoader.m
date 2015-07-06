@@ -7,13 +7,13 @@
 //
 
 #import "PlistLoader.h"
-#import "WordSet.h"
+#import "WordPackWrapper.h"
 
 @implementation PlistLoader
 
 
 
-+(WordSet *)WordPackNamed:(NSString *)packName{
++(WordPackWrapper *)WordPackNamed:(NSString *)packName{
     NSArray *wordPacks  =  [ PlistLoader loadWordPacks];
     return [wordPacks firstObject];//HERE CHANGE FOR MORE WORDPACKS
 }
@@ -43,7 +43,7 @@
     // Iterate through the array of dictionaries
     for(NSDictionary *dict in array) {
         // Create a new Location object for each one and initialise it with information in the dictionary
-        WordSet *wordPack = [[WordSet alloc] initWithJSONDictionary:dict];
+        WordPackWrapper *wordPack = [[WordPackWrapper alloc] initWithJSONDictionary:dict];
         // Add the Location object to the array
         [wordPacks addObject:wordPack];
     }

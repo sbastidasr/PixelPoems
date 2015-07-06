@@ -11,6 +11,7 @@
 #import "CutGameView.h"
 #import <Parse/Parse.h>
 #import "PlistLoader.h"
+#import "WordPackWrapper.h"
 
 //self.WordLabels  contains array of words. Everything can be recreated from it. with addlabels to view
 @interface GameViewController ()
@@ -27,13 +28,7 @@ static float const fontSize = 18.0;
 const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
 
 
-//allocs the level, that has the wordpack.
--(Level *)level{
-    if(!_level){
-        _level=[[Level alloc]init];
-    }
-    return _level;
-}
+
 
 -(void)handlePanGesture:(UIPanGestureRecognizer *)gestureRecognizer{
     gestureRecognizer.view.center =[gestureRecognizer locationInView:gestureRecognizer.view.superview];
@@ -92,7 +87,11 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
     //If coming from Words of the day:
     if(_wordLabels==nil){
         _wordLabels = [[NSMutableArray alloc]init];
-        [self setupLabels:self.level.currentWordPack.words isWOD:NO]; //for WordPack
+        
+        WordPackWrapper *wp =[PlistLoader WordPackNamed:@"asd"];///HERE CHANGE FOR OTHER WORDPACKS
+        [wp  shuffleWordPack];
+        
+        [self setupLabels:wp.words isWOD:NO]; //for WordPack
         [self loadWoD];
     }
     
