@@ -53,7 +53,7 @@
 }
 
 
-#pragma mark - SAVE/LOAD Games
+#pragma mark - SAVE/LOAD  Games
 
 +(NSString *)getSavedGamesFilePath{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -61,15 +61,7 @@
     return [documentsPath stringByAppendingPathComponent:@"savedGames.plist"];
 }
 
-+(NSDictionary *)loadSavedGameDictionaryFromPList{
-    NSString *savedGamesFilePath = [self getSavedGamesFilePath];
-    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:savedGamesFilePath];
-    if (fileExists){
-        return [NSDictionary dictionaryWithContentsOfFile:savedGamesFilePath];
-    }
-    return nil;
-}
-
+//Save Only one game.
 +(void)saveGameArrayToPlist:(NSArray *)wordLabels Named:(NSString *)name{ //saves wordlabels to plist
     NSString *savedGamesFilePath = [self getSavedGamesFilePath];
     NSMutableDictionary *savedGameDictionary =  [[self loadSavedGameDictionaryFromPList] mutableCopy];
@@ -83,8 +75,20 @@
     [savedGameDictionary writeToFile:savedGamesFilePath atomically:YES]; //Write
 }
 
+//Load COMPLETE PList
++(NSDictionary *)loadSavedGameDictionaryFromPList{
+    NSString *savedGamesFilePath = [self getSavedGamesFilePath];
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:savedGamesFilePath];
+    if (fileExists){
+        return [NSDictionary dictionaryWithContentsOfFile:savedGamesFilePath];
+    }
+    return nil;
+}
 
-
-
+//Save COMPLETE PList
++(void)saveSavedGameDictionaryFromPList:(NSMutableDictionary *) savedGameDictionary { //saves wordlabels to plist
+    NSString *savedGamesFilePath = [self getSavedGamesFilePath];
+    [savedGameDictionary writeToFile:savedGamesFilePath atomically:YES]; //Write
+}
 
 @end

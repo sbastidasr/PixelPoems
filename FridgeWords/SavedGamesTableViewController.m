@@ -21,6 +21,7 @@
     [super viewDidLoad];
     [self setColorsAndFonts];
     self.savedGamesDictionary= [[PlistLoader loadSavedGameDictionaryFromPList]mutableCopy];
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
     
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -104,6 +105,26 @@
 }
 */
 
+// Override to support conditional editing of the table view.
+// This only needs to be implemented if you are going to be returning NO
+// for some items. By default, all items are editable.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return YES if you want the specified item to be editable.
+    return YES;
+}
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSLog(@"deletef");
+        [self.savedGamesDictionary removeObjectForKey:[self.savedGamesDictionary allKeys][indexPath.row]];
+        [self.tableView reloadData];
+        [PlistLoader saveSavedGameDictionaryFromPList:self.savedGamesDictionary];
+    }
+}
+
+
+
 
 ////colors
 -(void)setColorsAndFonts{
@@ -134,6 +155,10 @@
     }
     return 50;
 }
+
+
+
+
 
 
 

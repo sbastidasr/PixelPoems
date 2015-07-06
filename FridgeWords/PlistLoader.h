@@ -17,5 +17,5 @@
 
 +(NSDictionary *)loadSavedGameDictionaryFromPList;
 +(void)saveGameArrayToPlist:(NSArray *)wordLabels Named:(NSString *)name;
-    
++(void)saveSavedGameDictionaryFromPList:(NSMutableDictionary *) savedGameDictionary;
 @end
