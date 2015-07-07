@@ -191,7 +191,7 @@
                                 </variation>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="syC-Ev-DRd">
-                                <rect key="frame" x="0.0" y="128" width="375" height="539"/>
+                                <rect key="frame" x="0.0" y="128" width="375" height="495"/>
                             </scrollView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Title" translatesAutoresizingMaskIntoConstraints="NO" id="Nwg-wb-aB9">
                                 <rect key="frame" x="130" y="20" width="170" height="45"/>
@@ -245,13 +245,23 @@
                                 <rect key="frame" x="300" y="20" width="14" height="0.0"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cne-eP-G32">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="Customize" id="QrY-Ly-HEx"/>
+                                    <barButtonItem title="WordPacks" id="hH1-hn-2wH"/>
+                                    <barButtonItem title="Share" id="LTE-dr-28r"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="0.14117647058823529" green="0.16078431372549018" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="1Fy-bl-83a" firstAttribute="trailing" secondItem="MPv-re-9Py" secondAttribute="trailingMargin" id="7xq-VP-t6Z"/>
-                            <constraint firstItem="syC-Ev-DRd" firstAttribute="bottom" secondItem="Oxt-hI-oNG" secondAttribute="top" id="9vc-36-yok"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Cne-eP-G32" secondAttribute="trailing" constant="-16" id="ACw-Cb-oMS"/>
+                            <constraint firstItem="Oxt-hI-oNG" firstAttribute="top" secondItem="Cne-eP-G32" secondAttribute="bottom" id="BMr-uH-mb8"/>
                             <constraint firstItem="syC-Ev-DRd" firstAttribute="leading" secondItem="MPv-re-9Py" secondAttribute="leading" id="NAO-52-7uI"/>
                             <constraint firstItem="jwe-VB-9oy" firstAttribute="leading" secondItem="Nwg-wb-aB9" secondAttribute="trailing" id="NPc-P8-Opb"/>
+                            <constraint firstItem="Cne-eP-G32" firstAttribute="top" secondItem="syC-Ev-DRd" secondAttribute="bottom" id="Pm5-ha-3nr"/>
                             <constraint firstItem="oBB-in-DZ9" firstAttribute="top" secondItem="Nwg-wb-aB9" secondAttribute="top" id="PmQ-Ig-CSv"/>
                             <constraint firstItem="syC-Ev-DRd" firstAttribute="top" secondItem="oBB-in-DZ9" secondAttribute="bottom" constant="8" symbolic="YES" id="Pxj-jr-6Bn"/>
                             <constraint firstItem="jwe-VB-9oy" firstAttribute="height" secondItem="0gt-Rc-PHB" secondAttribute="height" id="QQi-RS-f6H"/>
@@ -274,6 +284,7 @@
                             <constraint firstItem="oBB-in-DZ9" firstAttribute="top" secondItem="dMZ-7B-96r" secondAttribute="bottom" id="oSp-6U-hgm"/>
                             <constraint firstAttribute="width" secondItem="oBB-in-DZ9" secondAttribute="width" multiplier="3.75" id="rYB-Rf-hAU"/>
                             <constraint firstItem="0gt-Rc-PHB" firstAttribute="bottom" secondItem="dMZ-7B-96r" secondAttribute="bottom" id="uKt-eT-bkJ"/>
+                            <constraint firstItem="Cne-eP-G32" firstAttribute="leading" secondItem="MPv-re-9Py" secondAttribute="leadingMargin" constant="-16" id="wqO-6J-Xvc"/>
                             <constraint firstItem="1Fy-bl-83a" firstAttribute="height" secondItem="Nwg-wb-aB9" secondAttribute="height" id="yBd-Dv-hlV"/>
                         </constraints>
                         <variation key="default">

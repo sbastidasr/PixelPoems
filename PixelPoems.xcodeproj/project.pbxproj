@@ -7,12 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EA16BDE01B19516400FA1FD9 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA16BDDA1B19516400FA1FD9 /* Bolts.framework */; };
-		EA16BDE11B19516400FA1FD9 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA16BDDB1B19516400FA1FD9 /* Parse.framework */; };
-		EA16BDE21B19516400FA1FD9 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA16BDDC1B19516400FA1FD9 /* ParseCrashReporting.framework */; };
-		EA16BDE31B19516400FA1FD9 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA16BDDD1B19516400FA1FD9 /* ParseFacebookUtils.framework */; };
-		EA16BDE41B19516400FA1FD9 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA16BDDE1B19516400FA1FD9 /* ParseFacebookUtilsV4.framework */; };
-		EA16BDE51B19516400FA1FD9 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA16BDDF1B19516400FA1FD9 /* ParseUI.framework */; };
+		7271894B9AF6FA1783076F99 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47145182A69D160DFC24EA05 /* libPods.a */; };
 		EA16BDE71B1951AB00FA1FD9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA16BDE61B1951AB00FA1FD9 /* AudioToolbox.framework */; };
 		EA16BDE91B1951B100FA1FD9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA16BDE81B1951B100FA1FD9 /* CFNetwork.framework */; };
 		EA16BDEB1B1951B700FA1FD9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA16BDEA1B1951B700FA1FD9 /* CoreGraphics.framework */; };
@@ -43,6 +38,9 @@
 		EAC2028E1B14CFBD001C6692 /* NSMutableArray+Shuffling.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2028D1B14CFBD001C6692 /* NSMutableArray+Shuffling.m */; };
 		EAC202911B14D823001C6692 /* WordPackWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC202901B14D823001C6692 /* WordPackWrapper.m */; };
 		EAD35B671AC0CBEA00D3901A /* PlistLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD35B661AC0CBEA00D3901A /* PlistLoader.m */; };
+		EAE1305E1B4B018300CFD86B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE1305D1B4B018300CFD86B /* Social.framework */; };
+		EAE130601B4B019000CFD86B /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE1305F1B4B019000CFD86B /* Accounts.framework */; };
+		EAE130651B4C459400CFD86B /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE130641B4C459400CFD86B /* libstdc++.6.dylib */; };
 		EAE48A5B1A83B5AF0086F0B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE48A5A1A83B5AF0086F0B6 /* main.m */; };
 		EAE48A5E1A83B5AF0086F0B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE48A5D1A83B5AF0086F0B6 /* AppDelegate.m */; };
 		EAE48A611A83B5AF0086F0B6 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE48A601A83B5AF0086F0B6 /* GameViewController.m */; };
@@ -63,6 +61,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D9ED2F2B17E6670A1C89A9F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		47145182A69D160DFC24EA05 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD69A0B2B17DC9CCC560EFC7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EA16BDDA1B19516400FA1FD9 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		EA16BDDB1B19516400FA1FD9 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		EA16BDDC1B19516400FA1FD9 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
@@ -105,6 +106,9 @@
 		EAC202901B14D823001C6692 /* WordPackWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPackWrapper.m; sourceTree = "<group>"; };
 		EAD35B651AC0CBEA00D3901A /* PlistLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlistLoader.h; sourceTree = "<group>"; };
 		EAD35B661AC0CBEA00D3901A /* PlistLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlistLoader.m; sourceTree = "<group>"; };
+		EAE1305D1B4B018300CFD86B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		EAE1305F1B4B019000CFD86B /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		EAE130641B4C459400CFD86B /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		EAE48A551A83B5AF0086F0B6 /* PixelPoems.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixelPoems.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE48A591A83B5AF0086F0B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAE48A5A1A83B5AF0086F0B6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -125,6 +129,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAE130651B4C459400CFD86B /* libstdc++.6.dylib in Frameworks */,
+				EAE130601B4B019000CFD86B /* Accounts.framework in Frameworks */,
+				EAE1305E1B4B018300CFD86B /* Social.framework in Frameworks */,
 				EA16BDFB1B1951F400FA1FD9 /* libsqlite3.dylib in Frameworks */,
 				EA16BDF91B1951EC00FA1FD9 /* libz.dylib in Frameworks */,
 				EA16BDF71B1951E100FA1FD9 /* SystemConfiguration.framework in Frameworks */,
@@ -136,12 +143,7 @@
 				EA16BDEB1B1951B700FA1FD9 /* CoreGraphics.framework in Frameworks */,
 				EA16BDE91B1951B100FA1FD9 /* CFNetwork.framework in Frameworks */,
 				EA16BDE71B1951AB00FA1FD9 /* AudioToolbox.framework in Frameworks */,
-				EA16BDE51B19516400FA1FD9 /* ParseUI.framework in Frameworks */,
-				EA16BDE11B19516400FA1FD9 /* Parse.framework in Frameworks */,
-				EA16BDE21B19516400FA1FD9 /* ParseCrashReporting.framework in Frameworks */,
-				EA16BDE31B19516400FA1FD9 /* ParseFacebookUtils.framework in Frameworks */,
-				EA16BDE01B19516400FA1FD9 /* Bolts.framework in Frameworks */,
-				EA16BDE41B19516400FA1FD9 /* ParseFacebookUtilsV4.framework in Frameworks */,
+				7271894B9AF6FA1783076F99 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +157,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		95B2C46F4C833CFF21073412 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AD69A0B2B17DC9CCC560EFC7 /* Pods.debug.xcconfig */,
+				2D9ED2F2B17E6670A1C89A9F /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		EA16BDD91B19516400FA1FD9 /* parse-library-1.7.4 */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +182,9 @@
 		EA16BDFC1B19521E00FA1FD9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EAE130641B4C459400CFD86B /* libstdc++.6.dylib */,
+				EAE1305F1B4B019000CFD86B /* Accounts.framework */,
+				EAE1305D1B4B018300CFD86B /* Social.framework */,
 				EA16BDD91B19516400FA1FD9 /* parse-library-1.7.4 */,
 				EA16BDFA1B1951F400FA1FD9 /* libsqlite3.dylib */,
 				EA16BDF81B1951EC00FA1FD9 /* libz.dylib */,
@@ -183,6 +197,7 @@
 				EA16BDEA1B1951B700FA1FD9 /* CoreGraphics.framework */,
 				EA16BDE81B1951B100FA1FD9 /* CFNetwork.framework */,
 				EA16BDE61B1951AB00FA1FD9 /* AudioToolbox.framework */,
+				47145182A69D160DFC24EA05 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -244,6 +259,7 @@
 				EAE48A711A83B5AF0086F0B6 /* FridgeWordsTests */,
 				EAE48A561A83B5AF0086F0B6 /* Products */,
 				EA16BDFC1B19521E00FA1FD9 /* Frameworks */,
+				95B2C46F4C833CFF21073412 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -313,9 +329,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EAE48A781A83B5AF0086F0B6 /* Build configuration list for PBXNativeTarget "PixelPoems" */;
 			buildPhases = (
+				0621493AB55307C6D14304A1 /* Check Pods Manifest.lock */,
 				EAE48A511A83B5AF0086F0B6 /* Sources */,
 				EAE48A521A83B5AF0086F0B6 /* Frameworks */,
 				EAE48A531A83B5AF0086F0B6 /* Resources */,
+				FD4006F9B54D4F56D4CEBDA9 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -414,6 +432,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0621493AB55307C6D14304A1 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FD4006F9B54D4F56D4CEBDA9 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EAE48A511A83B5AF0086F0B6 /* Sources */ = {
@@ -548,6 +599,7 @@
 		};
 		EAE48A791A83B5AF0086F0B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD69A0B2B17DC9CCC560EFC7 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -566,6 +618,7 @@
 		};
 		EAE48A7A1A83B5AF0086F0B6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D9ED2F2B17E6670A1C89A9F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
