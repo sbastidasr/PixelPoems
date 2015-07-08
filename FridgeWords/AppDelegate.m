@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import <WYPopoverController.h>
+
 @interface AppDelegate ()
 
 @end
@@ -28,7 +30,12 @@
         [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
     }
     
-    
+    WYPopoverBackgroundView *popoverAppearance = [WYPopoverBackgroundView appearance];
+
+    [popoverAppearance setFillTopColor:[UIColor colorWithRed:36.0/255.0  green:41.0/255.0 blue:45.0/255.0 alpha:1.0f]];
+    [popoverAppearance setOuterStrokeColor:[UIColor colorWithRed:80.0/255.0  green:227.0/255.0 blue:194.0/255.0 alpha:1.0f]];
+    [popoverAppearance setInnerStrokeColor:[UIColor colorWithRed:80.0/255.0  green:227.0/255.0 blue:194.0/255.0 alpha:1.0f]];
+    [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
    return YES;
 }
 

@@ -7,12 +7,21 @@
 //
 
 #import "PlistLoader.h"
-#import "WordPackWrapper.h"
+
 
 @implementation PlistLoader
 
 
-//+(WordPackWrapper *)WordPackNamed:(NSString *)packName{}
++(WordPackWrapper *)WordPackNamed:(NSString *)packName{
+    NSArray *wordPacks  =  [ PlistLoader loadWordPacks];
+    
+    for (WordPackWrapper *wpw in wordPacks) {
+        if ([wpw.packName isEqualToString:packName])
+            return wpw;
+    }
+    return nil;
+}
+
 
 
 +(WordPackWrapper *)defaultWordPack{

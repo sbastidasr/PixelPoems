@@ -100,12 +100,7 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
         [wp  shuffleWordPack];
         [self setupLabels:[wp getNumberOfWordsFromWordPack:100] isWOD:NO]; //restricted words to 100, check playability
         [self loadWoD];
-
-        //listen to popover notifications.
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(receiveTestNotification:)
-                                                     name:@"TestNotification"
-                                                   object:nil];
+        [self addLabelsToView];
         
     }
     
@@ -114,6 +109,13 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
     [self removeLabelsFromView];
     [self addLabelsToView];
     }
+    
+    
+    //listen to popover notifications.
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveTestNotification:)
+                                                 name:@"PopOverAction"
+                                               object:nil];
 }
 
 -(void)loadWoD{
@@ -332,7 +334,10 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
     popoverController.passthroughViews = @[btn];
     popoverController.popoverLayoutMargins = UIEdgeInsetsMake(10, 10, 10, 10);
     popoverController.wantsDefaultContentAppearance = NO;
-  
+    
+    WYPopoverBackgroundView *appearance = [WYPopoverBackgroundView appearance];
+    [appearance setBackgroundColor:[UIColor orangeColor]];
+    
         [popoverController presentPopoverAsDialogAnimated:YES
                                                           options:WYPopoverAnimationOptionFadeWithScale];
     
@@ -367,18 +372,47 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
 }
 
 
-
 //recevie notifications
-- (void) receiveTestNotification:(NSNotification *) notification
-{
-    // [notification name] should always be @"TestNotification"
-    // unless you use this method for observation of other notifications
-    // as well.
+- (void) receiveTestNotification:(NSNotification *) notification{
+
+    [self close:nil];
+    if ([[notification name] isEqualToString:@"PopOverAction"]){
+        
+        NSMutableDictionary *argsDict = [notification object];
+        NSString *action = [argsDict objectForKey:@"Action"];
     
-    if ([[notification name] isEqualToString:@"TestNotification"])
-        NSLog (@"Successfully received the test notification!");
+        if([action isEqualToString:@"WordPackSelected"]){
+            [self changeToWordPackNamed:argsDict[@"WordPack"]];
+            NSLog (@"Successfully received the test notification! with string %@",  argsDict[@"WordPack"]);
+        }
+    }
 }
 
-
+//POPOVER ACTIONS
+-(void)changeToWordPackNamed:(NSString *)name{
+    
+    [self removeLabelsFromView];
+    NSMutableArray *wodArray=[[NSMutableArray alloc]
+                              init];
+    
+    for (int i=0; i< self.wordLabels.count; i++){
+            NSMutableDictionary *wordDict=self.wordLabels[i];
+            
+            if ([wordDict[@"isWordOfTheDay"] isEqual:@NO]){
+                [self.wordLabels removeObjectAtIndex:i];
+            }
+            else{
+                [wodArray addObject:wordDict];
+                //    wordDict[@"inView"]=[NSNumber numberWithBool:NO];
+            }
+        }
+    self.wordLabels = wodArray;
+//    self.wordLabels = [[NSMutableArray alloc]init];
+        
+        WordPackWrapper *wp =[PlistLoader WordPackNamed:name];///HERE CHANGE FOR OTHER WORDPACKS
+        [wp  shuffleWordPack];
+        [self setupLabels:[wp getNumberOfWordsFromWordPack:100] isWOD:NO]; //restricted words to 100, check playability
+    [self addLabelsToView];
+    
+}
 @end
-

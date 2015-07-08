@@ -58,58 +58,26 @@
 }
 
 
-- (void) someMethod
-{
-    
-    // All instances of TestClass will be notified
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:@"TestNotification"
-     object:self];
-    
-}
+
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"Ohai");
-
-    [self someMethod];
-/*  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    GameViewController *viewController = (GameViewController *)[storyboard instantiateViewControllerWithIdentifier:@"GameViewController"];
-    
-    NSString *key = [self.wordPackArray allKeys][indexPath.row];
-    NSMutableArray *wordArray = (NSMutableArray *)self.wordPackArray[key];
-    viewController.wordLabels = wordArray;
-    [self.navigationController pushViewController:viewController animated:YES];
    
-   */
+    WordPackWrapper *wpw = self.wordPackArray[indexPath.row];
+    
+    NSMutableDictionary *argsDict = [[NSMutableDictionary alloc]init];
+    [argsDict setObject:@"WordPackSelected" forKey:@"Action"];
+    [argsDict setObject:wpw.packName forKey:@"WordPack"];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"PopOverAction" object:argsDict];
 }
 
-
-// Override to support conditional editing of the table view.
-// This only needs to be implemented if you are going to be returning NO
-// for some items. By default, all items are editable.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return YES if you want the specified item to be editable.
-    return YES;
-}
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSLog(@"deletef");
-        [self.wordPackArray removeObjectForKey:[self.wordPackArray allKeys][indexPath.row]];
-        [self.tableView reloadData];
-        [PlistLoader saveSavedGameDictionaryFromPList:self.wordPackArray];
-    }
-}
-*/
 
 
 
 ////colors
 -(void)setColorsAndFonts{
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-    self.navigationItem.title=@"Saved Games";
+    self.navigationItem.title=@"WordPacks";
     self.tableView.backgroundColor=[UIColor colorWithRed:36.0/255.0  green:41.0/255.0 blue:45.0/255.0 alpha:1.0f];
 }
 
