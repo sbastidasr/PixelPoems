@@ -12,8 +12,10 @@
 @implementation PlistLoader
 
 
+//+(WordPackWrapper *)WordPackNamed:(NSString *)packName{}
 
-+(WordPackWrapper *)WordPackNamed:(NSString *)packName{
+
++(WordPackWrapper *)defaultWordPack{
     NSArray *wordPacks  =  [ PlistLoader loadWordPacks];
     return [wordPacks firstObject];//HERE CHANGE FOR MORE WORDPACKS
 }

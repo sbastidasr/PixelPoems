@@ -12,12 +12,20 @@
 #import <Parse/Parse.h>
 #import "PlistLoader.h"
 #import "WordPackWrapper.h"
+#import <WYPopoverController.h>
 
 //self.WordLabels  contains array of words. Everything can be recreated from it. with addlabels to view
-@interface GameViewController ()
+@interface GameViewController () <WYPopoverControllerDelegate>{
+WYPopoverController *popoverController;
+}
+
 @property (weak, nonatomic) IBOutlet UIImageView *headerView;
 @property (weak, nonatomic) IBOutlet UIScrollView *gameView;
+
+- (IBAction)showPopover:(id)sender;
 @end
+
+
 
 @implementation GameViewController
 
@@ -88,10 +96,17 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
     if(_wordLabels==nil){
         _wordLabels = [[NSMutableArray alloc]init];
         
-        WordPackWrapper *wp =[PlistLoader WordPackNamed:@"asd"];///HERE CHANGE FOR OTHER WORDPACKS
+        WordPackWrapper *wp =[PlistLoader defaultWordPack];///HERE CHANGE FOR OTHER WORDPACKS
         [wp  shuffleWordPack];
         [self setupLabels:[wp getNumberOfWordsFromWordPack:100] isWOD:NO]; //restricted words to 100, check playability
         [self loadWoD];
+
+        //listen to popover notifications.
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(receiveTestNotification:)
+                                                     name:@"TestNotification"
+                                                   object:nil];
+        
     }
     
     //If coming from savegames.
@@ -290,4 +305,80 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
     }else{return YES;}
 }
 
+
+
+//THIS HANDLES POPOVER CONTROLLER
+
+- (IBAction)showPopover:(id)sender
+{
+  
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    GameViewController *listViewController = (GameViewController *)[storyboard instantiateViewControllerWithIdentifier:@"WordPackListTVC"];
+      listViewController.preferredContentSize = CGSizeMake(320, 280);
+     UIView *btn = (UIView *)sender;
+    
+    
+ //   settingsViewController.title = @"Settings";
+    
+    
+    [listViewController.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(close:)]];
+    
+    listViewController.modalInPopover = NO;
+    
+    UINavigationController *contentViewController = [[UINavigationController alloc] initWithRootViewController:listViewController];
+
+    popoverController = [[WYPopoverController alloc] initWithContentViewController:contentViewController];
+    popoverController.delegate = self;
+    popoverController.passthroughViews = @[btn];
+    popoverController.popoverLayoutMargins = UIEdgeInsetsMake(10, 10, 10, 10);
+    popoverController.wantsDefaultContentAppearance = NO;
+  
+        [popoverController presentPopoverAsDialogAnimated:YES
+                                                          options:WYPopoverAnimationOptionFadeWithScale];
+    
+
+
+ //   popoverController = [[WYPopoverController alloc] initWithContentViewController:settingsViewController];
+   // popoverController.delegate = self;
+    //[popoverController presentPopoverFromRect:button.bounds inView:button permittedArrowDirections:WYPopoverArrowDirectionAny animated:YES];
+
+}
+
+
+
+
+- (BOOL)popoverControllerShouldDismissPopover:(WYPopoverController *)controller
+{
+    return YES;
+}
+
+- (void)popoverControllerDidDismissPopover:(WYPopoverController *)controller
+{
+    popoverController.delegate = nil;
+    popoverController = nil;
+}
+
+
+- (void)close:(id)sender
+{
+    [popoverController dismissPopoverAnimated:YES completion:^{
+        [self popoverControllerDidDismissPopover:popoverController];
+    }];
+}
+
+
+
+//recevie notifications
+- (void) receiveTestNotification:(NSNotification *) notification
+{
+    // [notification name] should always be @"TestNotification"
+    // unless you use this method for observation of other notifications
+    // as well.
+    
+    if ([[notification name] isEqualToString:@"TestNotification"])
+        NSLog (@"Successfully received the test notification!");
+}
+
+
 @end
+

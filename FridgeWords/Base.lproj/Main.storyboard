@@ -248,7 +248,11 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cne-eP-G32">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem title="Customize" id="QrY-Ly-HEx"/>
+                                    <barButtonItem title="Customize" id="QrY-Ly-HEx">
+                                        <connections>
+                                            <action selector="showPopover:" destination="pgE-JI-Bay" id="SLr-tg-y8d"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem title="WordPacks" id="hH1-hn-2wH"/>
                                     <barButtonItem title="Share" id="LTE-dr-28r"/>
                                 </items>
@@ -308,7 +312,7 @@
         <!--Saved Games Table View Controller-->
         <scene sceneID="1dd-6U-cUp">
             <objects>
-                <tableViewController id="Qbd-f9-Z3g" customClass="SavedGamesTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SavedGamesTVC" id="Qbd-f9-Z3g" customClass="SavedGamesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yY3-i1-RUh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -330,7 +334,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H66-K0-oTs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3497.5" y="-98.5"/>
+            <point key="canvasLocation" x="3476.5" y="-99.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1Z5-hk-PKa">
@@ -352,6 +356,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SIt-sk-POt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2097" y="578"/>
+        </scene>
+        <!--Word Pack List Table View Controller-->
+        <scene sceneID="Xyr-Tx-N8I">
+            <objects>
+                <tableViewController storyboardIdentifier="WordPackListTVC" id="c6V-j0-njG" customClass="WordPackListTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="NkP-Kp-Uy6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="RP4-yA-l6K">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RP4-yA-l6K" id="7mF-Tt-q2Z">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="c6V-j0-njG" id="ssh-e6-Elt"/>
+                            <outlet property="delegate" destination="c6V-j0-njG" id="XnC-Yj-hi1"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bCY-gE-X38" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3899.5" y="-99.5"/>
         </scene>
     </scenes>
     <resources>

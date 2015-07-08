@@ -11,9 +11,8 @@
 @interface PlistLoader : NSObject
 @property (nonatomic,strong)NSArray *wordPacks;
 
-+(PlistLoader *)WordPackNamed:(NSString *)packName;
-
-
++(PlistLoader *)defaultWordPack;
++(NSArray *)loadWordPacks;
 
 +(NSDictionary *)loadSavedGameDictionaryFromPList;
 +(void)saveGameArrayToPlist:(NSArray *)wordLabels Named:(NSString *)name;
