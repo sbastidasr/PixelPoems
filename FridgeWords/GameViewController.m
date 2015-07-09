@@ -359,16 +359,16 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
 
 //recevie notifications
 - (void) receiveTestNotification:(NSNotification *) notification{
-
     [self close:nil];
+    
     if ([[notification name] isEqualToString:@"PopOverAction"]){
-        
         NSMutableDictionary *argsDict = [notification object];
         NSString *action = [argsDict objectForKey:@"Action"];
-    
-        if([action isEqualToString:@"WordPackSelected"]){
-            [self changeToWordPackNamed:argsDict[@"WordPack"]];
-            NSLog (@"Successfully received the test notification! with string %@",  argsDict[@"WordPack"]);
+
+        NSLog (@"Action: %@ Cellname: %@", argsDict[@"Action"], argsDict[@"SelectedCellText"]);
+        
+        if([action isEqualToString:@"WordPacks"]){
+            [self changeToWordPackNamed:argsDict[@"SelectedCellText"]];
         }
     }
 }

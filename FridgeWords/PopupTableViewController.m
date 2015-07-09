@@ -14,7 +14,7 @@
 #import "WordPackWrapper.h"
 
 @interface PopupTableViewController ()
-@property (nonatomic, strong) NSMutableArray* wordPackArray;
+@property (nonatomic, strong) NSMutableArray* menuItems;
 @end
 
 @implementation PopupTableViewController
@@ -27,15 +27,16 @@
     switch (self.typeOfController) {
     case 0:
             self.navigationItem.title=@"Customize";
-    
+            self.menuItems=@[@"Word Color",@"Word Border",@" Word Background", @"Background"];
         break;
     case 1:
             self.navigationItem.title=@"WordPacks";
-            self.wordPackArray= [[PlistLoader loadWordPacks]mutableCopy];
+            self.menuItems= [[PlistLoader loadWordPacks]mutableCopy];
         break;
         
     case 2:
             self.navigationItem.title=@"Share";
+            self.menuItems=@[@"Twitter",@"Facebook",@"9Gag",@"Save to Photos"];
         break;
     default:
         break;
@@ -51,17 +52,24 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.wordPackArray count];
+    return [self.menuItems count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    WordPackWrapper *wordPack = self.wordPackArray[indexPath.row];
-
-    cell.textLabel.text = wordPack.packName;
     
+    switch (self.typeOfController) {
+        case 1:/*WordPacks*/{
+            WordPackWrapper *wordPack = self.menuItems[indexPath.row];
+            cell.textLabel.text = wordPack.packName;
+        }
+            break;
+        default:
+            cell.textLabel.text = self.menuItems[indexPath.row];
+            break;
+    }
     return cell;
 }
 
@@ -70,11 +78,11 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
    
-    WordPackWrapper *wpw = self.wordPackArray[indexPath.row];
+    UITableViewCell *selectedCell= [self.tableView cellForRowAtIndexPath:indexPath];
     
     NSMutableDictionary *argsDict = [[NSMutableDictionary alloc]init];
-    [argsDict setObject:@"WordPackSelected" forKey:@"Action"];
-    [argsDict setObject:wpw.packName forKey:@"WordPack"];
+    [argsDict setObject:self.navigationItem.title forKey:@"Action"];
+    [argsDict setObject:selectedCell.text forKey:@"SelectedCellText"];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"PopOverAction" object:argsDict];
 }

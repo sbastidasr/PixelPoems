@@ -16,7 +16,7 @@
     NSArray *wordPacks  =  [ PlistLoader loadWordPacks];
     
     for (WordPackWrapper *wpw in wordPacks) {
-        if ([wpw.packName isEqualToString:packName])
+        if ([wpw.packName.lowercaseString isEqualToString:packName.lowercaseString])
             return wpw;
     }
     return nil;
