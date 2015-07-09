@@ -41,7 +41,7 @@
 		EAE1305E1B4B018300CFD86B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE1305D1B4B018300CFD86B /* Social.framework */; };
 		EAE130601B4B019000CFD86B /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE1305F1B4B019000CFD86B /* Accounts.framework */; };
 		EAE130651B4C459400CFD86B /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE130641B4C459400CFD86B /* libstdc++.6.dylib */; };
-		EAE130681B4D8D0A00CFD86B /* WordPackListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE130671B4D8D0A00CFD86B /* WordPackListTableViewController.m */; };
+		EAE130681B4D8D0A00CFD86B /* PopupTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE130671B4D8D0A00CFD86B /* PopupTableViewController.m */; };
 		EAE48A5B1A83B5AF0086F0B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE48A5A1A83B5AF0086F0B6 /* main.m */; };
 		EAE48A5E1A83B5AF0086F0B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE48A5D1A83B5AF0086F0B6 /* AppDelegate.m */; };
 		EAE48A611A83B5AF0086F0B6 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE48A601A83B5AF0086F0B6 /* GameViewController.m */; };
@@ -110,8 +110,8 @@
 		EAE1305D1B4B018300CFD86B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		EAE1305F1B4B019000CFD86B /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		EAE130641B4C459400CFD86B /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
-		EAE130661B4D8D0A00CFD86B /* WordPackListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordPackListTableViewController.h; sourceTree = "<group>"; };
-		EAE130671B4D8D0A00CFD86B /* WordPackListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPackListTableViewController.m; sourceTree = "<group>"; };
+		EAE130661B4D8D0A00CFD86B /* PopupTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupTableViewController.h; sourceTree = "<group>"; };
+		EAE130671B4D8D0A00CFD86B /* PopupTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupTableViewController.m; sourceTree = "<group>"; };
 		EAE48A551A83B5AF0086F0B6 /* PixelPoems.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixelPoems.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE48A591A83B5AF0086F0B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAE48A5A1A83B5AF0086F0B6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -284,8 +284,8 @@
 				EAD35B641AC0CB8200D3901A /* Controllers. */,
 				EAD35B5D1AC0C9B800D3901A /* Model */,
 				EAE48A621A83B5AF0086F0B6 /* Main.storyboard */,
-				EAE130661B4D8D0A00CFD86B /* WordPackListTableViewController.h */,
-				EAE130671B4D8D0A00CFD86B /* WordPackListTableViewController.m */,
+				EAE130661B4D8D0A00CFD86B /* PopupTableViewController.h */,
+				EAE130671B4D8D0A00CFD86B /* PopupTableViewController.m */,
 				EAB394521B42F2BE005E27B7 /* SavedGamesTableViewController.h */,
 				EAB394531B42F2BE005E27B7 /* SavedGamesTableViewController.m */,
 				EAE48A581A83B5AF0086F0B6 /* Supporting Files */,
@@ -484,7 +484,7 @@
 				EAD35B671AC0CBEA00D3901A /* PlistLoader.m in Sources */,
 				EAE48A5B1A83B5AF0086F0B6 /* main.m in Sources */,
 				EAC202911B14D823001C6692 /* WordPackWrapper.m in Sources */,
-				EAE130681B4D8D0A00CFD86B /* WordPackListTableViewController.m in Sources */,
+				EAE130681B4D8D0A00CFD86B /* PopupTableViewController.m in Sources */,
 				EA829C061B0CF71F0016E201 /* WordLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

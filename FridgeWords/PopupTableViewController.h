@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WordPackListTableViewController : UITableViewController
+@interface PopupTableViewController : UITableViewController
+
+@property int typeOfController;
 
 @end

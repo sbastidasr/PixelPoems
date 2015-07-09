@@ -6,36 +6,44 @@
 //  Copyright (c) 2015 sbastidasr. All rights reserved.
 //
 
-#import "WordPackListTableViewController.h"
+#import "PopupTableViewController.h"
 
 #import "SavedGamesTableViewController.h"
 #import "PlistLoader.h"
 #import "GameViewController.h"
 #import "WordPackWrapper.h"
 
-@interface WordPackListTableViewController ()
+@interface PopupTableViewController ()
 @property (nonatomic, strong) NSMutableArray* wordPackArray;
 @end
 
-@implementation WordPackListTableViewController
+@implementation PopupTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setColorsAndFonts];
-    
-    self.wordPackArray= [[PlistLoader loadWordPacks]mutableCopy];
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
+
+    switch (self.typeOfController) {
+    case 0:
+            self.navigationItem.title=@"Customize";
     
-}
-/*-(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO];   //it hides
+        break;
+    case 1:
+            self.navigationItem.title=@"WordPacks";
+            self.wordPackArray= [[PlistLoader loadWordPacks]mutableCopy];
+        break;
+        
+    case 2:
+            self.navigationItem.title=@"Share";
+        break;
+    default:
+        break;
+    }
+    
+
 }
 
--(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:YES];    // it shows
-}*/
 
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -51,7 +59,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     WordPackWrapper *wordPack = self.wordPackArray[indexPath.row];
-    
+
     cell.textLabel.text = wordPack.packName;
     
     return cell;
@@ -77,7 +85,7 @@
 ////colors
 -(void)setColorsAndFonts{
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-    self.navigationItem.title=@"WordPacks";
+ 
     self.tableView.backgroundColor=[UIColor colorWithRed:36.0/255.0  green:41.0/255.0 blue:45.0/255.0 alpha:1.0f];
 }
 

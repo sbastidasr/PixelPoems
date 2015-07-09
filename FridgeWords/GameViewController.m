@@ -13,6 +13,7 @@
 #import "PlistLoader.h"
 #import "WordPackWrapper.h"
 #import <WYPopoverController.h>
+#import "PopupTableViewController.h"
 
 //self.WordLabels  contains array of words. Everything can be recreated from it. with addlabels to view
 @interface GameViewController () <WYPopoverControllerDelegate>{
@@ -311,17 +312,13 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
 
 //THIS HANDLES POPOVER CONTROLLER
 
-- (IBAction)showPopover:(id)sender
-{
-  
+- (IBAction)showPopover:(id)sender{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    GameViewController *listViewController = (GameViewController *)[storyboard instantiateViewControllerWithIdentifier:@"WordPackListTVC"];
-      listViewController.preferredContentSize = CGSizeMake(320, 280);
-     UIView *btn = (UIView *)sender;
-    
-    
- //   settingsViewController.title = @"Settings";
-    
+    PopupTableViewController *listViewController = (PopupTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"PopupTVC"];
+    listViewController.preferredContentSize = CGSizeMake(320, 280);
+    UIView *btn = (UIView *)sender;
+
+    listViewController.typeOfController=btn.tag;
     
     [listViewController.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(close:)]];
     
@@ -340,37 +337,25 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
     
         [popoverController presentPopoverAsDialogAnimated:YES
                                                           options:WYPopoverAnimationOptionFadeWithScale];
-    
-
-
- //   popoverController = [[WYPopoverController alloc] initWithContentViewController:settingsViewController];
-   // popoverController.delegate = self;
-    //[popoverController presentPopoverFromRect:button.bounds inView:button permittedArrowDirections:WYPopoverArrowDirectionAny animated:YES];
+ 
 
 }
 
 
-
-
-- (BOOL)popoverControllerShouldDismissPopover:(WYPopoverController *)controller
-{
+- (BOOL)popoverControllerShouldDismissPopover:(WYPopoverController *)controller{
     return YES;
 }
 
-- (void)popoverControllerDidDismissPopover:(WYPopoverController *)controller
-{
+- (void)popoverControllerDidDismissPopover:(WYPopoverController *)controller{
     popoverController.delegate = nil;
     popoverController = nil;
 }
 
-
-- (void)close:(id)sender
-{
+- (void)close:(id)sender{
     [popoverController dismissPopoverAnimated:YES completion:^{
         [self popoverControllerDidDismissPopover:popoverController];
     }];
 }
-
 
 //recevie notifications
 - (void) receiveTestNotification:(NSNotification *) notification{
