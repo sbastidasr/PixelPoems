@@ -27,7 +27,7 @@
     switch (self.typeOfController) {
     case 0:
             self.navigationItem.title=@"Customize";
-            self.menuItems=@[@"Word Color",@"Word Border",@" Word Background", @"Background"];
+            self.menuItems=@[@"Word Color",@"Word Border",@"Word Background", @"Background"];
         break;
     case 1:
             self.navigationItem.title=@"WordPacks";

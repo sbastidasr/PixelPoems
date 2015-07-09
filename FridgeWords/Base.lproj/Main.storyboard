@@ -255,12 +255,12 @@
                                     </barButtonItem>
                                     <barButtonItem tag="1" title="WordPacks" id="QrY-Ly-HEx">
                                         <connections>
-                                            <action selector="showPopover:" destination="pgE-JI-Bay" id="SLr-tg-y8d"/>
+                                            <action selector="showPopover:" destination="pgE-JI-Bay" id="Sjb-2R-9oF"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem tag="2" title="Share" id="LTE-dr-28r">
                                         <connections>
-                                            <action selector="showPopover:" destination="pgE-JI-Bay" id="H2h-3H-76n"/>
+                                            <action selector="share:" destination="pgE-JI-Bay" id="9ak-ep-RTs"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>

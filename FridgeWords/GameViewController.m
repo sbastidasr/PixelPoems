@@ -400,4 +400,18 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
     [self addLabelsToView];
     
 }
+
+-(IBAction)share:(id)sender{
+    NSString *text = @"Check out the poem I made with PixelPoems app";
+   // NSURL *url = [NSURL URLWithString:@"http://roadfiresoftware.com/2014/02/how-to-add-facebook-and-twitter-sharing-to-an-ios-app/"];
+    UIImage *image = [UIImage imageNamed:@"Gallery"];
+    
+    UIActivityViewController *controller =
+    [[UIActivityViewController alloc]
+     initWithActivityItems:@[text, /*url,*/ image]
+     applicationActivities:nil];
+    
+    [self presentViewController:controller animated:YES completion:nil];
+}
+
 @end
