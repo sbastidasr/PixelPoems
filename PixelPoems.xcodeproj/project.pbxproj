@@ -19,6 +19,8 @@
 		EA16BDF71B1951E100FA1FD9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA16BDF61B1951E100FA1FD9 /* SystemConfiguration.framework */; };
 		EA16BDF91B1951EC00FA1FD9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EA16BDF81B1951EC00FA1FD9 /* libz.dylib */; };
 		EA16BDFB1B1951F400FA1FD9 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EA16BDFA1B1951F400FA1FD9 /* libsqlite3.dylib */; };
+		EA2CAB1F1B5965B600F60368 /* gameView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2CAB1E1B5965B600F60368 /* gameView.m */; };
+		EA2CAB221B596ABA00F60368 /* constants.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2CAB211B596ABA00F60368 /* constants.m */; };
 		EA829C061B0CF71F0016E201 /* WordLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EA829C051B0CF71F0016E201 /* WordLabel.m */; };
 		EA829C211B0D00720016E201 /* ProximaNova-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA829C0A1B0CFFE00016E201 /* ProximaNova-Black.otf */; };
 		EA829C221B0D00750016E201 /* ProximaNova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA829C0B1B0CFFE00016E201 /* ProximaNova-Bold.otf */; };
@@ -79,6 +81,10 @@
 		EA16BDF61B1951E100FA1FD9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		EA16BDF81B1951EC00FA1FD9 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		EA16BDFA1B1951F400FA1FD9 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		EA2CAB1D1B5965B600F60368 /* gameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gameView.h; sourceTree = "<group>"; };
+		EA2CAB1E1B5965B600F60368 /* gameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gameView.m; sourceTree = "<group>"; };
+		EA2CAB201B596ABA00F60368 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		EA2CAB211B596ABA00F60368 /* constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = constants.m; sourceTree = "<group>"; };
 		EA829C041B0CF71F0016E201 /* WordLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordLabel.h; sourceTree = "<group>"; };
 		EA829C051B0CF71F0016E201 /* WordLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordLabel.m; sourceTree = "<group>"; };
 		EA829C0A1B0CFFE00016E201 /* ProximaNova-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Black.otf"; sourceTree = "<group>"; };
@@ -241,6 +247,10 @@
 			children = (
 				EAE48A5F1A83B5AF0086F0B6 /* GameViewController.h */,
 				EAE48A601A83B5AF0086F0B6 /* GameViewController.m */,
+				EA2CAB201B596ABA00F60368 /* constants.h */,
+				EA2CAB211B596ABA00F60368 /* constants.m */,
+				EA2CAB1D1B5965B600F60368 /* gameView.h */,
+				EA2CAB1E1B5965B600F60368 /* gameView.m */,
 				EAE130661B4D8D0A00CFD86B /* PopupTableViewController.h */,
 				EAE130671B4D8D0A00CFD86B /* PopupTableViewController.m */,
 				EAB394521B42F2BE005E27B7 /* SavedGamesTableViewController.h */,
@@ -467,9 +477,11 @@
 				EAE48A5E1A83B5AF0086F0B6 /* AppDelegate.m in Sources */,
 				EAD35B671AC0CBEA00D3901A /* PlistLoader.m in Sources */,
 				EAE48A5B1A83B5AF0086F0B6 /* main.m in Sources */,
+				EA2CAB221B596ABA00F60368 /* constants.m in Sources */,
 				EAC202911B14D823001C6692 /* WordPackWrapper.m in Sources */,
 				EAE130681B4D8D0A00CFD86B /* PopupTableViewController.m in Sources */,
 				EA829C061B0CF71F0016E201 /* WordLabel.m in Sources */,
+				EA2CAB1F1B5965B600F60368 /* gameView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,13 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "gameView.h"
 
 
 @interface GameViewController : UIViewController  <UIScrollViewDelegate>  //most user custmizable settings of current level.
+@property (weak, nonatomic) IBOutlet gameView *gameView;
 
-
-
-@property (nonatomic, strong) NSMutableArray* wordLabels; //of dictionaries containing a word+attributes
 
 //Theme (Contains WordStyle&Background  )
 //WordStyle (i.e. font etc)

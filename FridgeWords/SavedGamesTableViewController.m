@@ -57,7 +57,7 @@
     
     NSString *key = [self.savedGamesDictionary allKeys][indexPath.row];
     NSMutableArray *wordArray = (NSMutableArray *)self.savedGamesDictionary[key];
-    viewController.wordLabels = wordArray;
+    viewController.gameView.wordLabels = wordArray;
     [self.navigationController pushViewController:viewController animated:YES];
 }
 

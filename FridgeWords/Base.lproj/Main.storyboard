@@ -281,7 +281,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="syC-Ev-DRd">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="syC-Ev-DRd" customClass="gameView">
                                 <rect key="frame" x="0.0" y="128" width="375" height="445"/>
                             </scrollView>
                         </subviews>
@@ -336,7 +336,7 @@
                     <connections>
                         <outlet property="WODbadge" destination="oBB-in-DZ9" id="6ML-oX-Vug"/>
                         <outlet property="bottomBar" destination="Cne-eP-G32" id="Dmo-oh-3RQ"/>
-                        <outlet property="gameView" destination="syC-Ev-DRd" id="Oip-94-fmg"/>
+                        <outlet property="gameView" destination="syC-Ev-DRd" id="vlY-L7-I4a"/>
                         <outlet property="wordPackLabel" destination="iEK-IE-JMO" id="ulM-Yx-wwV"/>
                         <outletCollection property="headerItems" destination="oBB-in-DZ9" id="nh9-D1-F8k"/>
                         <outletCollection property="headerItems" destination="Nwg-wb-aB9" id="M5L-8x-MHc"/>

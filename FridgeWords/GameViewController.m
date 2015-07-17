@@ -14,8 +14,10 @@
 #import <WYPopoverController.h>
 #import "PopupTableViewController.h"
 #import "QuartzCore/QuartzCore.h"
+#import "constants.h"
 
-//self.WordLabels  contains array of words. Everything can be recreated from it. with addlabels to view
+
+//self.gameView.wordLabels  contains array of words. Everything can be recreated from it. with addlabels to view
 @interface GameViewController () <WYPopoverControllerDelegate>{
     WYPopoverController *popoverController;
 }
@@ -24,7 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *WODbadge;
 @property (weak, nonatomic) IBOutlet UIToolbar *bottomBar;
 ///
-@property (weak, nonatomic) IBOutlet UIScrollView *gameView;
+
 ///
 - (IBAction)showPopover:(id)sender;
 
@@ -34,9 +36,7 @@
 
 #define ZOOM_VIEW_TAG 100
 #define ARC4RANDOM_MAX 0x100000000
-static float const borderWidth = 2.0;
-static float const fontSize = 18.0;
-const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
+
 
 -(void)handlePanGesture:(UIPanGestureRecognizer *)gestureRecognizer{
     gestureRecognizer.view.center =[gestureRecognizer locationInView:gestureRecognizer.view.superview];
@@ -45,16 +45,11 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
     }
 }
 
-- (void)drawRect:(CGRect)rect{
-    CGRect rectangle = CGRectMake(0, 0, 100, 100);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetRGBFillColor(context, 1.0, 1.0, 1.0, 0.0);   //this is the transparent color
-    CGContextSetRGBStrokeColor(context, 0.0, 0.0, 0.0, 0.5);
-    CGContextStrokeRect(context, rectangle);    //this will draw the border
-}
+
 
 -(void)createGameView{
     //Setup scrollable view for words.
+
     [self.gameView setContentSize:sizeOfScrollableArea];
     self.gameView.backgroundColor=self.WODbadge.backgroundColor;
     
@@ -66,7 +61,7 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
     self.gameView.delegate=self;
     self.gameView.minimumZoomScale=0.5;
     self.gameView.maximumZoomScale=2;
- 
+    
     UIView *contentView =[[UIView alloc]initWithFrame:CGRectMake(0, 0, sizeOfScrollableArea.width, sizeOfScrollableArea.height)];
     [self.gameView addSubview:contentView];
     [contentView setTag:ZOOM_VIEW_TAG];
@@ -74,29 +69,24 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
     [self.gameView setNeedsDisplay];
 }
 
--(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
-    return [self.gameView viewWithTag:ZOOM_VIEW_TAG];
-}
-
-
 - (void)viewDidLoad{
     [super viewDidLoad];
     [self createGameView];
 
   
     //If coming from Words of the day:
-    if(_wordLabels==nil){
-        _wordLabels = [[NSMutableArray alloc]init];
+    if(!self.gameView.wordLabels){
+       self.gameView.wordLabels = [[NSMutableArray alloc]init];
         WordPackWrapper *wp =[PlistLoader defaultWordPack];///HERE CHANGE FOR OTHER WORDPACKS
         [wp  shuffleWordPack];
         [self setupLabels:[wp getNumberOfWordsFromWordPack:100] isWOD:NO]; //restricted words to 100, check playability
         [self loadWoD];
-        [self addLabelsToView];
+        [self.gameView addLabelsToView];
     }
     //If coming from savegames.
     else{
-    [self removeLabelsFromView];
-    [self addLabelsToView];
+    [self.gameView removeLabelsFromView];
+    [self.gameView addLabelsToView];
     }
     //listen to popover notifications.
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -116,7 +106,7 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
             NSString *wordsOfTheDay=object[@"words"];
             NSArray *stringArray = [wordsOfTheDay componentsSeparatedByString: @" "];
             [self setupLabels:stringArray isWOD:YES];
-            [self addLabelsToView];
+            [self.gameView addLabelsToView];
         }
     }];
 }
@@ -130,108 +120,10 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
 
         //Set label text
         label[@"attributedText"] = wordArray[i];
-       [self.wordLabels addObject:label];//add to arrayforlabels
+       [self.gameView.wordLabels addObject:label];//add to arrayforlabels
     }
 }
 
--(void)addLabelsToView{
-    for (int i=0; i< self.wordLabels.count; i++){
-        WordLabel *label = [[WordLabel alloc]init];
-        NSMutableDictionary *wordDict=self.wordLabels[i];
-    
-        NSMutableAttributedString *attributedString= [[NSMutableAttributedString alloc] initWithString: [wordDict[@"attributedText"] uppercaseString]];
-        [attributedString addAttribute:NSKernAttributeName value:@(6.0) range:NSMakeRange(0, attributedString.length)];
-
-        [label setAttributedText: attributedString];
-        label.wordDictionary=wordDict;
-        
-        //PLACE ON LABEL
-        label.userInteractionEnabled = YES;
-        UIPanGestureRecognizer *gesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)] ;
-        [label addGestureRecognizer:gesture];
-        
-        if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ){
-            label.layer.borderWidth = borderWidth*1.5;
-            label.font = [UIFont fontWithName:@"ProximaNova-Bold" size:fontSize*1.5];
-        }
-        else{
-            label.layer.borderWidth = borderWidth;
-            label.font = [UIFont fontWithName:@"ProximaNova-Bold" size:fontSize];
-        }
-        
-        //SetupLooks
-        label.layer.borderColor = [UIColor whiteColor].CGColor;
-        label.textColor = [UIColor whiteColor];
-        label.textAlignment = NSTextAlignmentCenter;
-        label.backgroundColor=[UIColor colorWithRed:35.0/255.0  green:40.0/255.0 blue:44.0/255.0 alpha:1.0f];
-        //asd
-        
-        if([wordDict objectForKey:@"sizeX"]==nil){
-            //SetupSize
-            [label sizeToFit];
-            if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ){
-                wordDict[@"sizeX"]=[NSNumber numberWithFloat:label.frame.size.width+(32*1.5)];
-                wordDict[@"sizeY"]=[NSNumber numberWithFloat:label.frame.size.height+(17*1.5)];
-            }
-            else{
-                wordDict[@"sizeX"]=[NSNumber numberWithFloat:label.frame.size.width+32];
-                wordDict[@"sizeY"]=[NSNumber numberWithFloat:label.frame.size.height+17];
-            }
-        }
-            if ([wordDict[@"isWordOfTheDay"] isEqual:@YES]){
-           // label.backgroundColor=[UIColor redColor];
-        }
-        
-        if(wordDict[@"X"]==nil){//if it has no place in map, yet.
-            if ([wordDict[@"isWordOfTheDay"] isEqual:@YES]){
-                
-                CGRect screenRect = [[UIScreen mainScreen] bounds];
-
-                float minRangeX = (sizeOfScrollableArea.width-screenRect.size.width)/2;
-                float minRangeY = (sizeOfScrollableArea.height-screenRect.size.height)/2;
-                
-                float maxRangeX=minRangeX+screenRect.size.width-100; //should instead be maxwordView
-                float maxRangeY=minRangeY+screenRect.size.height-self.WODbadge.frame.size.height -60;
-                
-                if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
-                {
-                    //label.transform = CGAffineTransformMakeScale(1.5, 1.5);
-                    minRangeX+=100;
-                    maxRangeX-=100;
-                    minRangeY+=140;
-                    maxRangeY-=200;
-                }
-                double valX = ((double)arc4random() / ARC4RANDOM_MAX) * (maxRangeX - minRangeX) + minRangeX ;
-                double valY = ((double)arc4random() / ARC4RANDOM_MAX) * (maxRangeY - minRangeY) + minRangeY;
-                wordDict[@"X"]=[NSNumber numberWithFloat:valX];
-                wordDict[@"Y"]=[NSNumber numberWithFloat:valY];
-            }
-            else{
-                float minRange=0;
-                float maxRangeX=sizeOfScrollableArea.width -200; //should instead be maxwordView
-                float maxRangeY=sizeOfScrollableArea.height-60;
-                double valX = ((double)arc4random() / ARC4RANDOM_MAX) * (maxRangeX - minRange) + minRange ;
-                double valY = ((double)arc4random() / ARC4RANDOM_MAX) * (maxRangeY - minRange) + minRange ;
-                wordDict[@"X"]=[NSNumber numberWithFloat:valX];
-                wordDict[@"Y"]=[NSNumber numberWithFloat:valY];
-            }
-        }
-        label.frame=CGRectMake([wordDict[@"X"] floatValue],[wordDict[@"Y"] floatValue], [wordDict[@"sizeX"] floatValue], [wordDict[@"sizeY"] floatValue]);
-
-        if ([[wordDict objectForKey:@"inView"] boolValue]==NO){
-            [[self.gameView viewWithTag:ZOOM_VIEW_TAG] addSubview:label]; // add to view
-            wordDict[@"inView"]=[NSNumber numberWithBool:YES];
-        }
-    }
-}
-
--(void)removeLabelsFromView{
-    [[[self.gameView viewWithTag:ZOOM_VIEW_TAG] subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];  //Clears words
-    for (int i=0; i< self.wordLabels.count; i++){
-        NSMutableDictionary *wordDict=self.wordLabels[i];
-        wordDict[@"inView"]=[NSNumber numberWithBool:NO];
-    }
-}
 
 -(void)updateWordPositionsOnDict{
     NSArray *labels = [[self.gameView viewWithTag:ZOOM_VIEW_TAG] subviews];
@@ -248,8 +140,8 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
 }
 
 -(void)cleanGameView{
-    [self removeLabelsFromView]; //removes every label on screen.
-    self.wordLabels=nil;
+    [self.gameView removeLabelsFromView]; //removes every label on screen.
+    self.gameView.wordLabels=nil;
 }
 
 - (IBAction)showSaveAlert {
@@ -266,7 +158,7 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     if([title isEqualToString:@"Save Game"]){
-        [PlistLoader saveGameArrayToPlist:self.wordLabels Named:[[alertView textFieldAtIndex:0] text]];
+        [PlistLoader saveGameArrayToPlist:self.gameView.wordLabels Named:[[alertView textFieldAtIndex:0] text]];
         [self cleanGameView];
         [self.navigationController popToRootViewControllerAnimated:YES];
         
@@ -350,28 +242,28 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
 //POPOVER ACTIONS
 -(void)changeToWordPackNamed:(NSString *)name{
 
-    [self removeLabelsFromView];
+    [self.gameView removeLabelsFromView];
     NSMutableArray *wodArray=[[NSMutableArray alloc]
                               init];
     
-    for (int i=0; i< self.wordLabels.count; i++){
-            NSMutableDictionary *wordDict=self.wordLabels[i];
+    for (int i=0; i< self.gameView.wordLabels.count; i++){
+            NSMutableDictionary *wordDict=self.gameView.wordLabels[i];
             
             if ([wordDict[@"isWordOfTheDay"] isEqual:@NO]){
-                [self.wordLabels removeObjectAtIndex:i];
+                [self.gameView.wordLabels removeObjectAtIndex:i];
             }
             else{
                 [wodArray addObject:wordDict];
                 //    wordDict[@"inView"]=[NSNumber numberWithBool:NO];
             }
         }
-    self.wordLabels = wodArray;
-//    self.wordLabels = [[NSMutableArray alloc]init];
+    self.gameView.wordLabels = wodArray;
+//    self.gameView.wordLabels = [[NSMutableArray alloc]init];
         
         WordPackWrapper *wp =[PlistLoader WordPackNamed:name];///HERE CHANGE FOR OTHER WORDPACKS
         [wp  shuffleWordPack];
         [self setupLabels:[wp getNumberOfWordsFromWordPack:100] isWOD:NO]; //restricted words to 100, check playability
-    [self addLabelsToView];
+    [self.gameView addLabelsToView];
     
     
     self.wordPackLabel.text=[NSString stringWithFormat:@"WordPack: %@", wp.packName];
