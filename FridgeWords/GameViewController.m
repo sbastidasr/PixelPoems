@@ -23,6 +23,7 @@
 @property(nonatomic,strong) IBOutletCollection(UIView) NSArray *headerItems;
 @property (weak, nonatomic) IBOutlet UILabel *wordPackLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *WODbadge;
+@property (weak, nonatomic) IBOutlet UIToolbar *bottomBar;
 @property (weak, nonatomic) IBOutlet UIScrollView *gameView;
 - (IBAction)showPopover:(id)sender;
 @end
@@ -85,6 +86,7 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
 - (void)viewDidLoad{
     [super viewDidLoad];
     [self createGameView];
+
   
     //If coming from Words of the day:
     if(_wordLabels==nil){
@@ -105,6 +107,7 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
                                              selector:@selector(receiveTestNotification:)
                                                  name:@"PopOverAction"
                                                object:nil];
+    
 }
 
 -(void)loadWoD{
@@ -439,5 +442,4 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
     
     return cropped;
 }
-
 @end
