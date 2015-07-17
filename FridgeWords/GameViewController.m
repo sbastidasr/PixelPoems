@@ -38,14 +38,6 @@
 #define ARC4RANDOM_MAX 0x100000000
 
 
--(void)handlePanGesture:(UIPanGestureRecognizer *)gestureRecognizer{
-    gestureRecognizer.view.center =[gestureRecognizer locationInView:gestureRecognizer.view.superview];
-    if(gestureRecognizer.state == UIGestureRecognizerStateEnded || gestureRecognizer.state == UIGestureRecognizerStateFailed || gestureRecognizer.state == UIGestureRecognizerStateCancelled){
-        [self updateWordPositionsOnDict];   //saves the position of current word on Each label's word Dict
-    }
-}
-
-
 
 -(void)createGameView{
     //Setup scrollable view for words.
@@ -58,7 +50,7 @@
     float viewStartPointX = (sizeOfScrollableArea.width-screenRect.size.width)/2;
     float viewStartPointY = (sizeOfScrollableArea.height-screenRect.size.height)/2;
     self.gameView.contentOffset= CGPointMake(viewStartPointX, viewStartPointY);
-    self.gameView.delegate=self;
+
     self.gameView.minimumZoomScale=0.5;
     self.gameView.maximumZoomScale=2;
     
@@ -125,15 +117,7 @@
 }
 
 
--(void)updateWordPositionsOnDict{
-    NSArray *labels = [[self.gameView viewWithTag:ZOOM_VIEW_TAG] subviews];
-    for (int i=0; i< labels.count; i++){
-      WordLabel *label=labels[i];
-      NSMutableDictionary *wordDict = label.wordDictionary;
-      wordDict[@"X"]=[NSNumber numberWithFloat:label.frame.origin.x];
-      wordDict[@"Y"]=[NSNumber numberWithFloat:label.frame.origin.y];
-  }
-}
+
 
 - (IBAction)HomeButton:(id)sender {
     [self showSaveAlert];

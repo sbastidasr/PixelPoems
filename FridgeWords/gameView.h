@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "constants.h"
 
-@interface gameView : UIScrollView
+@interface gameView : UIScrollView  <UIScrollViewDelegate>
 
 
 @property (nonatomic, strong) NSMutableArray* wordLabels; //of dictionaries containing a word+attributes

@@ -25,6 +25,28 @@ static float const fontSize = 18.0;
 #define ZOOM_VIEW_TAG 100
 
 
+-(void)handlePanGesture:(UIPanGestureRecognizer *)gestureRecognizer{
+    gestureRecognizer.view.center =[gestureRecognizer locationInView:gestureRecognizer.view.superview];
+    if(gestureRecognizer.state == UIGestureRecognizerStateEnded || gestureRecognizer.state == UIGestureRecognizerStateFailed || gestureRecognizer.state == UIGestureRecognizerStateCancelled){
+        [self updateWordPositionsOnDict];   //saves the position of current word on Each label's word Dict
+    }
+}
+
+-(void)updateWordPositionsOnDict{
+    NSArray *labels = [[self viewWithTag:ZOOM_VIEW_TAG] subviews];
+    for (int i=0; i< labels.count; i++){
+        WordLabel *label=labels[i];
+        NSMutableDictionary *wordDict = label.wordDictionary;
+        wordDict[@"X"]=[NSNumber numberWithFloat:label.frame.origin.x];
+        wordDict[@"Y"]=[NSNumber numberWithFloat:label.frame.origin.y];
+    }
+}
+
+
+-(void)initGameView{
+    self.delegate=self;
+}
+
 
 -(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
     return [self viewWithTag:ZOOM_VIEW_TAG];
@@ -32,13 +54,13 @@ static float const fontSize = 18.0;
 
 -(id)initWithCoder:(NSCoder *)aDecoder{
     self=[super initWithCoder:aDecoder];
-    NSLog(@"stuff");
+    [self initGameView];
     return self;
 }
 
 -(instancetype)initWithFrame:(CGRect)frame{
     self=[super initWithFrame:frame];
-    NSLog(@"stuff2");
+    [self initGameView];
     return self;
 }
 -(void)addLabelsToView{

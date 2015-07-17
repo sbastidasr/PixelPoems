@@ -10,7 +10,7 @@
 #import "gameView.h"
 
 
-@interface GameViewController : UIViewController  <UIScrollViewDelegate>  //most user custmizable settings of current level.
+@interface GameViewController : UIViewController   //most user custmizable settings of current level.
 @property (weak, nonatomic) IBOutlet gameView *gameView;
 
 
