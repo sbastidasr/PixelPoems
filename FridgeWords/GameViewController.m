@@ -14,30 +14,25 @@
 #import "WordPackWrapper.h"
 #import <WYPopoverController.h>
 #import "PopupTableViewController.h"
+#import "QuartzCore/QuartzCore.h"
 
 //self.WordLabels  contains array of words. Everything can be recreated from it. with addlabels to view
 @interface GameViewController () <WYPopoverControllerDelegate>{
-WYPopoverController *popoverController;
+    WYPopoverController *popoverController;
 }
-
-@property (weak, nonatomic) IBOutlet UIImageView *headerView;
+@property(nonatomic,strong) IBOutletCollection(UIView) NSArray *headerItems;
+@property (weak, nonatomic) IBOutlet UILabel *wordPackLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *WODbadge;
 @property (weak, nonatomic) IBOutlet UIScrollView *gameView;
-
 - (IBAction)showPopover:(id)sender;
 @end
 
-
-
 @implementation GameViewController
-
 #define ZOOM_VIEW_TAG 100
 #define ARC4RANDOM_MAX 0x100000000
 static float const borderWidth = 2.0;
 static float const fontSize = 18.0;
 const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
-
-
-
 
 -(void)handlePanGesture:(UIPanGestureRecognizer *)gestureRecognizer{
     gestureRecognizer.view.center =[gestureRecognizer locationInView:gestureRecognizer.view.superview];
@@ -57,7 +52,7 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
 -(void)createGameView{
     //Setup scrollable view for words.
     [self.gameView setContentSize:sizeOfScrollableArea];
-    self.gameView.backgroundColor=self.headerView.backgroundColor;
+    self.gameView.backgroundColor=self.WODbadge.backgroundColor;
     
     //center the game view
     CGRect screenRect = [[UIScreen mainScreen] bounds];
@@ -73,8 +68,6 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
     [contentView setTag:ZOOM_VIEW_TAG];
     [self.view addSubview:self.gameView];
     [self.gameView setNeedsDisplay];
-    
-   // self.gameView.backgroundColor=[UIColor redColor];
 }
 
 -(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
@@ -96,22 +89,17 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
     //If coming from Words of the day:
     if(_wordLabels==nil){
         _wordLabels = [[NSMutableArray alloc]init];
-        
         WordPackWrapper *wp =[PlistLoader defaultWordPack];///HERE CHANGE FOR OTHER WORDPACKS
         [wp  shuffleWordPack];
         [self setupLabels:[wp getNumberOfWordsFromWordPack:100] isWOD:NO]; //restricted words to 100, check playability
         [self loadWoD];
         [self addLabelsToView];
-        
     }
-    
     //If coming from savegames.
     else{
     [self removeLabelsFromView];
     [self addLabelsToView];
     }
-    
-    
     //listen to popover notifications.
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receiveTestNotification:)
@@ -174,10 +162,10 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
         
         //SetupLooks
         label.layer.borderColor = [UIColor whiteColor].CGColor;
-        label.backgroundColor = nil;
         label.textColor = [UIColor whiteColor];
         label.textAlignment = NSTextAlignmentCenter;
-        label.backgroundColor=self.gameView.backgroundColor;
+        label.backgroundColor=[UIColor colorWithRed:35.0/255.0  green:40.0/255.0 blue:44.0/255.0 alpha:1.0f];
+        //asd
         
         if([wordDict objectForKey:@"sizeX"]==nil){
             //SetupSize
@@ -192,7 +180,7 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
             }
         }
             if ([wordDict[@"isWordOfTheDay"] isEqual:@YES]){
-            label.backgroundColor=[UIColor redColor];
+           // label.backgroundColor=[UIColor redColor];
         }
         
         if(wordDict[@"X"]==nil){//if it has no place in map, yet.
@@ -204,7 +192,7 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
                 float minRangeY = (sizeOfScrollableArea.height-screenRect.size.height)/2;
                 
                 float maxRangeX=minRangeX+screenRect.size.width-100; //should instead be maxwordView
-                float maxRangeY=minRangeY+screenRect.size.height-self.headerView.frame.size.height -60;
+                float maxRangeY=minRangeY+screenRect.size.height-self.WODbadge.frame.size.height -60;
                 
                 if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
                 {
@@ -230,23 +218,13 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
             }
         }
         label.frame=CGRectMake([wordDict[@"X"] floatValue],[wordDict[@"Y"] floatValue], [wordDict[@"sizeX"] floatValue], [wordDict[@"sizeY"] floatValue]);
-        
-        /*
-        //Code to slightly twist words by 1 degree
-        int minRange = -1;
-        int maxRange = 1;
-        #define ARC4RANDOM_MAX 0x100000000
-        double val = ((double)arc4random() / ARC4RANDOM_MAX)* (maxRange - minRange) + minRange;
-        [label setTransform:CGAffineTransformMakeRotation((M_PI /180)*val)];
-        */
-        
+
         if ([[wordDict objectForKey:@"inView"] boolValue]==NO){
             [[self.gameView viewWithTag:ZOOM_VIEW_TAG] addSubview:label]; // add to view
             wordDict[@"inView"]=[NSNumber numberWithBool:YES];
         }
     }
 }
-
 
 -(void)removeLabelsFromView{
     [[[self.gameView viewWithTag:ZOOM_VIEW_TAG] subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];  //Clears words
@@ -308,10 +286,7 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
     }else{return YES;}
 }
 
-
-
 //THIS HANDLES POPOVER CONTROLLER
-
 - (IBAction)showPopover:(id)sender{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PopupTableViewController *listViewController = (PopupTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"PopupTVC"];
@@ -375,7 +350,7 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
 
 //POPOVER ACTIONS
 -(void)changeToWordPackNamed:(NSString *)name{
-    
+
     [self removeLabelsFromView];
     NSMutableArray *wodArray=[[NSMutableArray alloc]
                               init];
@@ -399,12 +374,36 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
         [self setupLabels:[wp getNumberOfWordsFromWordPack:100] isWOD:NO]; //restricted words to 100, check playability
     [self addLabelsToView];
     
+    
+    self.wordPackLabel.text=[NSString stringWithFormat:@"WordPack: %@", wp.packName];
 }
 
 -(IBAction)share:(id)sender{
+/*
+    for (int i =0; i<self.headerItems.count; i++){
+        UIView *headerView=self.headerItems[i];
+        headerView.alpha =0.0f;
+    }
+    self.wordPackLabel.alpha=0.0f;
+  */
+    CGSize gameViewSize=self.gameView.frame.size;
+    //CGRect frame = [firstView convertRect:buttons.frame fromView:secondView];
+    
+    gameViewSize.height+=self.gameView.frame.origin.y;
+
+    UIGraphicsBeginImageContext(gameViewSize);
+    [[self.view layer] renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *screenshot = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+ 
+    screenshot =  [self croppIngimageByImageName:screenshot toRect:CGRectMake(0, self.gameView.frame.origin.y, screenshot.size.width, screenshot.size.height-self.gameView.frame.origin.y)];
+    
+    // The result is *screenshot
+    
     NSString *text = @"Check out the poem I made with PixelPoems app";
    // NSURL *url = [NSURL URLWithString:@"http://roadfiresoftware.com/2014/02/how-to-add-facebook-and-twitter-sharing-to-an-ios-app/"];
-    UIImage *image = [UIImage imageNamed:@"Gallery"];
+    UIImage *image =screenshot;
+    //[UIImage imageNamed:@"Gallery"];
     
     UIActivityViewController *controller =
     [[UIActivityViewController alloc]
@@ -412,6 +411,33 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
      applicationActivities:nil];
     
     [self presentViewController:controller animated:YES completion:nil];
+}
+
+-(UIImage *)imageCrop:(UIImage *)imageToCrop toRect:(CGRect)rect
+{
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef currentContext = UIGraphicsGetCurrentContext();
+    
+    CGRect clippedRect = CGRectMake(0, 0, rect.size.width, rect.size.height);
+    CGContextClipToRect( currentContext, clippedRect);
+    
+    CGRect drawRect = CGRectMake(rect.origin.x, rect.origin.y, imageToCrop.size.width, imageToCrop.size.height);
+    CGContextDrawImage(currentContext, drawRect, imageToCrop.CGImage);
+    UIImage *cropped = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return cropped;
+}
+
+- (UIImage *)croppIngimageByImageName:(UIImage *)imageToCrop toRect:(CGRect)rect
+{
+    //CGRect CropRect = CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, rect.size.height+15);
+    
+    CGImageRef imageRef = CGImageCreateWithImageInRect([imageToCrop CGImage], rect);
+    UIImage *cropped = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    
+    return cropped;
 }
 
 @end

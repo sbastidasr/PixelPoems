@@ -63,8 +63,8 @@
 {
     UILocalNotification *notification = [[UILocalNotification alloc] init];
     notification.fireDate = [[NSDate date] dateByAddingTimeInterval:60*60*24];
-    notification.fireDate = [[NSDate date] dateByAddingTimeInterval:60];
-    notification.alertBody = @"24 hours passed since last visit :(";
+  //  notification.fireDate = [[NSDate date] dateByAddingTimeInterval:60];
+    notification.alertBody = @"Check out the Words of the Day!";
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
 }
 
