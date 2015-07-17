@@ -8,7 +8,6 @@
 
 #import "GameViewController.h"
 #import "WordLabel.h"
-#import "CutGameView.h"
 #import <Parse/Parse.h>
 #import "PlistLoader.h"
 #import "WordPackWrapper.h"
@@ -24,11 +23,15 @@
 @property (weak, nonatomic) IBOutlet UILabel *wordPackLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *WODbadge;
 @property (weak, nonatomic) IBOutlet UIToolbar *bottomBar;
+///
 @property (weak, nonatomic) IBOutlet UIScrollView *gameView;
+///
 - (IBAction)showPopover:(id)sender;
+
 @end
 
 @implementation GameViewController
+
 #define ZOOM_VIEW_TAG 100
 #define ARC4RANDOM_MAX 0x100000000
 static float const borderWidth = 2.0;
@@ -75,13 +78,6 @@ const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
     return [self.gameView viewWithTag:ZOOM_VIEW_TAG];
 }
 
--(void)addCutView{
-    CutGameView *cutView=[[CutGameView alloc]initWithFrame:self.gameView.frame];
-    [self.view addSubview:cutView];
-    cutView.opaque=NO;
-    cutView.backgroundColor=[UIColor clearColor];
-    cutView.userInteractionEnabled=NO;
-}
 
 - (void)viewDidLoad{
     [super viewDidLoad];
