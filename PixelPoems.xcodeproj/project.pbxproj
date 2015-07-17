@@ -19,7 +19,6 @@
 		EA16BDF71B1951E100FA1FD9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA16BDF61B1951E100FA1FD9 /* SystemConfiguration.framework */; };
 		EA16BDF91B1951EC00FA1FD9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EA16BDF81B1951EC00FA1FD9 /* libz.dylib */; };
 		EA16BDFB1B1951F400FA1FD9 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EA16BDFA1B1951F400FA1FD9 /* libsqlite3.dylib */; };
-		EA2CAB1F1B5965B600F60368 /* gameView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2CAB1E1B5965B600F60368 /* gameView.m */; };
 		EA2CAB221B596ABA00F60368 /* constants.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2CAB211B596ABA00F60368 /* constants.m */; };
 		EA829C061B0CF71F0016E201 /* WordLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EA829C051B0CF71F0016E201 /* WordLabel.m */; };
 		EA829C211B0D00720016E201 /* ProximaNova-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA829C0A1B0CFFE00016E201 /* ProximaNova-Black.otf */; };
@@ -33,6 +32,7 @@
 		EA829C291B0D00750016E201 /* ProximaNova-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA829C121B0CFFE00016E201 /* ProximaNova-RegularItalic.otf */; };
 		EA829C2A1B0D00750016E201 /* ProximaNova-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA829C131B0CFFE00016E201 /* ProximaNova-Semibold.otf */; };
 		EA829C2B1B0D00750016E201 /* ProximaNova-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA829C141B0CFFE00016E201 /* ProximaNova-SemiboldItalic.otf */; };
+		EAA54A481B59777A00CD0BC4 /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA54A471B59777A00CD0BC4 /* GameView.m */; };
 		EAB394541B42F2BE005E27B7 /* SavedGamesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB394531B42F2BE005E27B7 /* SavedGamesTableViewController.m */; };
 		EAC202821B137D60001C6692 /* wordPacks.json in Resources */ = {isa = PBXBuildFile; fileRef = EAC202811B137D60001C6692 /* wordPacks.json */; };
 		EAC202911B14D823001C6692 /* WordPackWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC202901B14D823001C6692 /* WordPackWrapper.m */; };
@@ -81,8 +81,6 @@
 		EA16BDF61B1951E100FA1FD9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		EA16BDF81B1951EC00FA1FD9 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		EA16BDFA1B1951F400FA1FD9 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		EA2CAB1D1B5965B600F60368 /* gameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gameView.h; sourceTree = "<group>"; };
-		EA2CAB1E1B5965B600F60368 /* gameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gameView.m; sourceTree = "<group>"; };
 		EA2CAB201B596ABA00F60368 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		EA2CAB211B596ABA00F60368 /* constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = constants.m; sourceTree = "<group>"; };
 		EA829C041B0CF71F0016E201 /* WordLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordLabel.h; sourceTree = "<group>"; };
@@ -98,6 +96,8 @@
 		EA829C121B0CFFE00016E201 /* ProximaNova-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-RegularItalic.otf"; sourceTree = "<group>"; };
 		EA829C131B0CFFE00016E201 /* ProximaNova-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Semibold.otf"; sourceTree = "<group>"; };
 		EA829C141B0CFFE00016E201 /* ProximaNova-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-SemiboldItalic.otf"; sourceTree = "<group>"; };
+		EAA54A461B59777A00CD0BC4 /* GameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameView.h; path = ../GameView.h; sourceTree = "<group>"; };
+		EAA54A471B59777A00CD0BC4 /* GameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameView.m; path = ../GameView.m; sourceTree = "<group>"; };
 		EAB394521B42F2BE005E27B7 /* SavedGamesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedGamesTableViewController.h; sourceTree = "<group>"; };
 		EAB394531B42F2BE005E27B7 /* SavedGamesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedGamesTableViewController.m; sourceTree = "<group>"; };
 		EAC202811B137D60001C6692 /* wordPacks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = wordPacks.json; path = ../wordPacks.json; sourceTree = "<group>"; };
@@ -245,12 +245,12 @@
 		EAD35B641AC0CB8200D3901A /* Controllers. */ = {
 			isa = PBXGroup;
 			children = (
+				EAA54A461B59777A00CD0BC4 /* GameView.h */,
+				EAA54A471B59777A00CD0BC4 /* GameView.m */,
 				EAE48A5F1A83B5AF0086F0B6 /* GameViewController.h */,
 				EAE48A601A83B5AF0086F0B6 /* GameViewController.m */,
 				EA2CAB201B596ABA00F60368 /* constants.h */,
 				EA2CAB211B596ABA00F60368 /* constants.m */,
-				EA2CAB1D1B5965B600F60368 /* gameView.h */,
-				EA2CAB1E1B5965B600F60368 /* gameView.m */,
 				EAE130661B4D8D0A00CFD86B /* PopupTableViewController.h */,
 				EAE130671B4D8D0A00CFD86B /* PopupTableViewController.m */,
 				EAB394521B42F2BE005E27B7 /* SavedGamesTableViewController.h */,
@@ -479,9 +479,9 @@
 				EAE48A5B1A83B5AF0086F0B6 /* main.m in Sources */,
 				EA2CAB221B596ABA00F60368 /* constants.m in Sources */,
 				EAC202911B14D823001C6692 /* WordPackWrapper.m in Sources */,
+				EAA54A481B59777A00CD0BC4 /* GameView.m in Sources */,
 				EAE130681B4D8D0A00CFD86B /* PopupTableViewController.m in Sources */,
 				EA829C061B0CF71F0016E201 /* WordLabel.m in Sources */,
-				EA2CAB1F1B5965B600F60368 /* gameView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

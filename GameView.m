@@ -1,22 +1,15 @@
 //
-//  gameView.m
+//  GameView.m
 //  PixelPoems
 //
 //  Created by Sebastian Bastidas on 7/17/15.
 //  Copyright (c) 2015 sbastidasr. All rights reserved.
 //
 
-#import "gameView.h"
-#import "GameViewController.h"
-#import "WordLabel.h"
-#import <Parse/Parse.h>
-#import "PlistLoader.h"
-#import "WordPackWrapper.h"
-#import <WYPopoverController.h>
-#import "PopupTableViewController.h"
-#import "QuartzCore/QuartzCore.h"
-#import "gameView.h"
-@implementation gameView
+#import "GameView.h"
+
+
+@implementation GameView
 
 static float const borderWidth = 2.0;
 static float const fontSize = 18.0;
@@ -120,7 +113,7 @@ static float const fontSize = 18.0;
                 float minRangeY = (sizeOfScrollableArea.height-screenRect.size.height)/2;
                 
                 float maxRangeX=minRangeX+screenRect.size.width-100; //should instead be maxwordView
-
+                
 #pragma warning the 100 in maxRange calculation should be the headersize.
                 float maxRangeY=minRangeY+screenRect.size.height-100 -60;
                 

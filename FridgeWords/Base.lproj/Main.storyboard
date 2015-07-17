@@ -281,7 +281,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="syC-Ev-DRd" customClass="gameView">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="syC-Ev-DRd" customClass="GameView">
                                 <rect key="frame" x="0.0" y="128" width="375" height="445"/>
                             </scrollView>
                         </subviews>

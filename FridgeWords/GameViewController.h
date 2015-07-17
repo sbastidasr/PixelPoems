@@ -7,12 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "gameView.h"
+#import <Parse/Parse.h>
 
+#import "WordLabel.h"
+#import "WordPackWrapper.h"
+#import "PlistLoader.h"
+
+#import <WYPopoverController.h>
+#import "PopupTableViewController.h"
+#import "QuartzCore/QuartzCore.h"
+#import "constants.h"
+#import "GameView.h"
 
 @interface GameViewController : UIViewController   //most user custmizable settings of current level.
-@property (weak, nonatomic) IBOutlet gameView *gameView;
 
+@property (weak, nonatomic) IBOutlet GameView *gameView;
 
 //Theme (Contains WordStyle&Background  )
 //WordStyle (i.e. font etc)

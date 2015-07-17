@@ -7,15 +7,6 @@
 //
 
 #import "GameViewController.h"
-#import "WordLabel.h"
-#import <Parse/Parse.h>
-#import "PlistLoader.h"
-#import "WordPackWrapper.h"
-#import <WYPopoverController.h>
-#import "PopupTableViewController.h"
-#import "QuartzCore/QuartzCore.h"
-#import "constants.h"
-
 
 //self.gameView.wordLabels  contains array of words. Everything can be recreated from it. with addlabels to view
 @interface GameViewController () <WYPopoverControllerDelegate>{
