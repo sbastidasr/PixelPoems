@@ -7,11 +7,17 @@
 //
 
 #import "GameViewController.h"
+#import "GameView.h"
 
 //self.gameView.wordLabels  contains array of words. Everything can be recreated from it. with addlabels to view
 @interface GameViewController () <WYPopoverControllerDelegate>{
     WYPopoverController *popoverController;
 }
+
+
+@property (weak, nonatomic) IBOutlet GameView *gameView;
+
+
 @property(nonatomic,strong) IBOutletCollection(UIView) NSArray *headerItems;
 @property (weak, nonatomic) IBOutlet UILabel *wordPackLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *WODbadge;

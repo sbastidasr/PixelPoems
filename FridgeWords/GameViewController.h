@@ -17,11 +17,12 @@
 #import "PopupTableViewController.h"
 #import "QuartzCore/QuartzCore.h"
 #import "constants.h"
-#import "GameView.h"
+
+
+@class GameView;
 
 @interface GameViewController : UIViewController   //most user custmizable settings of current level.
 
-@property (weak, nonatomic) IBOutlet GameView *gameView;
 
 //Theme (Contains WordStyle&Background  )
 //WordStyle (i.e. font etc)

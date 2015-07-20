@@ -15,10 +15,12 @@
 #import "PopupTableViewController.h"
 #import "QuartzCore/QuartzCore.h"
 #import "constants.h"
+#import "GameViewController.h"
+
 
 @interface GameView : UIScrollView
 
-//@property (nonatomic, strong) GameViewController *asd;
+@property (nonatomic, strong) GameViewController *asd;
 
 @property (nonatomic, strong) NSMutableArray *wordLabels; //of dictionaries containing a word+attributes
 -(void)removeLabelsFromView;
