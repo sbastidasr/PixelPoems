@@ -20,6 +20,8 @@
 		EA16BDF91B1951EC00FA1FD9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EA16BDF81B1951EC00FA1FD9 /* libz.dylib */; };
 		EA16BDFB1B1951F400FA1FD9 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EA16BDFA1B1951F400FA1FD9 /* libsqlite3.dylib */; };
 		EA2CAB221B596ABA00F60368 /* constants.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2CAB211B596ABA00F60368 /* constants.m */; };
+		EA2FC7161B6FDCB200713AAE /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA2FC7151B6FDCB200713AAE /* iAd.framework */; };
+		EA2FC7191B6FDCD700713AAE /* AdTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2FC7181B6FDCD700713AAE /* AdTestViewController.m */; };
 		EA829C061B0CF71F0016E201 /* WordLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EA829C051B0CF71F0016E201 /* WordLabel.m */; };
 		EA829C211B0D00720016E201 /* ProximaNova-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA829C0A1B0CFFE00016E201 /* ProximaNova-Black.otf */; };
 		EA829C221B0D00750016E201 /* ProximaNova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA829C0B1B0CFFE00016E201 /* ProximaNova-Bold.otf */; };
@@ -84,6 +86,9 @@
 		EA16BDFA1B1951F400FA1FD9 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		EA2CAB201B596ABA00F60368 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		EA2CAB211B596ABA00F60368 /* constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = constants.m; sourceTree = "<group>"; };
+		EA2FC7151B6FDCB200713AAE /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		EA2FC7171B6FDCD700713AAE /* AdTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdTestViewController.h; sourceTree = "<group>"; };
+		EA2FC7181B6FDCD700713AAE /* AdTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdTestViewController.m; sourceTree = "<group>"; };
 		EA829C041B0CF71F0016E201 /* WordLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordLabel.h; sourceTree = "<group>"; };
 		EA829C051B0CF71F0016E201 /* WordLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordLabel.m; sourceTree = "<group>"; };
 		EA829C0A1B0CFFE00016E201 /* ProximaNova-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Black.otf"; sourceTree = "<group>"; };
@@ -133,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA2FC7161B6FDCB200713AAE /* iAd.framework in Frameworks */,
 				EAE130651B4C459400CFD86B /* libstdc++.6.dylib in Frameworks */,
 				EAE130601B4B019000CFD86B /* Accounts.framework in Frameworks */,
 				EAE1305E1B4B018300CFD86B /* Social.framework in Frameworks */,
@@ -186,6 +192,7 @@
 		EA16BDFC1B19521E00FA1FD9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EA2FC7151B6FDCB200713AAE /* iAd.framework */,
 				EAE130641B4C459400CFD86B /* libstdc++.6.dylib */,
 				EAE1305F1B4B019000CFD86B /* Accounts.framework */,
 				EAE1305D1B4B018300CFD86B /* Social.framework */,
@@ -265,6 +272,8 @@
 		EAE48A4C1A83B5AF0086F0B6 = {
 			isa = PBXGroup;
 			children = (
+				EA2FC7171B6FDCD700713AAE /* AdTestViewController.h */,
+				EA2FC7181B6FDCD700713AAE /* AdTestViewController.m */,
 				EAA54A491B5D799700CD0BC4 /* RemoveAdsViewController.h */,
 				EAA54A4A1B5D799700CD0BC4 /* RemoveAdsViewController.m */,
 				EAE48A571A83B5AF0086F0B6 /* PixelPoems */,
@@ -482,6 +491,7 @@
 				EAE48A611A83B5AF0086F0B6 /* GameViewController.m in Sources */,
 				EAE48A5E1A83B5AF0086F0B6 /* AppDelegate.m in Sources */,
 				EAD35B671AC0CBEA00D3901A /* PlistLoader.m in Sources */,
+				EA2FC7191B6FDCD700713AAE /* AdTestViewController.m in Sources */,
 				EAE48A5B1A83B5AF0086F0B6 /* main.m in Sources */,
 				EA2CAB221B596ABA00F60368 /* constants.m in Sources */,
 				EAC202911B14D823001C6692 /* WordPackWrapper.m in Sources */,
