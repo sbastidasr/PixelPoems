@@ -14,10 +14,6 @@
     WYPopoverController *popoverController;
 }
 
-
-@property (weak, nonatomic) IBOutlet GameView *gameView;
-
-
 @property(nonatomic,strong) IBOutletCollection(UIView) NSArray *headerItems;
 @property (weak, nonatomic) IBOutlet UILabel *wordPackLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *WODbadge;

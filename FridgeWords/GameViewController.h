@@ -23,6 +23,8 @@
 
 @interface GameViewController : UIViewController   //most user custmizable settings of current level.
 
+@property (weak, nonatomic) IBOutlet GameView *gameView;
+
 
 //Theme (Contains WordStyle&Background  )
 //WordStyle (i.e. font etc)

@@ -53,6 +53,9 @@
                                 <state key="normal" image="RemoveAds">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="UF2-Ed-XZH" kind="show" id="MIG-aH-q0B"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Title" translatesAutoresizingMaskIntoConstraints="NO" id="7Q2-cj-r8o">
                                 <rect key="frame" x="16" y="70" width="343" height="91"/>
@@ -346,6 +349,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cyd-pY-6OL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3497.5" y="627.5"/>
+        </scene>
+        <!--Remove Ads View Controller-->
+        <scene sceneID="y7v-dh-zPB">
+            <objects>
+                <viewController storyboardIdentifier="RemoveAds" id="UF2-Ed-XZH" customClass="RemoveAdsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="w1W-id-L5e"/>
+                        <viewControllerLayoutGuide type="bottom" id="5V2-NM-ppX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eMr-Cp-13q">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STq-iH-iKB">
+                                <rect key="frame" x="195" y="43" width="90" height="30"/>
+                                <state key="normal" title="Get Premium">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapsRemoveAds" destination="UF2-Ed-XZH" eventType="touchUpInside" id="oXo-aU-fOi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xrc-NR-Cd8">
+                                <rect key="frame" x="195" y="130" width="53" height="30"/>
+                                <state key="normal" title="Restore">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="restore" destination="UF2-Ed-XZH" eventType="touchUpInside" id="xgE-Zc-OHZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6QK-y2-tVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3415.5" y="1442.5"/>
         </scene>
         <!--Saved Games Table View Controller-->
         <scene sceneID="1dd-6U-cUp">

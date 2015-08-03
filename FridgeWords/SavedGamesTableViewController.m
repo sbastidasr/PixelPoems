@@ -9,6 +9,7 @@
 #import "SavedGamesTableViewController.h"
 #import "PlistLoader.h"
 #import "GameViewController.h"
+#import "GameView.h"
 
 @interface SavedGamesTableViewController ()
 

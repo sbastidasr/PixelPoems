@@ -33,6 +33,7 @@
 		EA829C2A1B0D00750016E201 /* ProximaNova-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA829C131B0CFFE00016E201 /* ProximaNova-Semibold.otf */; };
 		EA829C2B1B0D00750016E201 /* ProximaNova-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA829C141B0CFFE00016E201 /* ProximaNova-SemiboldItalic.otf */; };
 		EAA54A481B59777A00CD0BC4 /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA54A471B59777A00CD0BC4 /* GameView.m */; };
+		EAA54A4B1B5D799700CD0BC4 /* RemoveAdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA54A4A1B5D799700CD0BC4 /* RemoveAdsViewController.m */; };
 		EAB394541B42F2BE005E27B7 /* SavedGamesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB394531B42F2BE005E27B7 /* SavedGamesTableViewController.m */; };
 		EAC202821B137D60001C6692 /* wordPacks.json in Resources */ = {isa = PBXBuildFile; fileRef = EAC202811B137D60001C6692 /* wordPacks.json */; };
 		EAC202911B14D823001C6692 /* WordPackWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC202901B14D823001C6692 /* WordPackWrapper.m */; };
@@ -98,6 +99,8 @@
 		EA829C141B0CFFE00016E201 /* ProximaNova-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		EAA54A461B59777A00CD0BC4 /* GameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameView.h; path = ../GameView.h; sourceTree = "<group>"; };
 		EAA54A471B59777A00CD0BC4 /* GameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameView.m; path = ../GameView.m; sourceTree = "<group>"; };
+		EAA54A491B5D799700CD0BC4 /* RemoveAdsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoveAdsViewController.h; sourceTree = "<group>"; };
+		EAA54A4A1B5D799700CD0BC4 /* RemoveAdsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoveAdsViewController.m; sourceTree = "<group>"; };
 		EAB394521B42F2BE005E27B7 /* SavedGamesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedGamesTableViewController.h; sourceTree = "<group>"; };
 		EAB394531B42F2BE005E27B7 /* SavedGamesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedGamesTableViewController.m; sourceTree = "<group>"; };
 		EAC202811B137D60001C6692 /* wordPacks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = wordPacks.json; path = ../wordPacks.json; sourceTree = "<group>"; };
@@ -262,6 +265,8 @@
 		EAE48A4C1A83B5AF0086F0B6 = {
 			isa = PBXGroup;
 			children = (
+				EAA54A491B5D799700CD0BC4 /* RemoveAdsViewController.h */,
+				EAA54A4A1B5D799700CD0BC4 /* RemoveAdsViewController.m */,
 				EAE48A571A83B5AF0086F0B6 /* PixelPoems */,
 				EAE48A711A83B5AF0086F0B6 /* FridgeWordsTests */,
 				EAE48A561A83B5AF0086F0B6 /* Products */,
@@ -473,6 +478,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAB394541B42F2BE005E27B7 /* SavedGamesTableViewController.m in Sources */,
+				EAA54A4B1B5D799700CD0BC4 /* RemoveAdsViewController.m in Sources */,
 				EAE48A611A83B5AF0086F0B6 /* GameViewController.m in Sources */,
 				EAE48A5E1A83B5AF0086F0B6 /* AppDelegate.m in Sources */,
 				EAD35B671AC0CBEA00D3901A /* PlistLoader.m in Sources */,
