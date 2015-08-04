@@ -353,6 +353,7 @@
         <!--Ad Test View Controller-->
         <scene sceneID="Aid-e4-eW0">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vGo-vn-F9B" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="AdsTestVC" id="pyt-Gf-sHt" customClass="AdTestViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2JT-OP-My9"/>
@@ -364,7 +365,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vGo-vn-F9B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2909" y="1409"/>
         </scene>

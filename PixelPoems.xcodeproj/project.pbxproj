@@ -51,6 +51,7 @@
 		EAE48A661A83B5AF0086F0B6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE48A651A83B5AF0086F0B6 /* Images.xcassets */; };
 		EAE48A691A83B5AF0086F0B6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAE48A671A83B5AF0086F0B6 /* LaunchScreen.xib */; };
 		EAE48A751A83B5AF0086F0B6 /* FridgeWordsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE48A741A83B5AF0086F0B6 /* FridgeWordsTests.m */; };
+		EAECA9D31B71384B001C5AC5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAECA9D21B71384B001C5AC5 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,7 @@
 		EAE48A6E1A83B5AF0086F0B6 /* PixelPoemsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PixelPoemsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE48A731A83B5AF0086F0B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAE48A741A83B5AF0086F0B6 /* FridgeWordsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FridgeWordsTests.m; sourceTree = "<group>"; };
+		EAECA9D21B71384B001C5AC5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,21 +140,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA16BDEB1B1951B700FA1FD9 /* CoreGraphics.framework in Frameworks */,
+				EA16BDF71B1951E100FA1FD9 /* SystemConfiguration.framework in Frameworks */,
+				EAECA9D31B71384B001C5AC5 /* MessageUI.framework in Frameworks */,
+				EA16BDE71B1951AB00FA1FD9 /* AudioToolbox.framework in Frameworks */,
 				EA2FC7161B6FDCB200713AAE /* iAd.framework in Frameworks */,
 				EAE130651B4C459400CFD86B /* libstdc++.6.dylib in Frameworks */,
 				EAE130601B4B019000CFD86B /* Accounts.framework in Frameworks */,
 				EAE1305E1B4B018300CFD86B /* Social.framework in Frameworks */,
 				EA16BDFB1B1951F400FA1FD9 /* libsqlite3.dylib in Frameworks */,
 				EA16BDF91B1951EC00FA1FD9 /* libz.dylib in Frameworks */,
-				EA16BDF71B1951E100FA1FD9 /* SystemConfiguration.framework in Frameworks */,
 				EA16BDF51B1951DA00FA1FD9 /* StoreKit.framework in Frameworks */,
 				EA16BDF31B1951D400FA1FD9 /* Security.framework in Frameworks */,
 				EA16BDF11B1951CC00FA1FD9 /* QuartzCore.framework in Frameworks */,
 				EA16BDEF1B1951C500FA1FD9 /* MobileCoreServices.framework in Frameworks */,
 				EA16BDED1B1951BD00FA1FD9 /* CoreLocation.framework in Frameworks */,
-				EA16BDEB1B1951B700FA1FD9 /* CoreGraphics.framework in Frameworks */,
 				EA16BDE91B1951B100FA1FD9 /* CFNetwork.framework in Frameworks */,
-				EA16BDE71B1951AB00FA1FD9 /* AudioToolbox.framework in Frameworks */,
 				7271894B9AF6FA1783076F99 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -192,6 +195,7 @@
 		EA16BDFC1B19521E00FA1FD9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EAECA9D21B71384B001C5AC5 /* MessageUI.framework */,
 				EA2FC7151B6FDCB200713AAE /* iAd.framework */,
 				EAE130641B4C459400CFD86B /* libstdc++.6.dylib */,
 				EAE1305F1B4B019000CFD86B /* Accounts.framework */,

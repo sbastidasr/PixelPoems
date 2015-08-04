@@ -7,11 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
+//#import "GADBannerView.h"
 
 @interface RemoveAdsViewController : UIViewController
 {
 BOOL areAdsRemoved;
 }
+
+
+
+
+
 
 - (IBAction)restore;
 - (IBAction)tapsRemoveAds;

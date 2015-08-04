@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <iAd/iAd.h>
+@import GoogleMobileAds;
 
-@interface AdTestViewController : UIViewController <ADBannerViewDelegate>
-
+@interface AdTestViewController : UIViewController <ADBannerViewDelegate, GADBannerViewDelegate>
 @end

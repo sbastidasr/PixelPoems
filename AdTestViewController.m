@@ -10,66 +10,49 @@
 #import <iAd/iAd.h>
 
 @interface AdTestViewController ()
-{
-    BOOL _bannerIsVisible;
-    ADBannerView *_adBanner;
-}
+@property (nonatomic, strong) ADBannerView *bannerView;
+@property (nonatomic, strong) GADBannerView *admobBannerView;
+#define ADMOB_ID @"ca-app-pub-1226057377068990/1455082064"
 @end
 
 @implementation AdTestViewController
+@synthesize bannerView = _bannerView;
+@synthesize admobBannerView = _admobBannerView;
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
+    self.bannerView = [[ADBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 50, 320, 50)];
+    [self.bannerView setDelegate:self];
+    [self.view addSubview:self.bannerView];
     
-    _adBanner = [[ADBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height, 320, 50)];
-    _adBanner.delegate = self;
+    //Comment this line to make iAds Fail
+    [self bannerView:self.bannerView didFailToReceiveAdWithError:nil];
 }
 
-
-
-- (void)bannerViewDidLoadAd:(ADBannerView *)banner
-{
-    if (!_bannerIsVisible)
-    {
-        // If banner isn't part of view hierarchy, add it
-        if (_adBanner.superview == nil)
-        {
-            [self.view addSubview:_adBanner];
-        }
-        
-        [UIView beginAnimations:@"animateAdBannerOn" context:NULL];
-        
-        // Assumes the banner view is just off the bottom of the screen.
-        banner.frame = CGRectOffset(banner.frame, 0, -banner.frame.size.height);
-        
-        [UIView commitAnimations];
-        
-        _bannerIsVisible = YES;
-    }
-}
-
-- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
-{
-    NSLog(@"Failed to retrieve ad");
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
+    //Remove failed banner
+    [self.bannerView removeFromSuperview];
     
-    if (_bannerIsVisible)
-    {
-        [UIView beginAnimations:@"animateAdBannerOff" context:NULL];
-        
-        // Assumes the banner view is placed at the bottom of the screen.
-        banner.frame = CGRectOffset(banner.frame, 0, banner.frame.size.height);
-        
-        [UIView commitAnimations];
-        
-        _bannerIsVisible = NO;
-    }
+    // Init admob
+    _admobBannerView = [[GADBannerView alloc]
+                        initWithFrame:CGRectMake(0.0,self.view.frame.size.height - 50,
+                                                 GAD_SIZE_320x50.width,
+                                                 GAD_SIZE_320x50.height)];
+    self.admobBannerView.adUnitID = ADMOB_ID;
+    self.admobBannerView.rootViewController = self;
+    self.admobBannerView.delegate = self;
+    
+    //Add to sub.
+    [self.view addSubview:self.admobBannerView];
+    
+    //Make Req
+    GADRequest *request = [GADRequest request];
+    request.testDevices = @[ @"b57b973d12a5c6d4fe5bccde680694a3", kGADSimulatorID ];
+    [self.admobBannerView loadRequest:request];
+}
+
+- (void)adView:(GADBannerView *)view didFailToReceiveAdWithError:(GADRequestError *)error {
+    [self.admobBannerView removeFromSuperview];
 }
 
 @end
