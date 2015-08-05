@@ -61,7 +61,7 @@
     [super viewDidLoad];
     [self createGameView];
     [self setUpWords];
-
+    
     
 }
 

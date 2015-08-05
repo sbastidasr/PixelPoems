@@ -30,7 +30,7 @@
     [self.view addSubview:self.bannerView];
     
     //UNComment this line to make iAds Fail
-      [self bannerView:self.bannerView didFailToReceiveAdWithError:nil];
+     // [self bannerView:self.bannerView didFailToReceiveAdWithError:nil];
 }
 
 - (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {

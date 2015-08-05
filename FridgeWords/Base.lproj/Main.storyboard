@@ -333,6 +333,7 @@
                     </view>
                     <connections>
                         <outlet property="WODbadge" destination="oBB-in-DZ9" id="6ML-oX-Vug"/>
+                        <outlet property="adView" destination="Njq-1N-V47" id="3aL-eb-k92"/>
                         <outlet property="bottomBar" destination="Cne-eP-G32" id="Dmo-oh-3RQ"/>
                         <outlet property="gameView" destination="syC-Ev-DRd" id="vlY-L7-I4a"/>
                         <outlet property="wordPackLabel" destination="iEK-IE-JMO" id="ulM-Yx-wwV"/>
@@ -487,7 +488,7 @@
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Cw7-kY-CsQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.14117647058823529" green="0.16078431372549021" blue="0.17647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <toolbarItems/>
                 </viewController>
