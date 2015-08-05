@@ -10,5 +10,8 @@
 #import <iAd/iAd.h>
 @import GoogleMobileAds;
 
-@interface AdTestViewController : UIViewController <ADBannerViewDelegate, GADBannerViewDelegate>
+@interface AdBannerViewController : UIViewController <ADBannerViewDelegate, GADBannerViewDelegate>
+
+@property (nonatomic, strong) UIView *adView;
+
 @end

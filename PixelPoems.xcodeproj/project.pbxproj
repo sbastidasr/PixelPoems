@@ -21,7 +21,7 @@
 		EA16BDFB1B1951F400FA1FD9 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EA16BDFA1B1951F400FA1FD9 /* libsqlite3.dylib */; };
 		EA2CAB221B596ABA00F60368 /* constants.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2CAB211B596ABA00F60368 /* constants.m */; };
 		EA2FC7161B6FDCB200713AAE /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA2FC7151B6FDCB200713AAE /* iAd.framework */; };
-		EA2FC7191B6FDCD700713AAE /* AdTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2FC7181B6FDCD700713AAE /* AdTestViewController.m */; };
+		EA2FC7191B6FDCD700713AAE /* AdBannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2FC7181B6FDCD700713AAE /* AdBannerViewController.m */; };
 		EA829C061B0CF71F0016E201 /* WordLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EA829C051B0CF71F0016E201 /* WordLabel.m */; };
 		EA829C211B0D00720016E201 /* ProximaNova-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA829C0A1B0CFFE00016E201 /* ProximaNova-Black.otf */; };
 		EA829C221B0D00750016E201 /* ProximaNova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA829C0B1B0CFFE00016E201 /* ProximaNova-Bold.otf */; };
@@ -88,8 +88,8 @@
 		EA2CAB201B596ABA00F60368 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		EA2CAB211B596ABA00F60368 /* constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = constants.m; sourceTree = "<group>"; };
 		EA2FC7151B6FDCB200713AAE /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
-		EA2FC7171B6FDCD700713AAE /* AdTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdTestViewController.h; sourceTree = "<group>"; };
-		EA2FC7181B6FDCD700713AAE /* AdTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdTestViewController.m; sourceTree = "<group>"; };
+		EA2FC7171B6FDCD700713AAE /* AdBannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdBannerViewController.h; path = ../AdBannerViewController.h; sourceTree = "<group>"; };
+		EA2FC7181B6FDCD700713AAE /* AdBannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdBannerViewController.m; path = ../AdBannerViewController.m; sourceTree = "<group>"; };
 		EA829C041B0CF71F0016E201 /* WordLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordLabel.h; sourceTree = "<group>"; };
 		EA829C051B0CF71F0016E201 /* WordLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordLabel.m; sourceTree = "<group>"; };
 		EA829C0A1B0CFFE00016E201 /* ProximaNova-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Black.otf"; sourceTree = "<group>"; };
@@ -239,6 +239,8 @@
 		EAC202831B137DDA001C6692 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EAA54A461B59777A00CD0BC4 /* GameView.h */,
+				EAA54A471B59777A00CD0BC4 /* GameView.m */,
 				EA829C041B0CF71F0016E201 /* WordLabel.h */,
 				EA829C051B0CF71F0016E201 /* WordLabel.m */,
 			);
@@ -259,12 +261,10 @@
 		EAD35B641AC0CB8200D3901A /* Controllers. */ = {
 			isa = PBXGroup;
 			children = (
-				EAA54A461B59777A00CD0BC4 /* GameView.h */,
-				EAA54A471B59777A00CD0BC4 /* GameView.m */,
+				EA2FC7171B6FDCD700713AAE /* AdBannerViewController.h */,
+				EA2FC7181B6FDCD700713AAE /* AdBannerViewController.m */,
 				EAE48A5F1A83B5AF0086F0B6 /* GameViewController.h */,
 				EAE48A601A83B5AF0086F0B6 /* GameViewController.m */,
-				EA2CAB201B596ABA00F60368 /* constants.h */,
-				EA2CAB211B596ABA00F60368 /* constants.m */,
 				EAE130661B4D8D0A00CFD86B /* PopupTableViewController.h */,
 				EAE130671B4D8D0A00CFD86B /* PopupTableViewController.m */,
 				EAB394521B42F2BE005E27B7 /* SavedGamesTableViewController.h */,
@@ -276,8 +276,6 @@
 		EAE48A4C1A83B5AF0086F0B6 = {
 			isa = PBXGroup;
 			children = (
-				EA2FC7171B6FDCD700713AAE /* AdTestViewController.h */,
-				EA2FC7181B6FDCD700713AAE /* AdTestViewController.m */,
 				EAA54A491B5D799700CD0BC4 /* RemoveAdsViewController.h */,
 				EAA54A4A1B5D799700CD0BC4 /* RemoveAdsViewController.m */,
 				EAE48A571A83B5AF0086F0B6 /* PixelPoems */,
@@ -313,6 +311,8 @@
 		EAE48A581A83B5AF0086F0B6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EA2CAB201B596ABA00F60368 /* constants.h */,
+				EA2CAB211B596ABA00F60368 /* constants.m */,
 				EAC202811B137D60001C6692 /* wordPacks.json */,
 				EAE48A651A83B5AF0086F0B6 /* Images.xcassets */,
 				EAE48A671A83B5AF0086F0B6 /* LaunchScreen.xib */,
@@ -495,7 +495,7 @@
 				EAE48A611A83B5AF0086F0B6 /* GameViewController.m in Sources */,
 				EAE48A5E1A83B5AF0086F0B6 /* AppDelegate.m in Sources */,
 				EAD35B671AC0CBEA00D3901A /* PlistLoader.m in Sources */,
-				EA2FC7191B6FDCD700713AAE /* AdTestViewController.m in Sources */,
+				EA2FC7191B6FDCD700713AAE /* AdBannerViewController.m in Sources */,
 				EAE48A5B1A83B5AF0086F0B6 /* main.m in Sources */,
 				EA2CAB221B596ABA00F60368 /* constants.m in Sources */,
 				EAC202911B14D823001C6692 /* WordPackWrapper.m in Sources */,

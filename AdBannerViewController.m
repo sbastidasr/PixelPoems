@@ -6,38 +6,44 @@
 //  Copyright (c) 2015 sbastidasr. All rights reserved.
 //
 
-#import "AdTestViewController.h"
+#import "AdBannerViewController.h"
 #import <iAd/iAd.h>
 
-@interface AdTestViewController ()
+@interface AdBannerViewController ()
 @property (nonatomic, strong) ADBannerView *bannerView;
 @property (nonatomic, strong) GADBannerView *admobBannerView;
 #define ADMOB_ID @"ca-app-pub-1226057377068990/1455082064"
 @end
 
-@implementation AdTestViewController
+@implementation AdBannerViewController
 @synthesize bannerView = _bannerView;
 @synthesize admobBannerView = _admobBannerView;
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    self.bannerView = [[ADBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 50, 320, 50)];
+ 
+    //Uncomment this line to serve ads on any other screen, bottom.
+    self.bannerView = [[ADBannerView alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
+   //  self.bannerView = [[ADBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 50, 320, 50)];
+    
     [self.bannerView setDelegate:self];
     [self.view addSubview:self.bannerView];
     
-    //Comment this line to make iAds Fail
-    [self bannerView:self.bannerView didFailToReceiveAdWithError:nil];
+    //UNComment this line to make iAds Fail
+      [self bannerView:self.bannerView didFailToReceiveAdWithError:nil];
 }
 
 - (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
     //Remove failed banner
     [self.bannerView removeFromSuperview];
     
-    // Init admob
-    _admobBannerView = [[GADBannerView alloc]
-                        initWithFrame:CGRectMake(0.0,self.view.frame.size.height - 50,
-                                                 GAD_SIZE_320x50.width,
-                                                 GAD_SIZE_320x50.height)];
+    
+    // Init admob. Uncomment this for bottom ads.
+    // CGPoint origin = CGPointMake(0.0, self.view.frame.size.height - CGSizeFromGADAdSize(kGADAdSizeBanner).height);
+   // _admobBannerView=  [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait origin:origin];
+    _admobBannerView=  [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait];
+    
+
     self.admobBannerView.adUnitID = ADMOB_ID;
     self.admobBannerView.rootViewController = self;
     self.admobBannerView.delegate = self;

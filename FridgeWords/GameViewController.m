@@ -8,6 +8,8 @@
 
 #import "GameViewController.h"
 #import "GameView.h"
+#import "AdBannerViewController.h"
+
 
 //self.gameView.wordLabels  contains array of words. Everything can be recreated from it. with addlabels to view
 @interface GameViewController () <WYPopoverControllerDelegate>{
@@ -19,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *WODbadge;
 @property (weak, nonatomic) IBOutlet UIToolbar *bottomBar;
 ///
+@property (weak, nonatomic) IBOutlet UIView *adView;
 
 ///
 - (IBAction)showPopover:(id)sender;
@@ -57,11 +60,15 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     [self createGameView];
+    [self setUpWords];
 
-  
+    
+}
+
+-(void)setUpWords{
     //If coming from Words of the day:
     if(!self.gameView.wordLabels){
-       self.gameView.wordLabels = [[NSMutableArray alloc]init];
+        self.gameView.wordLabels = [[NSMutableArray alloc]init];
         WordPackWrapper *wp =[PlistLoader defaultWordPack];///HERE CHANGE FOR OTHER WORDPACKS
         [wp  shuffleWordPack];
         [self setupLabels:[wp getNumberOfWordsFromWordPack:100] isWOD:NO]; //restricted words to 100, check playability
@@ -70,15 +77,14 @@
     }
     //If coming from savegames.
     else{
-    [self.gameView removeLabelsFromView];
-    [self.gameView addLabelsToView];
+        [self.gameView removeLabelsFromView];
+        [self.gameView addLabelsToView];
     }
     //listen to popover notifications.
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receiveTestNotification:)
                                                  name:@"PopOverAction"
                                                object:nil];
-    
 }
 
 -(void)loadWoD{
