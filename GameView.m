@@ -101,7 +101,8 @@ static float const fontSize = 18.0;
             }
         }
         if ([wordDict[@"isWordOfTheDay"] isEqual:@YES]){
-             label.backgroundColor=[UIColor redColor];
+            // label.backgroundColor=[UIColor redColor];
+              label.backgroundColor=[UIColor colorWithRed:58.0/255.0  green:61.0/255.0 blue:64.0/255.0 alpha:1.0f];
         }
         
         if(wordDict[@"X"]==nil){//if it has no place in map, yet.
