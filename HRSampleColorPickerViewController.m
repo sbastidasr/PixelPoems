@@ -47,6 +47,8 @@
     if (self) {
     }
     return self;
+    
+
 }
 
 - (void)viewDidLoad {
@@ -56,6 +58,7 @@
                              action:@selector(colorDidChange:)
                    forControlEvents:UIControlEventValueChanged];
     self.colorPickerView.backgroundColor=[UIColor colorWithRed:36.0/255.0  green:41.0/255.0 blue:45.0/255.0 alpha:1.0f];
+    self.colorPickerView.colorInfoView.backgroundColor=[UIColor whiteColor];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

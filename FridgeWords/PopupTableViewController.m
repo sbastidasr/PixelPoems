@@ -7,7 +7,7 @@
 //
 
 #import "PopupTableViewController.h"
-#import "HRSampleColorPickerViewController2.h"
+#import "HRSampleColorPickerViewController.h"
 #import "SavedGamesTableViewController.h"
 #import "PlistLoader.h"
 #import "GameViewController.h"
@@ -86,23 +86,13 @@
     [argsDict setObject:selectedCell.text forKey:@"SelectedCellText"];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"PopOverAction" object:argsDict];
-    
-    */
-    
-    HRSampleColorPickerViewController2 *controller;
-    
-                
-    controller = [[HRSampleColorPickerViewController2 alloc] initWithColor:[UIColor whiteColor] fullColor:NO];
-    controller.delegate = self;
-    //[self.navigationController presentViewController:controller animated:YES completion:nil];
- 
-    
+    */    
    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    HRSampleColorPickerViewController2 *listViewController = (HRSampleColorPickerViewController2 *)[storyboard instantiateViewControllerWithIdentifier:@"asd"];
+    HRSampleColorPickerViewController *listViewController = (HRSampleColorPickerViewController *)[storyboard instantiateViewControllerWithIdentifier:@"asd"];
     listViewController.preferredContentSize = CGSizeMake(320, 350);
     [self.navigationController pushViewController:listViewController animated:YES];
-    
+    listViewController.delegate=self;
 
     return;
 }
