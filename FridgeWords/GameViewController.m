@@ -164,7 +164,7 @@
 - (IBAction)showPopover:(id)sender{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PopupTableViewController *listViewController = (PopupTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"PopupTVC"];
-    listViewController.preferredContentSize = CGSizeMake(320, 280);
+    listViewController.preferredContentSize = CGSizeMake(320, 350);
     UIView *btn = (UIView *)sender;
 
     listViewController.typeOfController=btn.tag;

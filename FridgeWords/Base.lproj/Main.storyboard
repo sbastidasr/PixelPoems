@@ -435,6 +435,7 @@
         <!--Popup Table View Controller-->
         <scene sceneID="Xyr-Tx-N8I">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bCY-gE-X38" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="PopupTVC" id="c6V-j0-njG" customClass="PopupTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="NkP-Kp-Uy6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -455,7 +456,6 @@
                     </tableView>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bCY-gE-X38" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3899.5" y="-99.5"/>
         </scene>
@@ -477,6 +477,116 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rnf-5M-ueY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3497.5" y="1041"/>
+        </scene>
+        <!--Sample Color Picker View Controller-->
+        <scene sceneID="ssW-iC-f4K">
+            <objects>
+                <viewController storyboardIdentifier="asd" id="8tA-cu-hge" customClass="HRSampleColorPickerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tbV-ep-MEx"/>
+                        <viewControllerLayoutGuide type="bottom" id="L3H-vP-frM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="w8c-kl-UzZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2xQ-KE-ufZ" customClass="HRColorPickerView">
+                                <rect key="frame" x="0.0" y="64" width="600" height="504"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JlI-KL-Aiz" customClass="HRColorInfoView">
+                                        <rect key="frame" x="8" y="27" width="66" height="50"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="jpR-Zp-nO4"/>
+                                            <constraint firstAttribute="width" constant="66" id="si1-Rj-JTZ"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qxt-0l-4KO" customClass="HRBrightnessSlider">
+                                        <rect key="frame" x="83" y="48" width="508" height="11"/>
+                                        <color key="backgroundColor" red="0.66666666669999997" green="0.61911003490000005" blue="0.62945342689999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="11" id="CnX-jI-VFv"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="brightnessLowerLimit">
+                                                <integer key="value" value="0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UnV-1h-Lbr" customClass="HRColorMapView">
+                                        <rect key="frame" x="0.0" y="104" width="600" height="400"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="saturationUpperLimit">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="tileSize">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SqQ-9B-ts9">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="27"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="SWO-Wo-VEs"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xF9-Ah-dOQ">
+                                        <rect key="frame" x="0.0" y="77" width="100" height="27"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="8FZ-rw-2XF"/>
+                                            <constraint firstAttribute="width" constant="100" id="kd7-y9-vLW"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="SqQ-9B-ts9" firstAttribute="height" secondItem="xF9-Ah-dOQ" secondAttribute="height" id="2e9-EL-dDQ"/>
+                                    <constraint firstAttribute="right" secondItem="qxt-0l-4KO" secondAttribute="right" constant="9" id="43Z-Zb-adV"/>
+                                    <constraint firstItem="JlI-KL-Aiz" firstAttribute="top" secondItem="SqQ-9B-ts9" secondAttribute="bottom" id="AIl-Ls-AgB"/>
+                                    <constraint firstAttribute="bottom" secondItem="UnV-1h-Lbr" secondAttribute="bottom" id="DOk-Ry-3G0"/>
+                                    <constraint firstItem="UnV-1h-Lbr" firstAttribute="leading" secondItem="2xQ-KE-ufZ" secondAttribute="leading" id="Eve-jz-kfe"/>
+                                    <constraint firstItem="UnV-1h-Lbr" firstAttribute="top" secondItem="xF9-Ah-dOQ" secondAttribute="bottom" id="FJC-Uj-I8u"/>
+                                    <constraint firstItem="UnV-1h-Lbr" firstAttribute="top" secondItem="2xQ-KE-ufZ" secondAttribute="top" priority="250" constant="104" id="ISw-6K-RXP"/>
+                                    <constraint firstItem="xF9-Ah-dOQ" firstAttribute="leading" secondItem="2xQ-KE-ufZ" secondAttribute="leading" id="LaJ-SW-I3L"/>
+                                    <constraint firstAttribute="trailing" secondItem="UnV-1h-Lbr" secondAttribute="trailing" id="aSc-vb-Bid"/>
+                                    <constraint firstItem="qxt-0l-4KO" firstAttribute="left" secondItem="JlI-KL-Aiz" secondAttribute="right" constant="9" id="cZU-YB-20e"/>
+                                    <constraint firstItem="SqQ-9B-ts9" firstAttribute="leading" secondItem="2xQ-KE-ufZ" secondAttribute="leading" id="et5-Hg-jcY"/>
+                                    <constraint firstItem="xF9-Ah-dOQ" firstAttribute="top" secondItem="JlI-KL-Aiz" secondAttribute="bottom" id="guV-cf-Poe"/>
+                                    <constraint firstItem="SqQ-9B-ts9" firstAttribute="top" secondItem="2xQ-KE-ufZ" secondAttribute="top" id="jgt-ke-csX"/>
+                                    <constraint firstItem="JlI-KL-Aiz" firstAttribute="bottom" secondItem="qxt-0l-4KO" secondAttribute="bottom" constant="18" id="nNX-RI-Cab"/>
+                                    <constraint firstItem="JlI-KL-Aiz" firstAttribute="leading" secondItem="2xQ-KE-ufZ" secondAttribute="leading" constant="8" id="sCF-Ct-hBB"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" red="0.20598814139999999" green="0.86822775139999997" blue="0.17019018220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="brightnessSlider" destination="qxt-0l-4KO" id="0rg-Dg-lfw"/>
+                                    <outlet property="colorInfoView" destination="JlI-KL-Aiz" id="MbG-J9-cVk"/>
+                                    <outlet property="colorMapView" destination="UnV-1h-Lbr" id="FAo-Hh-Dzb"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2xQ-KE-ufZ" firstAttribute="leading" secondItem="w8c-kl-UzZ" secondAttribute="leading" id="3nA-6Z-NVA"/>
+                            <constraint firstItem="L3H-vP-frM" firstAttribute="top" secondItem="2xQ-KE-ufZ" secondAttribute="bottom" id="47N-4M-noL"/>
+                            <constraint firstAttribute="trailing" secondItem="2xQ-KE-ufZ" secondAttribute="trailing" id="ISQ-bI-mDe"/>
+                            <constraint firstItem="2xQ-KE-ufZ" firstAttribute="top" secondItem="tbV-ep-MEx" secondAttribute="bottom" id="osI-s5-1RE"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="v9X-cw-wcu"/>
+                    <connections>
+                        <outlet property="colorPickerView" destination="2xQ-KE-ufZ" id="w4n-VJ-Ads"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qX4-a1-4bj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1511" y="-869"/>
         </scene>
     </scenes>
     <resources>

@@ -7,13 +7,14 @@
 //
 
 #import "PopupTableViewController.h"
-
+#import "HRSampleColorPickerViewController2.h"
 #import "SavedGamesTableViewController.h"
 #import "PlistLoader.h"
 #import "GameViewController.h"
 #import "WordPackWrapper.h"
 
-@interface PopupTableViewController ()
+@interface PopupTableViewController () <HRColorPickerViewControllerDelegate>
+
 @property (nonatomic, strong) NSMutableArray* menuItems;
 @end
 
@@ -78,16 +79,41 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
    
-    UITableViewCell *selectedCell= [self.tableView cellForRowAtIndexPath:indexPath];
+   /* UITableViewCell *selectedCell= [self.tableView cellForRowAtIndexPath:indexPath];
     
     NSMutableDictionary *argsDict = [[NSMutableDictionary alloc]init];
     [argsDict setObject:self.navigationItem.title forKey:@"Action"];
     [argsDict setObject:selectedCell.text forKey:@"SelectedCellText"];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"PopOverAction" object:argsDict];
+    
+    */
+    
+    HRSampleColorPickerViewController2 *controller;
+    
+                
+    controller = [[HRSampleColorPickerViewController2 alloc] initWithColor:[UIColor whiteColor] fullColor:NO];
+    controller.delegate = self;
+    //[self.navigationController presentViewController:controller animated:YES completion:nil];
+ 
+    
+   
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    HRSampleColorPickerViewController2 *listViewController = (HRSampleColorPickerViewController2 *)[storyboard instantiateViewControllerWithIdentifier:@"asd"];
+    listViewController.preferredContentSize = CGSizeMake(320, 350);
+    [self.navigationController pushViewController:listViewController animated:YES];
+    
+
+    return;
 }
 
 
+- (void)setSelectedColor:(UIColor *)color {
+   
+    //delegate responde
+    int i=0;
+    
+}
 
 
 ////colors

@@ -12,3 +12,4 @@
 extern NSString * const PREFS_MY_CONSTANT;
 
 extern const CGSize sizeOfScrollableArea;
+

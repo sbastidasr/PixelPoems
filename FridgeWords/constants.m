@@ -14,7 +14,3 @@ NSString * const PREFS_MY_CONSTANT = @"prefs_my_constant";
 extern const CGSize sizeOfScrollableArea = {.width = 3000.0, .height = 3000.0};
 
 
-
-
-
-
