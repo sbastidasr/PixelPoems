@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Color-Picker-for-iOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Facebook-iOS-SDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,32 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3499C3430CC62267B2E2EDAA</key>
+		<key>07D22700DD39C3124062FE85</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3DFA0E05EF67594DA89AC92B</key>
+		<key>108DD2DF91BA7E0BA7E800C7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3EE1373B72C9699C2D7DEF21</key>
+		<key>3CDBC844BDF196E7AAE1D9FC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5F660EDFD021E13B60A6410C</key>
+		<key>873EEAB29A648264F5CC5462</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A17A3FC9667E5BAE00CD8F62</key>
+		<key>885EA74FF5F555CDFF62904E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EAAB4741298A39430C4672C9</key>
+		<key>9505391476E2578FDF0B9248</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B707DAF24C4CF526F760FBA0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

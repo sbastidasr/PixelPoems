@@ -5,6 +5,7 @@ PODS:
   - Bolts/AppLinks (1.2.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.2.0)
+  - Color-Picker-for-iOS (2.0.2)
   - Facebook-iOS-SDK (3.23.2):
     - Bolts (~> 1.0)
   - Google-Mobile-Ads-SDK (7.4.0)
@@ -17,6 +18,7 @@ PODS:
   - WYPopoverController (0.1.8)
 
 DEPENDENCIES:
+  - Color-Picker-for-iOS (~> 2.0)
   - Facebook-iOS-SDK
   - Google-Mobile-Ads-SDK (~> 7.0)
   - Parse
@@ -34,6 +36,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Bolts: d176cb1e0012175589e389a9db49b85e27787576
+  Color-Picker-for-iOS: 4980589b3e3cfe7198f227dd50be9adb02d8bc0b
   Facebook-iOS-SDK: cd87f0b2f0c1d9574b44e8fa2baacc275524bac3
   Google-Mobile-Ads-SDK: ff8ce0c4b495c60113a6f37916956aab9504d527
   Parse: 7c0f115eff3e0cea3fac08d50bda47154edb8832

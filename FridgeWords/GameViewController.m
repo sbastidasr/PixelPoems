@@ -216,6 +216,8 @@
 
         NSLog (@"Action: %@ Cellname: %@", argsDict[@"Action"], argsDict[@"SelectedCellText"]);
         
+        NSLog(@"Bahlala");
+        
         if([action isEqualToString:@"WordPacks"]){
             [self changeToWordPackNamed:argsDict[@"SelectedCellText"]];
         }

@@ -24,6 +24,12 @@
 #define COCOAPODS_VERSION_MINOR_Bolts_Tasks 2
 #define COCOAPODS_VERSION_PATCH_Bolts_Tasks 0
 
+// Color-Picker-for-iOS
+#define COCOAPODS_POD_AVAILABLE_Color_Picker_for_iOS
+#define COCOAPODS_VERSION_MAJOR_Color_Picker_for_iOS 2
+#define COCOAPODS_VERSION_MINOR_Color_Picker_for_iOS 0
+#define COCOAPODS_VERSION_PATCH_Color_Picker_for_iOS 2
+
 // Facebook-iOS-SDK
 #define COCOAPODS_POD_AVAILABLE_Facebook_iOS_SDK
 #define COCOAPODS_VERSION_MAJOR_Facebook_iOS_SDK 3
