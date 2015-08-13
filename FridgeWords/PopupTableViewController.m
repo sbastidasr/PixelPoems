@@ -16,6 +16,7 @@
 @interface PopupTableViewController () <HRColorPickerViewControllerDelegate>
 
 @property (nonatomic, strong) NSMutableArray* menuItems;
+@property(nonatomic,strong)NSMutableString* selectedItemToChangeColor;
 @end
 
 @implementation PopupTableViewController
@@ -28,7 +29,7 @@
     switch (self.typeOfController) {
     case 0:
             self.navigationItem.title=@"Customize";
-            self.menuItems=@[@"Word Color",@"Word Border",@"Word Background", @"Background"];
+            self.menuItems=@[@"Font Color", @"Border Color",@"Background Color", @"Game Background"];
         break;
     case 1:
             self.navigationItem.title=@"WordPacks";
@@ -67,8 +68,14 @@
             cell.textLabel.text = wordPack.packName;
         }
             break;
-        default:
+        case 0:/*Customize*/{
             cell.textLabel.text = self.menuItems[indexPath.row];
+
+        }
+            break;
+        default:
+        {int i = 0;
+        }
             break;
     }
     return cell;
@@ -78,31 +85,37 @@
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-   
-   /* UITableViewCell *selectedCell= [self.tableView cellForRowAtIndexPath:indexPath];
+    UITableViewCell *selectedCell= [self.tableView cellForRowAtIndexPath:indexPath];
     
+    
+    if(self.typeOfController==0){ //All Cells Have Color Pickers.
+         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+         HRSampleColorPickerViewController *listViewController = (HRSampleColorPickerViewController *)[storyboard instantiateViewControllerWithIdentifier:@"asd"];
+         listViewController.preferredContentSize = CGSizeMake(320, 350);
+         [self.navigationController pushViewController:listViewController animated:YES];
+         listViewController.delegate=self;
+        listViewController.color=[UIColor whiteColor];
+        self.selectedItemToChangeColor=selectedCell.text;
+        
+        
+    }
+    
+       if(self.typeOfController==1){ //All Cells are wordpack Selections.
     NSMutableDictionary *argsDict = [[NSMutableDictionary alloc]init];
     [argsDict setObject:self.navigationItem.title forKey:@"Action"];
     [argsDict setObject:selectedCell.text forKey:@"SelectedCellText"];
-    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"PopOverAction" object:argsDict];
-    */    
-   
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    HRSampleColorPickerViewController *listViewController = (HRSampleColorPickerViewController *)[storyboard instantiateViewControllerWithIdentifier:@"asd"];
-    listViewController.preferredContentSize = CGSizeMake(320, 350);
-    [self.navigationController pushViewController:listViewController animated:YES];
-    listViewController.delegate=self;
-
+    }
     return;
 }
 
 
 - (void)setSelectedColor:(UIColor *)color {
-   
-    //delegate responde
-    int i=0;
-    
+    NSMutableDictionary *argsDict = [[NSMutableDictionary alloc]init];
+    [argsDict setObject:@"Customize" forKey:@"Action"];
+    [argsDict setObject:self.selectedItemToChangeColor forKey:@"SelectedCellText"];
+    [argsDict setObject:color forKey:@"Color"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"PopOverAction" object:argsDict];
 }
 
 

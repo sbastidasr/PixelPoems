@@ -27,4 +27,10 @@
 -(void)addLabelsToView;
 
 
+-(void)updateView;
+-(void)changeFontColorTo:color;
+-(void)changeBorderColorTo:color;
+-(void)changeBackgroundColorTo:color;
+-(void)changeGameBackgroundTo:color;
+
 @end

@@ -112,6 +112,13 @@
         //Set label text
         label[@"attributedText"] = wordArray[i];
        [self.gameView.wordLabels addObject:label];//add to arrayforlabels
+        
+        
+        label[@"Font Color"] = [UIColor whiteColor];
+         label[@"Border Color"] = [UIColor whiteColor];
+        label[@"Background Color"] = [UIColor colorWithRed:35.0/255.0  green:40.0/255.0 blue:44.0/255.0 alpha:1.0f];
+        
+
     }
 }
 
@@ -216,18 +223,61 @@
 
         NSLog (@"Action: %@ Cellname: %@", argsDict[@"Action"], argsDict[@"SelectedCellText"]);
         
-        NSLog(@"Bahlala");
-        
+        //When WordPacks are modified
         if([action isEqualToString:@"WordPacks"]){
             [self changeToWordPackNamed:argsDict[@"SelectedCellText"]];
         }
+        
+        if([action isEqualToString:@"Customize"]){
+            NSArray *customizeOpts =@[@"FONT COLOR", @"BORDER COLOR",@"BACKGROUND COLOR", @"GAME BACKGROUND"];
+            
+            if([customizeOpts containsObject:argsDict[@"SelectedCellText"]])
+            {
+                 int index = [customizeOpts indexOfObject: argsDict[@"SelectedCellText"]];
+                UIColor *color = argsDict[@"Color"];
+                switch (index) {
+                    case 0:
+                        [self.gameView changeFontColorTo:color];
+                        break;
+                    case 1:
+                        [self.gameView changeBorderColorTo:color];
+                        break;
+                    case 2:
+                        [self.gameView changeBackgroundColorTo:color];
+                        break;
+                    case 3:
+                        [self.gameView changeGameBackgroundTo:color];
+                        break;
+                    default:
+                        break;
+                }
+                
+                
+            }
+            
+     
+         
+        }
     }
+    
+    
+    
+    /*
+    - (void)setSelectedColor:(UIColor *)color {
+        NSMutableDictionary *argsDict = [[NSMutableDictionary alloc]init];
+        [argsDict setObject:@"Customize" forKey:@"Action"];
+        [argsDict setObject:self.selectedItemToChangeColor forKey:@"SelectedCellText"];
+        [argsDict setObject:color forKey:@"Color"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"PopOverAction" object:argsDict];
+    }
+    */
 }
 
 //POPOVER ACTIONS
 -(void)changeToWordPackNamed:(NSString *)name{
 
     [self.gameView removeLabelsFromView];
+
     NSMutableArray *wodArray=[[NSMutableArray alloc]
                               init];
     

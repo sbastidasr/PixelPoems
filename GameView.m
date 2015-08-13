@@ -82,11 +82,14 @@ static float const fontSize = 18.0;
         }
         
         //SetupLooks
-        label.layer.borderColor = [UIColor whiteColor].CGColor;
-        label.textColor = [UIColor whiteColor];
+        UIColor *borderColor = wordDict[@"Border Color"];
+        label.layer.borderColor = borderColor.CGColor;
+        label.textColor =  wordDict[@"Font Color"];
         label.textAlignment = NSTextAlignmentCenter;
-        label.backgroundColor=[UIColor colorWithRed:35.0/255.0  green:40.0/255.0 blue:44.0/255.0 alpha:1.0f];
-        //asd
+        label.backgroundColor=wordDict[@"Background Color"];
+        
+        ///SOON
+       /////// 
         
         if([wordDict objectForKey:@"sizeX"]==nil){
             //SetupSize
@@ -159,5 +162,34 @@ static float const fontSize = 18.0;
     }
 }
 
+-(void)updateView{
+    [self removeLabelsFromView];
+    [self addLabelsToView];
+}
+
+-(void)changeFontColorTo:color{
+    for (int i=0; i< self.wordLabels.count; i++){
+        NSMutableDictionary *wordDict=self.wordLabels[i];
+        wordDict[@"Font Color"]=color;
+    }
+    [self updateView];
+}
+-(void)changeBorderColorTo:color{
+    for (int i=0; i< self.wordLabels.count; i++){
+        NSMutableDictionary *wordDict=self.wordLabels[i];
+        wordDict[@"Border Color"]=color;
+    }
+    [self updateView];
+}
+-(void)changeBackgroundColorTo:color{
+    for (int i=0; i< self.wordLabels.count; i++){
+        NSMutableDictionary *wordDict=self.wordLabels[i];
+        wordDict[@"Background Color"]=color;
+    }
+    [self updateView];
+}
+-(void)changeGameBackgroundTo:color{
+    self.backgroundColor=color;
+}
 
 @end
