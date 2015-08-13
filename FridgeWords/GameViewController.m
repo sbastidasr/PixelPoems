@@ -22,7 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIToolbar *bottomBar;
 ///
 @property (weak, nonatomic) IBOutlet UIView *adView;
-
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *AdContainerViewHeight;
 ///
 - (IBAction)showPopover:(id)sender;
 
@@ -61,8 +61,24 @@
     [super viewDidLoad];
     [self createGameView];
     [self setUpWords];
-    
-    
+    [self hideAdsIfPaid];
+   
+}
+
+ //Call this method if in app puchase is made ====> [self doRemoveAds];
+- (void)doRemoveAds{
+    bool areAdsRemoved = NO;
+    [[NSUserDefaults standardUserDefaults] setBool:areAdsRemoved forKey:@"areAdsRemoved"];
+    //use NSUserDefaults so that you can load wether or not they bought it
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(void)hideAdsIfPaid{
+    bool areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:@"areAdsRemoved"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    if(areAdsRemoved){
+            self.AdContainerViewHeight.constant=0;
+    }
 }
 
 -(void)setUpWords{
