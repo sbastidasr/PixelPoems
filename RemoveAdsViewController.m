@@ -108,8 +108,12 @@
     }
 }
 
--(void)doRemoveAds{
-    int i =0;
+//Call this method if in app puchase is made ====> [self doRemoveAds];
+- (void)doRemoveAds{
+    bool areAdsRemoved = YES;
+    [[NSUserDefaults standardUserDefaults] setBool:areAdsRemoved forKey:@"areAdsRemoved"];
+    //use NSUserDefaults so that you can load wether or not they bought it
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end

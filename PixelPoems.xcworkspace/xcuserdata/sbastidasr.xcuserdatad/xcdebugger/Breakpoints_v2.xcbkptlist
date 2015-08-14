@@ -88,11 +88,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FridgeWords/GameViewController.m"
-            timestampString = "461196692.531838"
+            timestampString = "461248537.090747"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -152,11 +152,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FridgeWords/GameViewController.m"
-            timestampString = "461196692.531838"
+            timestampString = "461248537.090747"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "275"
-            endingLineNumber = "275"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
             landmarkName = "-receiveTestNotification:"
             landmarkType = "5">
          </BreakpointContent>
@@ -184,11 +184,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FridgeWords/GameViewController.m"
-            timestampString = "461196692.531838"
+            timestampString = "461248537.090747"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
+            startingLineNumber = "241"
+            endingLineNumber = "241"
             landmarkName = "-receiveTestNotification:"
             landmarkType = "5">
          </BreakpointContent>
@@ -200,11 +200,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FridgeWords/GameViewController.m"
-            timestampString = "461196692.531838"
+            timestampString = "461248537.090747"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "276"
-            endingLineNumber = "276"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
             landmarkName = "-receiveTestNotification:"
             landmarkType = "5">
          </BreakpointContent>
@@ -216,11 +216,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FridgeWords/GameViewController.m"
-            timestampString = "461196692.531838"
+            timestampString = "461248537.090747"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "252"
-            endingLineNumber = "252"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
             landmarkName = "-receiveTestNotification:"
             landmarkType = "5">
          </BreakpointContent>
@@ -232,11 +232,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FridgeWords/GameViewController.m"
-            timestampString = "461196692.531838"
+            timestampString = "461248537.090747"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "248"
-            endingLineNumber = "248"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
             landmarkName = "-receiveTestNotification:"
             landmarkType = "5">
          </BreakpointContent>
@@ -270,6 +270,38 @@
             startingLineNumber = "86"
             endingLineNumber = "86"
             landmarkName = "-addLabelsToView"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RemoveAdsViewController.m"
+            timestampString = "461246942.684065"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "-paymentQueue:updatedTransactions:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HomeViewController.m"
+            timestampString = "461248509.056614"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "-hideAdsIfPaid"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

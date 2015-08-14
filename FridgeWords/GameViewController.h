@@ -17,11 +17,11 @@
 #import "PopupTableViewController.h"
 #import "QuartzCore/QuartzCore.h"
 #import "constants.h"
-
+#import "HomeViewController.h"
 
 @class GameView;
 
-@interface GameViewController : UIViewController   //most user custmizable settings of current level.
+@interface GameViewController : HomeViewController   //most user custmizable settings of current level.
 
 @property (weak, nonatomic) IBOutlet GameView *gameView;
 

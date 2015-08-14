@@ -12,10 +12,10 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="unx-IF-RmY">
             <objects>
-                <viewController id="heq-Qm-bmM" sceneMemberID="viewController">
+                <viewController id="heq-Qm-bmM" customClass="HomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ng4-Nu-EpO"/>
                         <viewControllerLayoutGuide type="bottom" id="jPs-px-Isv"/>
@@ -168,6 +168,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="u7X-c0-8tm"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outletCollection property="adViewHeightConstraintsCollection" destination="TOU-f1-D2a" id="dax-yr-Hzg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hSx-On-8Qo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -229,7 +232,7 @@
                                     <action selector="HomeButton:" destination="pgE-JI-Bay" eventType="touchUpInside" id="D1o-Xw-ILc"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WordPack: Original" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEK-IE-JMO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="WordPack: Original" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEK-IE-JMO">
                                 <rect key="frame" x="130" y="73" width="167" height="20"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -333,7 +336,6 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="AdContainerViewHeight" destination="cwy-bI-sv3" id="3V5-SN-aRm"/>
                         <outlet property="WODbadge" destination="oBB-in-DZ9" id="6ML-oX-Vug"/>
                         <outlet property="adView" destination="Njq-1N-V47" id="3aL-eb-k92"/>
                         <outlet property="bottomBar" destination="Cne-eP-G32" id="Dmo-oh-3RQ"/>
@@ -342,6 +344,7 @@
                         <outletCollection property="headerItems" destination="oBB-in-DZ9" id="nh9-D1-F8k"/>
                         <outletCollection property="headerItems" destination="Nwg-wb-aB9" id="M5L-8x-MHc"/>
                         <outletCollection property="headerItems" destination="1Fy-bl-83a" id="HHY-Fp-4SX"/>
+                        <outletCollection property="adViewHeightConstraintsCollection" destination="cwy-bI-sv3" id="cgt-wC-N1j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cyd-pY-6OL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -517,7 +520,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UnV-1h-Lbr" customClass="HRColorMapView">
                                         <rect key="frame" x="0.0" y="104" width="600" height="400"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="saturationUpperLimit">
                                                 <integer key="value" value="1"/>

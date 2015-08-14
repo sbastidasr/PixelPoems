@@ -23,6 +23,7 @@
 		EA2FC7161B6FDCB200713AAE /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA2FC7151B6FDCB200713AAE /* iAd.framework */; };
 		EA2FC7191B6FDCD700713AAE /* AdBannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2FC7181B6FDCD700713AAE /* AdBannerViewController.m */; };
 		EA361F081B7BA79D00246167 /* HRSampleColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA361F071B7BA79D00246167 /* HRSampleColorPickerViewController.m */; };
+		EA7D12711B7E133A00F25D8F /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7D12701B7E133A00F25D8F /* HomeViewController.m */; };
 		EA829C061B0CF71F0016E201 /* WordLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EA829C051B0CF71F0016E201 /* WordLabel.m */; };
 		EA829C211B0D00720016E201 /* ProximaNova-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA829C0A1B0CFFE00016E201 /* ProximaNova-Black.otf */; };
 		EA829C221B0D00750016E201 /* ProximaNova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA829C0B1B0CFFE00016E201 /* ProximaNova-Bold.otf */; };
@@ -93,6 +94,8 @@
 		EA2FC7181B6FDCD700713AAE /* AdBannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdBannerViewController.m; path = ../AdBannerViewController.m; sourceTree = "<group>"; };
 		EA361F061B7BA79D00246167 /* HRSampleColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRSampleColorPickerViewController.h; sourceTree = "<group>"; };
 		EA361F071B7BA79D00246167 /* HRSampleColorPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRSampleColorPickerViewController.m; sourceTree = "<group>"; };
+		EA7D126F1B7E133A00F25D8F /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = ../HomeViewController.h; sourceTree = "<group>"; };
+		EA7D12701B7E133A00F25D8F /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = ../HomeViewController.m; sourceTree = "<group>"; };
 		EA829C041B0CF71F0016E201 /* WordLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordLabel.h; sourceTree = "<group>"; };
 		EA829C051B0CF71F0016E201 /* WordLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordLabel.m; sourceTree = "<group>"; };
 		EA829C0A1B0CFFE00016E201 /* ProximaNova-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Black.otf"; sourceTree = "<group>"; };
@@ -264,6 +267,8 @@
 		EAD35B641AC0CB8200D3901A /* Controllers. */ = {
 			isa = PBXGroup;
 			children = (
+				EA7D126F1B7E133A00F25D8F /* HomeViewController.h */,
+				EA7D12701B7E133A00F25D8F /* HomeViewController.m */,
 				EA2FC7171B6FDCD700713AAE /* AdBannerViewController.h */,
 				EA2FC7181B6FDCD700713AAE /* AdBannerViewController.m */,
 				EAE48A5F1A83B5AF0086F0B6 /* GameViewController.h */,
@@ -500,6 +505,7 @@
 				EAE48A611A83B5AF0086F0B6 /* GameViewController.m in Sources */,
 				EAE48A5E1A83B5AF0086F0B6 /* AppDelegate.m in Sources */,
 				EAD35B671AC0CBEA00D3901A /* PlistLoader.m in Sources */,
+				EA7D12711B7E133A00F25D8F /* HomeViewController.m in Sources */,
 				EA2FC7191B6FDCD700713AAE /* AdBannerViewController.m in Sources */,
 				EAE48A5B1A83B5AF0086F0B6 /* main.m in Sources */,
 				EA2CAB221B596ABA00F60368 /* constants.m in Sources */,
