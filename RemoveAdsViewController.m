@@ -61,21 +61,23 @@
 
 - (IBAction) restore{
     //this is called when the user restores purchases, you should hook this up to a button
+   
+    
     [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
+     [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+   
 }
 
 - (void) paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue
 {
     NSLog(@"received restored transactions: %i", queue.transactions.count);
     for(SKPaymentTransaction *transaction in queue.transactions){
-        if(transaction.transactionState == SKPaymentTransactionStateRestored){
+       // if(transaction.transactionState == SKPaymentTransactionStateRestored){
             //called when the user successfully restores a purchase
             NSLog(@"Transaction state -> Restored");
-            
-            [self doRemoveAds];
-            [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
-            break;
-        }
+                         [self doStuffWithProductId:transaction.payment.productIdentifier];            [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+         //  break;
+       //}
     }
 }
 
@@ -87,7 +89,7 @@
                 break;
             case SKPaymentTransactionStatePurchased:
                 //this is called when the user has successfully purchased the package (Cha-Ching!)
-                [self doRemoveAds]; //you can add your code for what you want to happen when the user buys the purchase here, for this tutorial we use removing ads
+                [self doStuffWithProductId:transaction.payment.productIdentifier]; //you can add your code for what you want to happen when the user buys the purchase here, for this tutorial we use removing ads
                 [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
                 NSLog(@"Transaction state -> Purchased");
                 break;
@@ -109,11 +111,14 @@
 }
 
 //Call this method if in app puchase is made ====> [self doRemoveAds];
-- (void)doRemoveAds{
+- (void)doStuffWithProductId:(NSString *)id{
     bool areAdsRemoved = YES;
+    
     [[NSUserDefaults standardUserDefaults] setBool:areAdsRemoved forKey:@"areAdsRemoved"];
     //use NSUserDefaults so that you can load wether or not they bought it
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    NSLog(@"Received Id: %@", id);
 }
 
 @end
