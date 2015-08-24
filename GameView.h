@@ -25,7 +25,7 @@
 @property (nonatomic, strong) NSMutableArray *wordLabels; //of dictionaries containing a word+attributes
 -(void)removeLabelsFromView;
 -(void)addLabelsToView;
-
+-(void)updateWordPositionsOnDict;
 
 -(void)updateView;
 -(void)changeFontColorTo:color;

@@ -42,6 +42,7 @@
 		EAC202821B137D60001C6692 /* wordPacks.json in Resources */ = {isa = PBXBuildFile; fileRef = EAC202811B137D60001C6692 /* wordPacks.json */; };
 		EAC202911B14D823001C6692 /* WordPackWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC202901B14D823001C6692 /* WordPackWrapper.m */; };
 		EAD35B671AC0CBEA00D3901A /* PlistLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD35B661AC0CBEA00D3901A /* PlistLoader.m */; };
+		EAD8430F1B8B8698006439A0 /* ReusableFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD8430E1B8B8698006439A0 /* ReusableFunctions.m */; };
 		EAE1305E1B4B018300CFD86B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE1305D1B4B018300CFD86B /* Social.framework */; };
 		EAE130601B4B019000CFD86B /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE1305F1B4B019000CFD86B /* Accounts.framework */; };
 		EAE130651B4C459400CFD86B /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE130641B4C459400CFD86B /* libstdc++.6.dylib */; };
@@ -92,8 +93,8 @@
 		EA2FC7151B6FDCB200713AAE /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		EA2FC7171B6FDCD700713AAE /* AdBannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdBannerViewController.h; path = ../AdBannerViewController.h; sourceTree = "<group>"; };
 		EA2FC7181B6FDCD700713AAE /* AdBannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdBannerViewController.m; path = ../AdBannerViewController.m; sourceTree = "<group>"; };
-		EA361F061B7BA79D00246167 /* HRSampleColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRSampleColorPickerViewController.h; sourceTree = "<group>"; };
-		EA361F071B7BA79D00246167 /* HRSampleColorPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRSampleColorPickerViewController.m; sourceTree = "<group>"; };
+		EA361F061B7BA79D00246167 /* HRSampleColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HRSampleColorPickerViewController.h; path = ../HRSampleColorPickerViewController.h; sourceTree = "<group>"; };
+		EA361F071B7BA79D00246167 /* HRSampleColorPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HRSampleColorPickerViewController.m; path = ../HRSampleColorPickerViewController.m; sourceTree = "<group>"; };
 		EA7D126F1B7E133A00F25D8F /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = ../HomeViewController.h; sourceTree = "<group>"; };
 		EA7D12701B7E133A00F25D8F /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = ../HomeViewController.m; sourceTree = "<group>"; };
 		EA829C041B0CF71F0016E201 /* WordLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordLabel.h; sourceTree = "<group>"; };
@@ -120,6 +121,8 @@
 		EAC202901B14D823001C6692 /* WordPackWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPackWrapper.m; sourceTree = "<group>"; };
 		EAD35B651AC0CBEA00D3901A /* PlistLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlistLoader.h; sourceTree = "<group>"; };
 		EAD35B661AC0CBEA00D3901A /* PlistLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlistLoader.m; sourceTree = "<group>"; };
+		EAD8430D1B8B8698006439A0 /* ReusableFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReusableFunctions.h; path = ../../../../../Downloads/PixBack2/FridgeWords/ReusableFunctions.h; sourceTree = "<group>"; };
+		EAD8430E1B8B8698006439A0 /* ReusableFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReusableFunctions.m; path = ../../../../../Downloads/PixBack2/FridgeWords/ReusableFunctions.m; sourceTree = "<group>"; };
 		EAE1305D1B4B018300CFD86B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		EAE1305F1B4B019000CFD86B /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		EAE130641B4C459400CFD86B /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
@@ -284,10 +287,10 @@
 		EAE48A4C1A83B5AF0086F0B6 = {
 			isa = PBXGroup;
 			children = (
+				EAD8430D1B8B8698006439A0 /* ReusableFunctions.h */,
+				EAD8430E1B8B8698006439A0 /* ReusableFunctions.m */,
 				EAA54A491B5D799700CD0BC4 /* RemoveAdsViewController.h */,
 				EAA54A4A1B5D799700CD0BC4 /* RemoveAdsViewController.m */,
-				EA361F061B7BA79D00246167 /* HRSampleColorPickerViewController.h */,
-				EA361F071B7BA79D00246167 /* HRSampleColorPickerViewController.m */,
 				EAE48A571A83B5AF0086F0B6 /* PixelPoems */,
 				EAE48A711A83B5AF0086F0B6 /* FridgeWordsTests */,
 				EAE48A561A83B5AF0086F0B6 /* Products */,
@@ -321,6 +324,8 @@
 		EAE48A581A83B5AF0086F0B6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EA361F061B7BA79D00246167 /* HRSampleColorPickerViewController.h */,
+				EA361F071B7BA79D00246167 /* HRSampleColorPickerViewController.m */,
 				EA2CAB201B596ABA00F60368 /* constants.h */,
 				EA2CAB211B596ABA00F60368 /* constants.m */,
 				EAC202811B137D60001C6692 /* wordPacks.json */,
@@ -501,6 +506,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAB394541B42F2BE005E27B7 /* SavedGamesTableViewController.m in Sources */,
+				EAD8430F1B8B8698006439A0 /* ReusableFunctions.m in Sources */,
 				EAA54A4B1B5D799700CD0BC4 /* RemoveAdsViewController.m in Sources */,
 				EAE48A611A83B5AF0086F0B6 /* GameViewController.m in Sources */,
 				EAE48A5E1A83B5AF0086F0B6 /* AppDelegate.m in Sources */,

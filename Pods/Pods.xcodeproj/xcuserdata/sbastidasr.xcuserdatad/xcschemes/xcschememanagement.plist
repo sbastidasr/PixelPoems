@@ -4,32 +4,27 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-Bolts.xcscheme</key>
+		<key>Bolts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Color-Picker-for-iOS.xcscheme</key>
+		<key>Color-Picker-for-iOS.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Facebook-iOS-SDK.xcscheme</key>
+		<key>Facebook-iOS-SDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Parse.xcscheme</key>
+		<key>Parse.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-ParseFacebookUtils.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-WYPopoverController.xcscheme</key>
+		<key>ParseFacebookUtils.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -39,40 +34,45 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>WYPopoverController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>07D22700DD39C3124062FE85</key>
+		<key>254D13B4E3A35D9347BB36B086C0B431</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>108DD2DF91BA7E0BA7E800C7</key>
+		<key>4B1BEC496AB0021ADB97AF3E375FFB0D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3CDBC844BDF196E7AAE1D9FC</key>
+		<key>51F5063477AD6F9D5FE325FB0C4013E9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>873EEAB29A648264F5CC5462</key>
+		<key>617490FCA9193EB41A4B926CDF43608A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>885EA74FF5F555CDFF62904E</key>
+		<key>68BD65151F2FFB37CD52F7CD97DF4330</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9505391476E2578FDF0B9248</key>
+		<key>B2B51E341098E41D2078584721AF42A3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B707DAF24C4CF526F760FBA0</key>
+		<key>CF73D5C3D44BBC46FE0C0BD7F8A6291F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

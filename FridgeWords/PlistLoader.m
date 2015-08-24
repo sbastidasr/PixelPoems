@@ -79,11 +79,12 @@
     if (savedGameDictionary!=nil){
         savedGameDictionary[name]=wordLabels;
     }
-    else{
+    else{//file doent exist, so
         savedGameDictionary = [[NSMutableDictionary alloc]init];
         savedGameDictionary[name]=wordLabels;
+
     }
-    [savedGameDictionary writeToFile:savedGamesFilePath atomically:YES]; //Write
+    [savedGameDictionary writeToFile:savedGamesFilePath atomically:YES]; //WAAAAA
 }
 
 //Load COMPLETE PList
@@ -91,10 +92,17 @@
     NSString *savedGamesFilePath = [self getSavedGamesFilePath];
     BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:savedGamesFilePath];
     if (fileExists){
+        NSString *fileContent = [[NSString alloc] initWithContentsOfFile:savedGamesFilePath];
+        NSLog(@"%@", fileContent);
         return [NSDictionary dictionaryWithContentsOfFile:savedGamesFilePath];
+    }else{//create the f* file
+        NSFileManager *fm= [[NSFileManager alloc]init];
+        [fm createFileAtPath:savedGamesFilePath contents:nil attributes:nil];
     }
     return nil;
 }
+
+//createfile
 
 //Save COMPLETE PList
 +(void)saveSavedGameDictionaryFromPList:(NSMutableDictionary *) savedGameDictionary { //saves wordlabels to plist

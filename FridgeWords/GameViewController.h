@@ -25,6 +25,7 @@
 
 @property (weak, nonatomic) IBOutlet GameView *gameView;
 
+@property (weak, nonatomic) NSMutableArray *tempWords;
 
 //Theme (Contains WordStyle&Background  )
 //WordStyle (i.e. font etc)

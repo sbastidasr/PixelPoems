@@ -9,7 +9,7 @@
 #import "GameViewController.h"
 #import "GameView.h"
 #import "AdBannerViewController.h"
-
+#import "ReusableFunctions.h"
 
 //self.gameView.wordLabels  contains array of words. Everything can be recreated from it. with addlabels to view
 @interface GameViewController () <WYPopoverControllerDelegate>{
@@ -29,8 +29,6 @@
 
 #define ZOOM_VIEW_TAG 100
 #define ARC4RANDOM_MAX 0x100000000
-
-
 
 -(void)createGameView{
     //Setup scrollable view for words.
@@ -56,8 +54,23 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+
+    NSMutableArray *temp=self.tempWords;
     [self createGameView];
-    [self setUpWords];   
+    
+    if(temp!=nil){//from savegames
+        self.gameView.wordLabels=[temp mutableCopy];
+        [self.gameView updateView];
+    }else{//from normal
+        [self setUpWords];
+    }
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveTestNotification:)
+                                                 name:@"PopOverAction"
+                                               object:nil];
+
 }
 
 
@@ -80,11 +93,7 @@
         [self.gameView addLabelsToView];
     }
     //listen to popover notifications.
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receiveTestNotification:)
-                                                 name:@"PopOverAction"
-                                               object:nil];
-}
+  }
 
 -(void)loadWoD{
     PFQuery *query = [PFQuery queryWithClassName:@"WordsOfTheDay"];
@@ -111,11 +120,12 @@
         //Set label text
         label[@"attributedText"] = wordArray[i];
        [self.gameView.wordLabels addObject:label];//add to arrayforlabels
+    
         
+        label[@"Font Color"] =[ReusableFunctions dataFromColor:[UIColor whiteColor]];
         
-        label[@"Font Color"] = [UIColor whiteColor];
-         label[@"Border Color"] = [UIColor whiteColor];
-        label[@"Background Color"] = [UIColor colorWithRed:35.0/255.0  green:40.0/255.0 blue:44.0/255.0 alpha:1.0f];
+         label[@"Border Color"] = [ReusableFunctions dataFromColor:[UIColor whiteColor]];
+        label[@"Background Color"] = [ReusableFunctions dataFromColor:[UIColor colorWithRed:35.0/255.0  green:40.0/255.0 blue:44.0/255.0 alpha:1.0f]];
         
 
     }
@@ -147,10 +157,15 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     if([title isEqualToString:@"Save Game"]){
+     
         [PlistLoader saveGameArrayToPlist:self.gameView.wordLabels Named:[[alertView textFieldAtIndex:0] text]];
-        [self cleanGameView];
-        [self.navigationController popToRootViewControllerAnimated:YES];
         
+        [self.gameView removeLabelsFromView];
+      [self.gameView addLabelsToView];
+        
+      [self.navigationController popToRootViewControllerAnimated:YES];
+        [self cleanGameView];
+
     }
     else if([title isEqualToString:@"Don't Save"]){
         [self cleanGameView];
@@ -250,26 +265,9 @@
                     default:
                         break;
                 }
-                
-                
             }
-            
-     
-         
         }
     }
-    
-    
-    
-    /*
-    - (void)setSelectedColor:(UIColor *)color {
-        NSMutableDictionary *argsDict = [[NSMutableDictionary alloc]init];
-        [argsDict setObject:@"Customize" forKey:@"Action"];
-        [argsDict setObject:self.selectedItemToChangeColor forKey:@"SelectedCellText"];
-        [argsDict setObject:color forKey:@"Color"];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"PopOverAction" object:argsDict];
-    }
-    */
 }
 
 //POPOVER ACTIONS

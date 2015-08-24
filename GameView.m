@@ -7,7 +7,7 @@
 //
 
 #import "GameView.h"
-
+#import "ReusableFunctions.h"
 
 @implementation GameView
 
@@ -29,9 +29,14 @@ static float const fontSize = 18.0;
     NSArray *labels = [[self viewWithTag:ZOOM_VIEW_TAG] subviews];
     for (int i=0; i< labels.count; i++){
         WordLabel *label=labels[i];
-        NSMutableDictionary *wordDict = label.wordDictionary;
-        wordDict[@"X"]=[NSNumber numberWithFloat:label.frame.origin.x];
-        wordDict[@"Y"]=[NSNumber numberWithFloat:label.frame.origin.y];
+        
+        if ([label class]==[WordLabel class]){
+            NSMutableDictionary *wordDict = label.wordDictionary;
+            wordDict[@"X"]=[NSNumber numberWithFloat:label.frame.origin.x];
+            wordDict[@"Y"]=[NSNumber numberWithFloat:label.frame.origin.y];
+            int i =0;
+        }
+        
     }
 }
 
@@ -82,11 +87,11 @@ static float const fontSize = 18.0;
         }
         
         //SetupLooks
-        UIColor *borderColor = wordDict[@"Border Color"];
+        UIColor *borderColor = [ReusableFunctions colorFromData:wordDict[@"Border Color"]];
         label.layer.borderColor = borderColor.CGColor;
-        label.textColor =  wordDict[@"Font Color"];
+        label.textColor = [ReusableFunctions colorFromData:wordDict[@"Font Color"]];
         label.textAlignment = NSTextAlignmentCenter;
-        label.backgroundColor=wordDict[@"Background Color"];
+        label.backgroundColor=[ReusableFunctions colorFromData:wordDict[@"Background Color"]];
         
         ///SOON
        /////// 
@@ -105,7 +110,7 @@ static float const fontSize = 18.0;
         }
         if ([wordDict[@"isWordOfTheDay"] isEqual:@YES]){
             // label.backgroundColor=[UIColor redColor];
-              label.backgroundColor=[UIColor colorWithRed:58.0/255.0  green:61.0/255.0 blue:64.0/255.0 alpha:1.0f];
+           
         }
         
         if(wordDict[@"X"]==nil){//if it has no place in map, yet.
@@ -170,21 +175,21 @@ static float const fontSize = 18.0;
 -(void)changeFontColorTo:color{
     for (int i=0; i< self.wordLabels.count; i++){
         NSMutableDictionary *wordDict=self.wordLabels[i];
-        wordDict[@"Font Color"]=color;
+        wordDict[@"Font Color"]= [ReusableFunctions dataFromColor:color];
     }
     [self updateView];
 }
 -(void)changeBorderColorTo:color{
     for (int i=0; i< self.wordLabels.count; i++){
         NSMutableDictionary *wordDict=self.wordLabels[i];
-        wordDict[@"Border Color"]=color;
+        wordDict[@"Border Color"]=[ReusableFunctions dataFromColor:color];
     }
     [self updateView];
 }
 -(void)changeBackgroundColorTo:color{
     for (int i=0; i< self.wordLabels.count; i++){
         NSMutableDictionary *wordDict=self.wordLabels[i];
-        wordDict[@"Background Color"]=color;
+        wordDict[@"Background Color"]=[ReusableFunctions dataFromColor:color];
     }
     [self updateView];
 }

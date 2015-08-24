@@ -2,7 +2,7 @@
   "name": "WYPopoverController",
   "version": "0.1.8",
   "summary": "An iOS Popover for iPhone and iPad. Very customizable.",
-  "description": "                    WYPopoverController is for the presentation of content in popover on iPhone / iPad devices. Very customizable.\n",
+  "description": "WYPopoverController is for the presentation of content in popover on iPhone / iPad devices. Very customizable.",
   "homepage": "https://github.com/nicolaschengdev/WYPopoverController",
   "license": {
     "type": "MIT",

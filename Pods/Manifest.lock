@@ -8,13 +8,13 @@ PODS:
   - Color-Picker-for-iOS (2.0.2)
   - Facebook-iOS-SDK (3.23.2):
     - Bolts (~> 1.0)
-  - Google-Mobile-Ads-SDK (7.4.0)
-  - Parse (1.7.5):
+  - Google-Mobile-Ads-SDK (7.4.1)
+  - Parse (1.8.1):
     - Bolts/Tasks (>= 1.2.0)
-  - ParseFacebookUtils (1.7.5):
+  - ParseFacebookUtils (1.8.1):
     - Bolts/Tasks (>= 1.2.0)
     - Facebook-iOS-SDK (~> 3.23)
-    - Parse (~> 1.7.5)
+    - Parse (~> 1.8.0)
   - WYPopoverController (0.1.8)
 
 DEPENDENCIES:
@@ -38,9 +38,9 @@ SPEC CHECKSUMS:
   Bolts: d176cb1e0012175589e389a9db49b85e27787576
   Color-Picker-for-iOS: 4980589b3e3cfe7198f227dd50be9adb02d8bc0b
   Facebook-iOS-SDK: cd87f0b2f0c1d9574b44e8fa2baacc275524bac3
-  Google-Mobile-Ads-SDK: ff8ce0c4b495c60113a6f37916956aab9504d527
-  Parse: 7c0f115eff3e0cea3fac08d50bda47154edb8832
-  ParseFacebookUtils: ebd2bc2b4134f25aa8a7ed3c33fa0575b8ce921c
-  WYPopoverController: 78287a07194d1b6d8567f7959bd4375643def314
+  Google-Mobile-Ads-SDK: dce4c2728daa0bcbd88b6e3dc111b718a07b1eb6
+  Parse: 2155953b1565494095d5fa5c83b3c77f2c677c09
+  ParseFacebookUtils: f3e670d3f8edd0cfb8429ac39b30959d4ab13f0b
+  WYPopoverController: a7f420833d355d868e5836415ba07ce0dbec1a27
 
-COCOAPODS: 0.37.2
+COCOAPODS: 0.38.2

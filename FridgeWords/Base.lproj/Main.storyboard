@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xqs-8d-6Xb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xqs-8d-6Xb">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -57,7 +57,7 @@
                                     <segue destination="UF2-Ed-XZH" kind="show" id="MIG-aH-q0B"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Title" translatesAutoresizingMaskIntoConstraints="NO" id="7Q2-cj-r8o">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Title" translatesAutoresizingMaskIntoConstraints="NO" id="7Q2-cj-r8o">
                                 <rect key="frame" x="16" y="70" width="343" height="91"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="7Q2-cj-r8o" secondAttribute="height" multiplier="329:87" id="WfB-QK-I2N"/>
@@ -69,12 +69,6 @@
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5X-Hc-cKL">
                                 <rect key="frame" x="142" y="579" width="91" height="30"/>
                                 <state key="normal" title="by Adriatique">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hrj-qh-Kt2">
-                                <rect key="frame" x="302" y="20" width="57" height="30"/>
-                                <state key="normal" title="Settings">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -125,13 +119,11 @@
                             <constraint firstAttribute="centerX" secondItem="ME9-T1-5c1" secondAttribute="centerX" id="0t3-xp-FGh"/>
                             <constraint firstItem="qRG-zX-D6L" firstAttribute="top" secondItem="e5P-3G-6JC" secondAttribute="bottom" constant="-7" id="1fv-cd-LaS"/>
                             <constraint firstItem="Qap-dr-fpS" firstAttribute="width" secondItem="w2o-Lz-Yu5" secondAttribute="width" id="3tz-mw-s5l"/>
-                            <constraint firstItem="Hrj-qh-Kt2" firstAttribute="trailing" secondItem="Evc-Rn-e6f" secondAttribute="trailingMargin" id="4ze-PY-8Q2"/>
                             <constraint firstAttribute="width" secondItem="ME9-T1-5c1" secondAttribute="width" multiplier="1.8" id="6sw-ox-IVX"/>
                             <constraint firstItem="Q8u-OG-eHb" firstAttribute="top" secondItem="qRG-zX-D6L" secondAttribute="bottom" id="7y8-hj-auM"/>
                             <constraint firstItem="Qap-dr-fpS" firstAttribute="leading" secondItem="Dsx-KB-AbU" secondAttribute="leading" id="88f-1U-XqS"/>
                             <constraint firstAttribute="centerX" secondItem="zZX-Jo-Z0C" secondAttribute="centerX" id="9GP-pY-Xie"/>
                             <constraint firstItem="Q5X-Hc-cKL" firstAttribute="top" secondItem="Q8u-OG-eHb" secondAttribute="bottom" id="9VM-C5-Ky7"/>
-                            <constraint firstItem="7Q2-cj-r8o" firstAttribute="top" secondItem="Hrj-qh-Kt2" secondAttribute="bottom" constant="20" id="BwQ-oF-tkp"/>
                             <constraint firstItem="w2o-Lz-Yu5" firstAttribute="top" secondItem="925-oF-huv" secondAttribute="bottom" id="CdI-E8-eLy"/>
                             <constraint firstItem="Qap-dr-fpS" firstAttribute="height" secondItem="Q8u-OG-eHb" secondAttribute="height" id="Ci0-BP-Dhb"/>
                             <constraint firstAttribute="height" secondItem="zZX-Jo-Z0C" secondAttribute="height" multiplier="6.6" id="FAl-VT-dgg"/>
@@ -154,7 +146,6 @@
                             <constraint firstAttribute="centerX" secondItem="qRG-zX-D6L" secondAttribute="centerX" id="gIN-0p-RNq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MKP-nv-TYA" secondAttribute="trailing" constant="-16" id="gni-HH-zk7"/>
                             <constraint firstItem="Qap-dr-fpS" firstAttribute="width" secondItem="Dsx-KB-AbU" secondAttribute="width" id="klY-cO-dbY"/>
-                            <constraint firstItem="Hrj-qh-Kt2" firstAttribute="top" secondItem="Ng4-Nu-EpO" secondAttribute="bottom" id="noY-VU-O99"/>
                             <constraint firstAttribute="centerX" secondItem="7Q2-cj-r8o" secondAttribute="centerX" id="q2n-Ra-Lm4"/>
                             <constraint firstItem="zZX-Jo-Z0C" firstAttribute="top" secondItem="Qap-dr-fpS" secondAttribute="bottom" constant="3" id="sDH-U6-LGY"/>
                             <constraint firstItem="Qap-dr-fpS" firstAttribute="width" secondItem="Q8u-OG-eHb" secondAttribute="width" id="skS-hg-Jda"/>
@@ -232,7 +223,7 @@
                                     <action selector="HomeButton:" destination="pgE-JI-Bay" eventType="touchUpInside" id="D1o-Xw-ILc"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="WordPack: Original" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEK-IE-JMO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WordPack: Original" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEK-IE-JMO">
                                 <rect key="frame" x="130" y="73" width="167" height="20"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -275,7 +266,7 @@
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" red="0.14117647059999999" green="0.16078431369999999" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="syC-Ev-DRd" customClass="GameView">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="syC-Ev-DRd" customClass="GameView">
                                 <rect key="frame" x="0.0" y="128" width="375" height="445"/>
                             </scrollView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Njq-1N-V47">
