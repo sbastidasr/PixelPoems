@@ -11,10 +11,8 @@
 //#import "GADBannerView.h"
 
 @interface RemoveAdsViewController : UIViewController
-{
-BOOL areAdsRemoved;
-}
 
+@property (nonatomic,strong) NSString *purchaseType;
 
 
 

@@ -87,7 +87,6 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *selectedCell= [self.tableView cellForRowAtIndexPath:indexPath];
     
-    
     if(self.typeOfController==0){ //All Cells Have Color Pickers.
          UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
          HRSampleColorPickerViewController *listViewController = (HRSampleColorPickerViewController *)[storyboard instantiateViewControllerWithIdentifier:@"asd"];
@@ -96,16 +95,14 @@
          listViewController.delegate=self;
         listViewController.color=[UIColor whiteColor];
         self.selectedItemToChangeColor=selectedCell.text;
-        
-        
     }
     
        if(self.typeOfController==1){ //All Cells are wordpack Selections.
-    NSMutableDictionary *argsDict = [[NSMutableDictionary alloc]init];
-    [argsDict setObject:self.navigationItem.title forKey:@"Action"];
-    [argsDict setObject:selectedCell.text forKey:@"SelectedCellText"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"PopOverAction" object:argsDict];
-    }
+           NSMutableDictionary *argsDict = [[NSMutableDictionary alloc]init];
+           [argsDict setObject:self.navigationItem.title forKey:@"Action"];
+           [argsDict setObject:selectedCell.text forKey:@"SelectedCellText"];
+           [[NSNotificationCenter defaultCenter] postNotificationName:@"PopOverAction" object:argsDict];
+       }
     return;
 }
 

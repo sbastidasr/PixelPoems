@@ -10,6 +10,7 @@
 #import "GameView.h"
 #import "AdBannerViewController.h"
 #import "ReusableFunctions.h"
+#import "RemoveAdsViewController.h"
 
 //self.gameView.wordLabels  contains array of words. Everything can be recreated from it. with addlabels to view
 @interface GameViewController () <WYPopoverControllerDelegate>{
@@ -83,7 +84,7 @@
         self.gameView.wordLabels = [[NSMutableArray alloc]init];
         WordPackWrapper *wp =[PlistLoader defaultWordPack];///HERE CHANGE FOR OTHER WORDPACKS
         [wp  shuffleWordPack];
-        [self setupLabels:[wp getNumberOfWordsFromWordPack:100] isWOD:NO]; //restricted words to 100, check playability
+        [self setupLabels:[wp getNumberOfWordsFromWordPack] isWOD:NO]; //restricted words to 100, check playability
         [self loadWoD];
         [self.gameView addLabelsToView];
     }
@@ -239,7 +240,22 @@
         
         //When WordPacks are modified
         if([action isEqualToString:@"WordPacks"]){
-            [self changeToWordPackNamed:argsDict[@"SelectedCellText"]];
+            
+            
+            //first check if worpack is available. if not. present op to buy.
+            bool wordPackIsBought = [[NSUserDefaults standardUserDefaults] boolForKey:argsDict[@"SelectedCellText"]];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            if(wordPackIsBought){
+                [self changeToWordPackNamed:argsDict[@"SelectedCellText"]];
+            }
+            else{
+        
+                //present you the chance to buy
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+                RemoveAdsViewController *lvc = [storyboard instantiateViewControllerWithIdentifier:@"RemoveAds"];
+                lvc.purchaseType = argsDict[@"SelectedCellText"];
+                [self.navigationController pushViewController:lvc animated:YES];
+                         }
         }
         
         if([action isEqualToString:@"Customize"]){
@@ -273,6 +289,7 @@
 //POPOVER ACTIONS
 -(void)changeToWordPackNamed:(NSString *)name{
 
+   
     [self.gameView removeLabelsFromView];
 
     NSMutableArray *wodArray=[[NSMutableArray alloc]
@@ -294,7 +311,7 @@
         
         WordPackWrapper *wp =[PlistLoader WordPackNamed:name];///HERE CHANGE FOR OTHER WORDPACKS
         [wp  shuffleWordPack];
-        [self setupLabels:[wp getNumberOfWordsFromWordPack:100] isWOD:NO]; //restricted words to 100, check playability
+        [self setupLabels:[wp getNumberOfWordsFromWordPack] isWOD:NO]; //restricted words to 100, check playability
     [self.gameView addLabelsToView];
     
     

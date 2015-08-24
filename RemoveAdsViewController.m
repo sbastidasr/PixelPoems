@@ -7,9 +7,6 @@
 //
 
 #import "RemoveAdsViewController.h"
-
-
-
 #import <StoreKit/StoreKit.h>
 
 //put the name of your view controller in place of MyViewController
@@ -19,7 +16,29 @@
 
 @implementation RemoveAdsViewController //the name of your view controller (same as above)
 
-#define kRemoveAdsProductIdentifier @"com.sbastidasr.PixelPoems.removeads"
+-(NSString *)productIdentifier{
+    if([self.purchaseType isEqualToString:@"LOVE"]){
+        return @"com.sbastidasr.PixelPoems.LoveWordPack";
+    }
+    if([self.purchaseType isEqualToString:@"asd"]){
+        return @"com.sbastidasr.PixelPoems.asd";
+    } else {
+        return @"com.sbastidasr.PixelPoems.removeads";
+    }
+}
+
+
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    
+}
+
 
 - (IBAction)tapsRemoveAds{
     NSLog(@"User requests to remove ads");
@@ -27,7 +46,7 @@
     if([SKPaymentQueue canMakePayments]){
         NSLog(@"User can make payments");
         
-        SKProductsRequest *productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:[NSSet setWithObject:kRemoveAdsProductIdentifier]];
+        SKProductsRequest *productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:[NSSet setWithObject: [self productIdentifier] ]];
         productsRequest.delegate = self;
         [productsRequest start];
         
@@ -61,23 +80,23 @@
 
 - (IBAction) restore{
     //this is called when the user restores purchases, you should hook this up to a button
-   
+    
     
     [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
-     [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
-   
+    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+    
 }
 
 - (void) paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue
 {
     NSLog(@"received restored transactions: %i", queue.transactions.count);
     for(SKPaymentTransaction *transaction in queue.transactions){
-       // if(transaction.transactionState == SKPaymentTransactionStateRestored){
-            //called when the user successfully restores a purchase
-            NSLog(@"Transaction state -> Restored");
-                         [self doStuffWithProductId:transaction.payment.productIdentifier];            [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
-         //  break;
-       //}
+        // if(transaction.transactionState == SKPaymentTransactionStateRestored){
+        //called when the user successfully restores a purchase
+        NSLog(@"Transaction state -> Restored");
+        [self doStuffWithProductId:transaction.payment.productIdentifier];            [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+        //  break;
+        //}
     }
 }
 
@@ -112,15 +131,18 @@
 
 //Call this method if in app puchase is made ====> [self doRemoveAds];
 - (void)doStuffWithProductId:(NSString *)id{
-    bool areAdsRemoved = YES;
     
-    [[NSUserDefaults standardUserDefaults] setBool:areAdsRemoved forKey:@"areAdsRemoved"];
-    //use NSUserDefaults so that you can load wether or not they bought it
+    if( [self.purchaseType isEqualToString:@""]){
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"areAdsRemoved"];
+    }
+    else {
+         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:[self.purchaseType uppercaseString]];
+    }
     [[NSUserDefaults standardUserDefaults] synchronize];
-    
     NSLog(@"Received Id: %@", id);
+    
+    self 
 }
-
 @end
-
-
+         
+         
