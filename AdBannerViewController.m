@@ -21,10 +21,19 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    self.view.backgroundColor=[UIColor blackColor];
+    self.view.backgroundColor=[UIColor clearColor];
+    
+    int ipadOffset=16;
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
+    {
+        ipadOffset=0;
+    }
+    
+    
+    self.bannerView = [[ADBannerView alloc] initWithFrame:CGRectMake(0, ipadOffset, 320, 50)];
+    
     //Uncomment this line to serve ads on any other screen, bottom.
-    self.bannerView = [[ADBannerView alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
-   //  self.bannerView = [[ADBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 50, 320, 50)];
+   //self.bannerView = [[ADBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 50, 320, 50)];
     
     [self.bannerView setDelegate:self];
     [self.view addSubview:self.bannerView];

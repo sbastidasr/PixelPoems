@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7271894B9AF6FA1783076F99 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47145182A69D160DFC24EA05 /* libPods.a */; };
+		EA0757EE1B90DBFF00E9EB21 /* HomeWordPackTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0757ED1B90DBFF00E9EB21 /* HomeWordPackTableViewController.m */; };
 		EA16BDE71B1951AB00FA1FD9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA16BDE61B1951AB00FA1FD9 /* AudioToolbox.framework */; };
 		EA16BDE91B1951B100FA1FD9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA16BDE81B1951B100FA1FD9 /* CFNetwork.framework */; };
 		EA16BDEB1B1951B700FA1FD9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA16BDEA1B1951B700FA1FD9 /* CoreGraphics.framework */; };
@@ -71,6 +72,8 @@
 		2D9ED2F2B17E6670A1C89A9F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		47145182A69D160DFC24EA05 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD69A0B2B17DC9CCC560EFC7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		EA0757EC1B90DBFF00E9EB21 /* HomeWordPackTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeWordPackTableViewController.h; sourceTree = "<group>"; };
+		EA0757ED1B90DBFF00E9EB21 /* HomeWordPackTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeWordPackTableViewController.m; sourceTree = "<group>"; };
 		EA16BDDA1B19516400FA1FD9 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		EA16BDDB1B19516400FA1FD9 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		EA16BDDC1B19516400FA1FD9 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
@@ -315,6 +318,8 @@
 				EAD35B641AC0CB8200D3901A /* Controllers. */,
 				EAD35B5D1AC0C9B800D3901A /* Model */,
 				EAE48A621A83B5AF0086F0B6 /* Main.storyboard */,
+				EA0757EC1B90DBFF00E9EB21 /* HomeWordPackTableViewController.h */,
+				EA0757ED1B90DBFF00E9EB21 /* HomeWordPackTableViewController.m */,
 				EAE48A581A83B5AF0086F0B6 /* Supporting Files */,
 			);
 			name = PixelPoems;
@@ -510,6 +515,7 @@
 				EAA54A4B1B5D799700CD0BC4 /* RemoveAdsViewController.m in Sources */,
 				EAE48A611A83B5AF0086F0B6 /* GameViewController.m in Sources */,
 				EAE48A5E1A83B5AF0086F0B6 /* AppDelegate.m in Sources */,
+				EA0757EE1B90DBFF00E9EB21 /* HomeWordPackTableViewController.m in Sources */,
 				EAD35B671AC0CBEA00D3901A /* PlistLoader.m in Sources */,
 				EA7D12711B7E133A00F25D8F /* HomeViewController.m in Sources */,
 				EA2FC7191B6FDCD700713AAE /* AdBannerViewController.m in Sources */,

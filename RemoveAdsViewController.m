@@ -141,7 +141,7 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     NSLog(@"Received Id: %@", id);
     
-    self 
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 @end
          
