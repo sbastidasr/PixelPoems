@@ -8,6 +8,7 @@
 
 #import "HomeWordPackTableViewController.h"
 #import "PlistLoader.h"
+#import "RemoveAdsViewController.h"
 
 @interface HomeWordPackTableViewController ()
 @property (nonatomic, strong) NSMutableArray* menuItems;
@@ -15,18 +16,24 @@
 
 @implementation HomeWordPackTableViewController
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO];   //it hides
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:YES];    // it shows
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setColorsAndFonts];
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
-
-    
   self.menuItems= [[PlistLoader loadWordPacks]mutableCopy];}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -37,28 +44,13 @@
     return [self.menuItems count];
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     
-    switch (self.typeOfController) {
-        case 1:/*WordPacks*/{
-            WordPackWrapper *wordPack = self.menuItems[indexPath.row];
+               WordPackWrapper *wordPack = self.menuItems[indexPath.row];
             cell.textLabel.text = wordPack.packName;
-        }
-            break;
-        case 0:/*Customize*/{
-            cell.textLabel.text = self.menuItems[indexPath.row];
-            
-        }
-            break;
-        default:
-        {int i = 0;
-        }
-            break;
-    }
-    return cell;
+           return cell;
 }
 
 
@@ -66,34 +58,29 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *selectedCell= [self.tableView cellForRowAtIndexPath:indexPath];
+
     
-    if(self.typeOfController==0){ //All Cells Have Color Pickers.
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        HRSampleColorPickerViewController *listViewController = (HRSampleColorPickerViewController *)[storyboard instantiateViewControllerWithIdentifier:@"asd"];
-        listViewController.preferredContentSize = CGSizeMake(320, 350);
-        [self.navigationController pushViewController:listViewController animated:YES];
-        listViewController.delegate=self;
-        listViewController.color=[UIColor whiteColor];
-        self.selectedItemToChangeColor=selectedCell.text;
+    
+    //first check if worpack is available. if not. present op to buy.
+    bool wordPackIsBought = [[NSUserDefaults standardUserDefaults] boolForKey:selectedCell.textLabel.text];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
+
+
+    if(wordPackIsBought){
+        NSLog(@"You Already own that wordpack!");
     }
-    
-    if(self.typeOfController==1){ //All Cells are wordpack Selections.
-        NSMutableDictionary *argsDict = [[NSMutableDictionary alloc]init];
-        [argsDict setObject:self.navigationItem.title forKey:@"Action"];
-        [argsDict setObject:selectedCell.text forKey:@"SelectedCellText"];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"PopOverAction" object:argsDict];
+    else{
+
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    RemoveAdsViewController *lvc = [storyboard instantiateViewControllerWithIdentifier:@"RemoveAds"];
+    lvc.purchaseType = selectedCell.textLabel.text;
+    [self presentViewController:lvc animated:YES completion:nil];
     }
     return;
 }
 
 
-- (void)setSelectedColor:(UIColor *)color {
-    NSMutableDictionary *argsDict = [[NSMutableDictionary alloc]init];
-    [argsDict setObject:@"Customize" forKey:@"Action"];
-    [argsDict setObject:self.selectedItemToChangeColor forKey:@"SelectedCellText"];
-    [argsDict setObject:color forKey:@"Color"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"PopOverAction" object:argsDict];
-}
 
 
 ////colors
