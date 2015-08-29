@@ -31,7 +31,19 @@
     [super viewDidLoad];
     [self setColorsAndFonts];
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
-  self.menuItems= [[PlistLoader loadWordPacks]mutableCopy];}
+    NSMutableArray *allWordPacks = [[PlistLoader loadWordPacks]mutableCopy];
+    self.menuItems =[[NSMutableArray alloc]init];
+    
+    for (WordPackWrapper *wordPack  in allWordPacks) {
+        bool wordPackIsBought = [[NSUserDefaults standardUserDefaults] boolForKey:[wordPack.packName uppercaseString]];
+        if (!wordPackIsBought){
+            [self.menuItems addObject:wordPack];
+        }
+    }
+    
+        [self.tableView reloadData];
+  
+}
 
 
 
@@ -59,23 +71,18 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *selectedCell= [self.tableView cellForRowAtIndexPath:indexPath];
 
-    
-    
     //first check if worpack is available. if not. present op to buy.
     bool wordPackIsBought = [[NSUserDefaults standardUserDefaults] boolForKey:selectedCell.textLabel.text];
     [[NSUserDefaults standardUserDefaults] synchronize];
-
-
 
     if(wordPackIsBought){
         NSLog(@"You Already own that wordpack!");
     }
     else{
-
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     RemoveAdsViewController *lvc = [storyboard instantiateViewControllerWithIdentifier:@"RemoveAds"];
     lvc.purchaseType = selectedCell.textLabel.text;
-    [self presentViewController:lvc animated:YES completion:nil];
+    [self.navigationController pushViewController:lvc animated:YES];
     }
     return;
 }

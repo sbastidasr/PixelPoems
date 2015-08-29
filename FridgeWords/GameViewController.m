@@ -243,7 +243,7 @@
             
             
             //first check if worpack is available. if not. present op to buy.
-            bool wordPackIsBought = [[NSUserDefaults standardUserDefaults] boolForKey:argsDict[@"SelectedCellText"]];
+            bool wordPackIsBought = [[NSUserDefaults standardUserDefaults] boolForKey:[argsDict[@"SelectedCellText"] uppercaseString]];
             [[NSUserDefaults standardUserDefaults] synchronize];
             if(wordPackIsBought){
                 [self changeToWordPackNamed:argsDict[@"SelectedCellText"]];

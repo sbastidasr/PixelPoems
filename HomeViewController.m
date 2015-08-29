@@ -24,7 +24,10 @@
     
     //temporarysetup of default wordpacks
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"ORIGINAL"];
-  //  [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"LOVE"];
+ //   [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"ORIGINAL SHORT"];
+//  [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"LOVE"];
+
+    
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

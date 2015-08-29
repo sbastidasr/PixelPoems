@@ -33,6 +33,7 @@
     [super viewDidAppear:animated];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
 }
+
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
@@ -108,11 +109,12 @@
                 break;
             case SKPaymentTransactionStatePurchased:
                 //this is called when the user has successfully purchased the package (Cha-Ching!)
-                [self doStuffWithProductId:transaction.payment.productIdentifier]; //you can add your code for what you want to happen when the user buys the purchase here, for this tutorial we use removing ads
+                [self doStuffWithProductId:transaction.payment.productIdentifier];
                 [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
                 NSLog(@"Transaction state -> Purchased");
                 break;
             case SKPaymentTransactionStateRestored:
+                [self doStuffWithProductId:transaction.payment.productIdentifier];
                 NSLog(@"Transaction state -> Restored");
                 //add the same code as you did from SKPaymentTransactionStatePurchased here
                 [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
@@ -136,7 +138,9 @@
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"areAdsRemoved"];
     }
     else {
-         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:[self.purchaseType uppercaseString]];
+        NSString *asd=[self.purchaseType uppercaseString];
+         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:asd];
+        
     }
     [[NSUserDefaults standardUserDefaults] synchronize];
     NSLog(@"Received Id: %@", id);

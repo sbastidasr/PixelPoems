@@ -36,7 +36,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OGb-Y1-3Wu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2958.5" y="-277.5"/>
+            <point key="canvasLocation" x="3721.5" y="-381.5"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="unx-IF-RmY">
@@ -586,7 +586,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6QK-y2-tVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2404.5" y="1467.5"/>
+            <point key="canvasLocation" x="3721.5" y="1687.5"/>
         </scene>
         <!--Saved Games Table View Controller-->
         <scene sceneID="1dd-6U-cUp">
@@ -613,7 +613,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H66-K0-oTs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4288.5" y="-99.5"/>
+            <point key="canvasLocation" x="4300.5" y="-295.5"/>
         </scene>
         <!--Popup Table View Controller-->
         <scene sceneID="Xyr-Tx-N8I">
@@ -640,7 +640,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bCY-gE-X38" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4711.5" y="-99.5"/>
+            <point key="canvasLocation" x="4699.5" y="627.5"/>
         </scene>
         <!--Ad Banner View Controller-->
         <scene sceneID="adr-bO-v3m">
@@ -659,7 +659,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rnf-5M-ueY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3497.5" y="1041"/>
+            <point key="canvasLocation" x="4281.5" y="1118"/>
         </scene>
         <!--Sample Color Picker View Controller-->
         <scene sceneID="ssW-iC-f4K">
@@ -788,7 +788,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rDu-47-qrp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3073" y="1118"/>
+            <point key="canvasLocation" x="3721.5" y="1102"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7gz-AH-0sr">
