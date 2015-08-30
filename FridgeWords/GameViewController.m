@@ -12,12 +12,13 @@
 #import "ReusableFunctions.h"
 #import "RemoveAdsViewController.h"
 
-//self.gameView.wordLabels  contains array of words. Everything can be recreated from it. with addlabels to view
 @interface GameViewController () <WYPopoverControllerDelegate>{
     WYPopoverController *popoverController;
 }
 
-@property(nonatomic,strong) IBOutletCollection(UIView) NSArray *headerItems;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *AdViewHeightConstraint;
+
+
 @property (weak, nonatomic) IBOutlet UILabel *wordPackLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *WODbadge;
 @property (weak, nonatomic) IBOutlet UIToolbar *bottomBar;
@@ -53,9 +54,20 @@
     [self.gameView setNeedsDisplay];
 }
 
+
+
+
+
+
 - (void)viewDidLoad{
+    
     [super viewDidLoad];
 
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
+    {
+        self.AdViewHeightConstraint.constant=66;
+    }
+    
     NSMutableArray *temp=self.tempWords;
     [self createGameView];
     
@@ -315,17 +327,11 @@
     [self.gameView addLabelsToView];
     
     
-    self.wordPackLabel.text=[NSString stringWithFormat:@"WordPack: %@", wp.packName];
+    self.wordPackLabel.text=[NSString stringWithFormat:@"WordPack: %@", [wp.packName lowercaseString]];
 }
 
 -(IBAction)share:(id)sender{
-/*
-    for (int i =0; i<self.headerItems.count; i++){
-        UIView *headerView=self.headerItems[i];
-        headerView.alpha =0.0f;
-    }
-    self.wordPackLabel.alpha=0.0f;
-  */
+
     CGSize gameViewSize=self.gameView.frame.size;
     //CGRect frame = [firstView convertRect:buttons.frame fromView:secondView];
     

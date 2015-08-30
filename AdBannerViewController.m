@@ -23,11 +23,11 @@
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor clearColor];
     
-    int ipadOffset=16;
-    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
-    {
-        ipadOffset=0;
-    }
+    int ipadOffset=0;
+  //  if ( UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad )
+   // {
+     //   ipadOffset=16;
+    //}
     
     
     self.bannerView = [[ADBannerView alloc] initWithFrame:CGRectMake(0, ipadOffset, 320, 50)];

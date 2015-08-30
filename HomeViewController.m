@@ -13,6 +13,7 @@
 
 
 @property (strong, nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray *adViewHeightConstraintsCollection;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *homeAdConstraint;
 
 @end
 
@@ -21,6 +22,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
+    {
+       self.homeAdConstraint.constant=66;
+    }
     
     //temporarysetup of default wordpacks
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"ORIGINAL"];
