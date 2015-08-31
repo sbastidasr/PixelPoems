@@ -17,6 +17,7 @@
 }
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *AdViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerViewHeightConstant;
 
 
 @property (weak, nonatomic) IBOutlet UILabel *wordPackLabel;
@@ -66,6 +67,8 @@
     if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
     {
         self.AdViewHeightConstraint.constant=66;
+        self.headerViewHeightConstant.constant=650;
+        self.wordPackLabel.font= [UIFont fontWithName:@"ProximaNova-Bold" size:35];
     }
     
     NSMutableArray *temp=self.tempWords;
