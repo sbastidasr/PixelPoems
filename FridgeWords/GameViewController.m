@@ -330,7 +330,7 @@
     [self.gameView addLabelsToView];
     
     
-    self.wordPackLabel.text=[NSString stringWithFormat:@"WordPack: %@", [wp.packName lowercaseString]];
+    self.wordPackLabel.text=[NSString stringWithFormat:@"WordPack: %@", [[wp.packName lowercaseString]capitalizedString]];
 }
 
 -(IBAction)share:(id)sender{

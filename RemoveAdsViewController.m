@@ -18,7 +18,7 @@
 
 -(NSString *)productIdentifier{
     if([self.purchaseType isEqualToString:@"LOVE"]){
-        return @"com.sbastidasr.PixelPoems.LoveWordPack";
+        return @"com.sbastidasr.PixelPoems.LOVE";
     }
     if([self.purchaseType isEqualToString:@"asd"]){
         return @"com.sbastidasr.PixelPoems.asd";

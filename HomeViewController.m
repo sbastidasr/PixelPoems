@@ -27,11 +27,12 @@
        self.homeAdConstraint.constant=66;
     }
     
-    //temporarysetup of default wordpacks
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"ORIGINAL"];
- //   [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"ORIGINAL SHORT"];
-//  [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"LOVE"];
 
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"ORIGINAL"];
+    //temporarysetup of default wordpacks
+    //[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"LOVE"];
+    //[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"POETRY"];
+    //[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"SEXY"];
     
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
