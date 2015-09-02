@@ -11,19 +11,19 @@
 
 //put the name of your view controller in place of MyViewController
 @interface RemoveAdsViewController() <SKProductsRequestDelegate, SKPaymentTransactionObserver>
+@property (weak, nonatomic) IBOutlet UIImageView *textImageOutlet;
 
 @end
 
 @implementation RemoveAdsViewController //the name of your view controller (same as above)
 
 -(NSString *)productIdentifier{
-    if([self.purchaseType isEqualToString:@"LOVE"]){
-        return @"com.sbastidasr.PixelPoems.LOVE";
-    }
-    if([self.purchaseType isEqualToString:@"asd"]){
-        return @"com.sbastidasr.PixelPoems.asd";
-    } else {
+    if(self.purchaseType==NULL){
+        self.textImageOutlet.image=[UIImage imageNamed:@"Remove Ads"];
         return @"com.sbastidasr.PixelPoems.removeads";
+
+    } else {
+        return [NSString stringWithFormat:@"com.sbastidasr.PixelPoems.%@",self.purchaseType];
     }
 }
 
@@ -32,6 +32,8 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    [self setColorsAndFonts];
+    NSLog(@"%@", [self productIdentifier]);
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -147,6 +149,22 @@
     
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
+
+
+
+
+
+////colors
+-(void)setColorsAndFonts{
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+ //  self.navigationItem.title=@"PixelPoems";
+    
+  
+}
+
+
+
+
 @end
          
          

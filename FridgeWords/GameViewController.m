@@ -17,8 +17,6 @@
 }
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *AdViewHeightConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerViewHeightConstant;
-
 
 @property (weak, nonatomic) IBOutlet UILabel *wordPackLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *WODbadge;
@@ -67,7 +65,7 @@
     if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
     {
         self.AdViewHeightConstraint.constant=66;
-        self.headerViewHeightConstant.constant=650;
+      //  self.headerViewHeightConstant.constant=10050;
         self.wordPackLabel.font= [UIFont fontWithName:@"ProximaNova-Bold" size:35];
     }
     
