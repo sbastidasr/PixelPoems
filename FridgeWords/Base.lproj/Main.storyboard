@@ -824,17 +824,19 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CustomWordPacks" translatesAutoresizingMaskIntoConstraints="NO" id="VRI-kI-VC0">
                                 <rect key="frame" x="42.5" y="165.5" width="288.5" height="225.5"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" secondItem="VRI-kI-VC0" secondAttribute="height" multiplier="32:25" id="BVY-Pj-UTx"/>
                                     <constraint firstAttribute="width" secondItem="VRI-kI-VC0" secondAttribute="height" multiplier="317:248" id="Bru-F0-dLV"/>
                                     <constraint firstAttribute="height" constant="248" id="aJC-Wa-uH5"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="Bru-F0-dLV"/>
                                         <exclude reference="aJC-Wa-uH5"/>
                                     </mask>
                                 </variation>
                             </imageView>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nJH-Ew-bbl">
-                                <rect key="frame" x="-49" y="521" width="0.0" height="145.5"/>
+                                <rect key="frame" x="-44" y="521" width="0.0" height="145.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="766-SA-Zu8">
@@ -856,7 +858,7 @@
                                 </variation>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.10588235294117647" green="0.12156862745098039" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="wrP-a2-k1Q" secondAttribute="centerY" id="1pW-CL-gPR"/>
                             <constraint firstItem="ub0-dS-fM7" firstAttribute="top" secondItem="Z0w-YY-5B3" secondAttribute="bottom" constant="16" id="3nl-C2-bJz"/>
@@ -939,7 +941,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CustomWordPacks" width="555" height="434"/>
+        <image name="CustomWordPacks" width="626" height="490"/>
         <image name="Gallery Copy" width="515" height="86"/>
         <image name="GetItNow" width="514" height="136"/>
         <image name="PixPoemsLogo" width="444" height="60"/>

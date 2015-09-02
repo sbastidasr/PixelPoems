@@ -20,6 +20,7 @@
 -(NSString *)productIdentifier{
     if(self.purchaseType==NULL){
         self.textImageOutlet.image=[UIImage imageNamed:@"Remove Ads"];
+     //   self.textImageOutlet.image
         return @"com.sbastidasr.PixelPoems.removeads";
 
     } else {
