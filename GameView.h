@@ -21,7 +21,7 @@
 @interface GameView : UIScrollView
 
 @property (nonatomic, strong) GameViewController *asd;
-
+@property (nonatomic,strong)UIView *contentView;
 @property (nonatomic, strong) NSMutableArray *wordLabels; //of dictionaries containing a word+attributes
 -(void)removeLabelsFromView;
 -(void)addLabelsToView;

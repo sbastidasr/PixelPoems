@@ -13,9 +13,8 @@
 
 static float const borderWidth = 2.0;
 static float const fontSize = 18.0;
-#define ZOOM_VIEW_TAG 100
+
 #define ARC4RANDOM_MAX 0x100000000
-#define ZOOM_VIEW_TAG 100
 
 
 -(void)handlePanGesture:(UIPanGestureRecognizer *)gestureRecognizer{
@@ -26,7 +25,7 @@ static float const fontSize = 18.0;
 }
 
 -(void)updateWordPositionsOnDict{
-    NSArray *labels = [[self viewWithTag:ZOOM_VIEW_TAG] subviews];
+    NSArray *labels = [self.contentView subviews];
     for (int i=0; i< labels.count; i++){
         WordLabel *label=labels[i];
         
@@ -47,7 +46,7 @@ static float const fontSize = 18.0;
 
 
 -(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
-    return [self viewWithTag:ZOOM_VIEW_TAG];
+    return self.contentView;
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder{
@@ -152,7 +151,7 @@ static float const fontSize = 18.0;
         label.frame=CGRectMake([wordDict[@"X"] floatValue],[wordDict[@"Y"] floatValue], [wordDict[@"sizeX"] floatValue], [wordDict[@"sizeY"] floatValue]);
         
         if ([[wordDict objectForKey:@"inView"] boolValue]==NO){
-            [[self viewWithTag:ZOOM_VIEW_TAG] addSubview:label]; // add to view
+            [self.contentView addSubview:label]; // add to view
             wordDict[@"inView"]=[NSNumber numberWithBool:YES];
         }
     }
@@ -160,7 +159,7 @@ static float const fontSize = 18.0;
 
 
 -(void)removeLabelsFromView{
-    [[[self viewWithTag:ZOOM_VIEW_TAG] subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];  //Clears words
+    [[self.contentView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];  //Clears words
     for (int i=0; i< self.wordLabels.count; i++){
         NSMutableDictionary *wordDict=self.wordLabels[i];
         wordDict[@"inView"]=[NSNumber numberWithBool:NO];

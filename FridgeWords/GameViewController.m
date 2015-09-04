@@ -28,7 +28,6 @@
 
 @implementation GameViewController
 
-#define ZOOM_VIEW_TAG 100
 #define ARC4RANDOM_MAX 0x100000000
 
 -(void)createGameView{
@@ -48,7 +47,7 @@
     
     UIView *contentView =[[UIView alloc]initWithFrame:CGRectMake(0, 0, sizeOfScrollableArea.width, sizeOfScrollableArea.height)];
     [self.gameView addSubview:contentView];
-    [contentView setTag:ZOOM_VIEW_TAG];
+    self.gameView.contentView=contentView;
     [self.view addSubview:self.gameView];
     [self.gameView setNeedsDisplay];
 }
