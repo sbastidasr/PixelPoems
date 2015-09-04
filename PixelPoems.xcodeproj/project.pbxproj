@@ -42,6 +42,7 @@
 		EAB394541B42F2BE005E27B7 /* SavedGamesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB394531B42F2BE005E27B7 /* SavedGamesTableViewController.m */; };
 		EAC202821B137D60001C6692 /* wordPacks.json in Resources */ = {isa = PBXBuildFile; fileRef = EAC202811B137D60001C6692 /* wordPacks.json */; };
 		EAC202911B14D823001C6692 /* WordPackWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC202901B14D823001C6692 /* WordPackWrapper.m */; };
+		EACFEA281B9A2B600008B295 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EACFEA271B9A2B600008B295 /* images.xcassets */; };
 		EAD35B671AC0CBEA00D3901A /* PlistLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD35B661AC0CBEA00D3901A /* PlistLoader.m */; };
 		EAD8430F1B8B8698006439A0 /* ReusableFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD8430E1B8B8698006439A0 /* ReusableFunctions.m */; };
 		EAE1305E1B4B018300CFD86B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE1305D1B4B018300CFD86B /* Social.framework */; };
@@ -52,7 +53,6 @@
 		EAE48A5E1A83B5AF0086F0B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE48A5D1A83B5AF0086F0B6 /* AppDelegate.m */; };
 		EAE48A611A83B5AF0086F0B6 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE48A601A83B5AF0086F0B6 /* GameViewController.m */; };
 		EAE48A641A83B5AF0086F0B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAE48A621A83B5AF0086F0B6 /* Main.storyboard */; };
-		EAE48A661A83B5AF0086F0B6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE48A651A83B5AF0086F0B6 /* Images.xcassets */; };
 		EAE48A691A83B5AF0086F0B6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAE48A671A83B5AF0086F0B6 /* LaunchScreen.xib */; };
 		EAE48A751A83B5AF0086F0B6 /* FridgeWordsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE48A741A83B5AF0086F0B6 /* FridgeWordsTests.m */; };
 		EAECA9D31B71384B001C5AC5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAECA9D21B71384B001C5AC5 /* MessageUI.framework */; };
@@ -122,6 +122,7 @@
 		EAC202811B137D60001C6692 /* wordPacks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = wordPacks.json; path = ../wordPacks.json; sourceTree = "<group>"; };
 		EAC2028F1B14D823001C6692 /* WordPackWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordPackWrapper.h; sourceTree = "<group>"; };
 		EAC202901B14D823001C6692 /* WordPackWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPackWrapper.m; sourceTree = "<group>"; };
+		EACFEA271B9A2B600008B295 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
 		EAD35B651AC0CBEA00D3901A /* PlistLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlistLoader.h; sourceTree = "<group>"; };
 		EAD35B661AC0CBEA00D3901A /* PlistLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlistLoader.m; sourceTree = "<group>"; };
 		EAD8430D1B8B8698006439A0 /* ReusableFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReusableFunctions.h; path = ../../../../../Downloads/PixBack2/FridgeWords/ReusableFunctions.h; sourceTree = "<group>"; };
@@ -139,7 +140,6 @@
 		EAE48A5F1A83B5AF0086F0B6 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		EAE48A601A83B5AF0086F0B6 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		EAE48A631A83B5AF0086F0B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		EAE48A651A83B5AF0086F0B6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EAE48A681A83B5AF0086F0B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		EAE48A6E1A83B5AF0086F0B6 /* PixelPoemsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PixelPoemsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE48A731A83B5AF0086F0B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -333,8 +333,8 @@
 				EA361F071B7BA79D00246167 /* HRSampleColorPickerViewController.m */,
 				EA2CAB201B596ABA00F60368 /* constants.h */,
 				EA2CAB211B596ABA00F60368 /* constants.m */,
+				EACFEA271B9A2B600008B295 /* images.xcassets */,
 				EAC202811B137D60001C6692 /* wordPacks.json */,
-				EAE48A651A83B5AF0086F0B6 /* Images.xcassets */,
 				EAE48A671A83B5AF0086F0B6 /* LaunchScreen.xib */,
 				EA829C151B0CFFE60016E201 /* ProximaNova */,
 				EAE48A591A83B5AF0086F0B6 /* Info.plist */,
@@ -454,11 +454,11 @@
 				EA829C241B0D00750016E201 /* ProximaNova-Extrabold.otf in Resources */,
 				EAC202821B137D60001C6692 /* wordPacks.json in Resources */,
 				EA829C2B1B0D00750016E201 /* ProximaNova-SemiboldItalic.otf in Resources */,
+				EACFEA281B9A2B600008B295 /* images.xcassets in Resources */,
 				EA829C281B0D00750016E201 /* ProximaNova-Regular.otf in Resources */,
 				EA829C251B0D00750016E201 /* ProximaNova-Light.otf in Resources */,
 				EA829C271B0D00750016E201 /* ProximaNova-RegItalic.otf in Resources */,
 				EA829C291B0D00750016E201 /* ProximaNova-RegularItalic.otf in Resources */,
-				EAE48A661A83B5AF0086F0B6 /* Images.xcassets in Resources */,
 				EA829C221B0D00750016E201 /* ProximaNova-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

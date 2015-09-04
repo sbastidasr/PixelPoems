@@ -20,27 +20,29 @@
 -(NSString *)productIdentifier{
     if(self.purchaseType==NULL){
         self.textImageOutlet.image=[UIImage imageNamed:@"Remove Ads"];
-     //   self.textImageOutlet.image
-        return @"com.sbastidasr.PixelPoems.removeads";
-
+            return @"com.sbastidasr.PixelPoems.removeads";
     } else {
         return [NSString stringWithFormat:@"com.sbastidasr.PixelPoems.%@",self.purchaseType];
     }
 }
-
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    [self setColorsAndFonts];
+    [self productIdentifier];
+}
 
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
-    [self setColorsAndFonts];
-    NSLog(@"%@", [self productIdentifier]);
+  
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
-    
+        [self cleanDefaultPaymentQueue];
+
 }
 
 
@@ -84,11 +86,8 @@
 
 - (IBAction) restore{
     //this is called when the user restores purchases, you should hook this up to a button
-    
-    
-    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
     [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
-    
+    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
 }
 
 - (void) paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue
@@ -134,10 +133,20 @@
     }
 }
 
+
+-(void)cleanDefaultPaymentQueue{
+    SKPaymentQueue* currentQueue = [SKPaymentQueue defaultQueue];
+    // finish ALL transactions in queue
+    [currentQueue.transactions enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [currentQueue finishTransaction:(SKPaymentTransaction *)obj];
+    }];
+    
+    [[SKPaymentQueue defaultQueue] removeTransactionObserver:self];
+}
 //Call this method if in app puchase is made ====> [self doRemoveAds];
 - (void)doStuffWithProductId:(NSString *)id{
-    
-    if( [self.purchaseType isEqualToString:@""]){
+
+      if(self.purchaseType==NULL){
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"areAdsRemoved"];
     }
     else {
@@ -148,9 +157,8 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     NSLog(@"Received Id: %@", id);
     
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
-
 
 
 

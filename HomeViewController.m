@@ -26,7 +26,6 @@
     {
        self.homeAdConstraint.constant=66;
     }
-    
 
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"ORIGINAL"];
     //temporarysetup of default wordpacks
@@ -36,7 +35,6 @@
     
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
-
 
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -61,6 +59,11 @@
     }
 }
 
+- (IBAction)bySbastidasr:(id)sender {
+    
+    NSURL *url = [NSURL URLWithString:@"http://sbastidasr.com/pixelPoems"];
+    [[UIApplication sharedApplication] openURL:url];
+}
 
 #pragma mark - Navigation
 

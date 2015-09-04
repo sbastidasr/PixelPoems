@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIToolbar *bottomBar;
 @property (weak, nonatomic) IBOutlet UIView *adView;
 - (IBAction)showPopover:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *pixelPoemsWatermark;
 
 @end
 
@@ -66,6 +67,7 @@
         self.AdViewHeightConstraint.constant=66;
       //  self.headerViewHeightConstant.constant=10050;
         self.wordPackLabel.font= [UIFont fontWithName:@"ProximaNova-Bold" size:35];
+          self.pixelPoemsWatermark.font=[UIFont fontWithName:@"ProximaNova-Regular" size:25];
     }
     
     NSMutableArray *temp=self.tempWords;
@@ -331,18 +333,32 @@
 }
 
 -(IBAction)share:(id)sender{
+    self.pixelPoemsWatermark.alpha=1;
+    
+    self.pixelPoemsWatermark.backgroundColor=[UIColor colorWithRed:35.0/255.0  green:40.0/255.0 blue:44.0/255.0 alpha:1.0f];
+
+    [self.view bringSubviewToFront:self.pixelPoemsWatermark];
 
     CGSize gameViewSize=self.gameView.frame.size;
     //CGRect frame = [firstView convertRect:buttons.frame fromView:secondView];
     
     gameViewSize.height+=self.gameView.frame.origin.y;
-
-    UIGraphicsBeginImageContext(gameViewSize);
+    float scale=[[UIScreen mainScreen] scale];
+    UIGraphicsBeginImageContextWithOptions(gameViewSize, self.view.opaque, scale);
+    
+   // UIGraphicsBeginImageContext(gameViewSize);
     [[self.view layer] renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *screenshot = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
  
-    screenshot =  [self croppIngimageByImageName:screenshot toRect:CGRectMake(0, self.gameView.frame.origin.y, screenshot.size.width, screenshot.size.height-self.gameView.frame.origin.y)];
+    NSLog(@"%f",[[UIScreen mainScreen] scale]);
+    screenshot =  [self croppIngimageByImageName:
+                   screenshot toRect:
+                   CGRectMake(0,
+                              self.gameView.frame.origin.y*scale,
+                              screenshot.size.width*scale,
+                              (screenshot.size.height-self.gameView.frame.origin.y)*scale
+                              )];
     
     // The result is *screenshot
     
@@ -355,8 +371,13 @@
     [[UIActivityViewController alloc]
      initWithActivityItems:@[text, /*url,*/ image]
      applicationActivities:nil];
+    if ( [controller respondsToSelector:@selector(popoverPresentationController)] ) {// iOS8
+        controller.popoverPresentationController.barButtonItem =sender;
+    }
     
+       self.pixelPoemsWatermark.alpha=0;
     [self presentViewController:controller animated:YES completion:nil];
+    
 }
 
 -(UIImage *)imageCrop:(UIImage *)imageToCrop toRect:(CGRect)rect
