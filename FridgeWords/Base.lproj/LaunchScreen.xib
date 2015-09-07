@@ -22,7 +22,7 @@
                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PixelPoems Final logo" translatesAutoresizingMaskIntoConstraints="NO" id="lPf-Hr-CVZ">
-                            <rect key="frame" x="37.5" y="294" width="300" height="80"/>
+                            <rect key="frame" x="37" y="294" width="300" height="80"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="lPf-Hr-CVZ" secondAttribute="height" multiplier="701:188" id="K8q-Ac-uao"/>
                             </constraints>
