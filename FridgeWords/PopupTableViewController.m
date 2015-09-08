@@ -54,34 +54,59 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    swit
+    switch (section) {
+        case 0:
+             return [self.menuItems count];
+            break;
+            
+        default:
+            return 2;
+            break;
+    }
     
-    return [self.menuItems count];
+   
 }
 
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    NSArray *array=@[@"Word Labels",@"Background"];
+    return array[section];
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    
-    
-    switch (self.typeOfController) {
-        case 1:/*WordPacks*/{
-            WordPackWrapper *wordPack = self.menuItems[indexPath.row];
-            cell.textLabel.text = wordPack.packName;
-        }
-            break;
-        case 0:/*Customize*/{
-            cell.textLabel.text = self.menuItems[indexPath.row];
+    switch (indexPath.section) {
+        case 0:
+           
+            switch (self.typeOfController) {
+                case 1:/*WordPacks*/{
+                    WordPackWrapper *wordPack = self.menuItems[indexPath.row];
+                    cell.textLabel.text = wordPack.packName;
+                }
+                    break;
+                case 0:/*Customize*/{
+                    cell.textLabel.text = self.menuItems[indexPath.row];
+                    
+                }
+                    break;
+                default:
+                {int i = 0;
+                }
+                    break;
+            }
+            return cell;
 
-        }
             break;
-        default:
-        {int i = 0;
+            
+        default:{
+            NSArray *array= @[@"Color", @"Image"];
+             cell.textLabel.text = array[indexPath.row];
         }
             break;
     }
+
     return cell;
-}
+    
+   }
 
 
 
