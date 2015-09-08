@@ -29,7 +29,7 @@
     switch (self.typeOfController) {
     case 0:
             self.navigationItem.title=@"Customize";
-            self.menuItems=@[@"Font Color", @"Border Color",@"Background Color", @"Game Background"];
+            self.menuItems=@[@"Font Color", @"Border Color",@"Background Color"];
         break;
     case 1:
             self.navigationItem.title=@"WordPacks";
@@ -50,10 +50,12 @@
 
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    swit
+    
     return [self.menuItems count];
 }
 
