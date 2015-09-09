@@ -109,11 +109,19 @@
    }
 
 
-
+-(void)changeBackgroundImage{
+}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+
     UITableViewCell *selectedCell= [self.tableView cellForRowAtIndexPath:indexPath];
     
+    if(indexPath.section==1 && indexPath.row==1){
+    //BackgroundImagestuff
+        [self changeBackgroundImage];
+    }
+    else{
     if(self.typeOfController==0){ //All Cells Have Color Pickers.
          UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
          HRSampleColorPickerViewController *listViewController = (HRSampleColorPickerViewController *)[storyboard instantiateViewControllerWithIdentifier:@"asd"];
@@ -130,6 +138,7 @@
            [argsDict setObject:selectedCell.text forKey:@"SelectedCellText"];
            [[NSNotificationCenter defaultCenter] postNotificationName:@"PopOverAction" object:argsDict];
        }
+    }
     return;
 }
 
@@ -138,6 +147,7 @@
     NSMutableDictionary *argsDict = [[NSMutableDictionary alloc]init];
     [argsDict setObject:@"Customize" forKey:@"Action"];
     [argsDict setObject:self.selectedItemToChangeColor forKey:@"SelectedCellText"];
+    NSLog(@"%@",self.selectedItemToChangeColor);
     [argsDict setObject:color forKey:@"Color"];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"PopOverAction" object:argsDict];
 }

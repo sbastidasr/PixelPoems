@@ -273,7 +273,7 @@
         }
         
         if([action isEqualToString:@"Customize"]){
-            NSArray *customizeOpts =@[@"FONT COLOR", @"BORDER COLOR",@"BACKGROUND COLOR", @"GAME BACKGROUND"];
+            NSArray *customizeOpts =@[@"FONT COLOR", @"BORDER COLOR",@"BACKGROUND COLOR", @"COLOR"];
             
             if([customizeOpts containsObject:argsDict[@"SelectedCellText"]])
             {
