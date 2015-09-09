@@ -107,7 +107,7 @@ static float const fontSize = 18.0;
                 wordDict[@"sizeY"]=[NSNumber numberWithFloat:label.frame.size.height+17];
             }
         }
-        if ([wordDict[@"isWordOfTheDay"] isEqual:@YES]){
+        if ([wordDict[@"isWordOfTheDay"] isEqual:@YES] && [ReusableFunctions colorFromData:wordDict[@"Border Color"]] == [UIColor whiteColor] ){
             label.layer.borderColor =[[UIColor colorWithRed:80.0/255.0 green:227.0/255.0 blue:194.0/255.0 alpha:1.0] CGColor];
           //  REDCOLOR
         }
