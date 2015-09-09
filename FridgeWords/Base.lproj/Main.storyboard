@@ -445,13 +445,6 @@
                                     <constraint firstAttribute="width" constant="30" id="qld-81-Uw2"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dbk-l2-rCz">
-                                <rect key="frame" x="0.0" y="112" width="375" height="461"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="461" id="5x3-Wa-0W5"/>
-                                    <constraint firstAttribute="width" constant="375" id="v3o-hp-DN8"/>
-                                </constraints>
-                            </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cne-eP-G32">
                                 <rect key="frame" x="0.0" y="573" width="375" height="44"/>
                                 <items>
@@ -496,6 +489,19 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dbk-l2-rCz">
+                                <rect key="frame" x="0.0" y="177" width="375" height="396"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="461" id="5x3-Wa-0W5"/>
+                                    <constraint firstAttribute="width" constant="375" id="v3o-hp-DN8"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="5x3-Wa-0W5"/>
+                                        <exclude reference="v3o-hp-DN8"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="PixelPoems" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4iz-5d-jAY">
                                 <rect key="frame" x="278" y="549" width="81" height="16"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="16"/>
@@ -513,12 +519,15 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Cne-eP-G32" secondAttribute="trailing" constant="-16" id="ACw-Cb-oMS"/>
                             <constraint firstItem="Oxt-hI-oNG" firstAttribute="top" secondItem="Cne-eP-G32" secondAttribute="bottom" id="BMr-uH-mb8"/>
                             <constraint firstItem="Cne-eP-G32" firstAttribute="top" secondItem="4iz-5d-jAY" secondAttribute="bottom" constant="8" id="CGl-Is-HMz"/>
+                            <constraint firstItem="Dbk-l2-rCz" firstAttribute="width" secondItem="MPv-re-9Py" secondAttribute="width" id="FZP-Wg-Juc"/>
+                            <constraint firstItem="Dbk-l2-rCz" firstAttribute="top" secondItem="oBB-in-DZ9" secondAttribute="bottom" constant="8" symbolic="YES" id="KEJ-5r-FKg"/>
                             <constraint firstItem="syC-Ev-DRd" firstAttribute="leading" secondItem="MPv-re-9Py" secondAttribute="leading" id="NAO-52-7uI"/>
                             <constraint firstItem="jwe-VB-9oy" firstAttribute="leading" secondItem="Nwg-wb-aB9" secondAttribute="trailing" id="NPc-P8-Opb"/>
                             <constraint firstItem="Cne-eP-G32" firstAttribute="top" secondItem="syC-Ev-DRd" secondAttribute="bottom" id="Pm5-ha-3nr"/>
                             <constraint firstItem="oBB-in-DZ9" firstAttribute="top" secondItem="Nwg-wb-aB9" secondAttribute="top" id="PmQ-Ig-CSv"/>
                             <constraint firstItem="syC-Ev-DRd" firstAttribute="top" secondItem="oBB-in-DZ9" secondAttribute="bottom" constant="8" symbolic="YES" id="Pxj-jr-6Bn"/>
                             <constraint firstItem="jwe-VB-9oy" firstAttribute="height" secondItem="0gt-Rc-PHB" secondAttribute="height" id="QQi-RS-f6H"/>
+                            <constraint firstItem="Cne-eP-G32" firstAttribute="top" secondItem="Dbk-l2-rCz" secondAttribute="bottom" id="Qia-nT-aoM"/>
                             <constraint firstItem="Njq-1N-V47" firstAttribute="leading" secondItem="MPv-re-9Py" secondAttribute="leadingMargin" constant="-16" id="Qj4-bs-feK"/>
                             <constraint firstAttribute="trailing" secondItem="syC-Ev-DRd" secondAttribute="trailing" id="Se8-Hu-Ti0"/>
                             <constraint firstItem="0gt-Rc-PHB" firstAttribute="top" secondItem="dMZ-7B-96r" secondAttribute="bottom" id="UcS-nv-JiU"/>
@@ -557,6 +566,7 @@
                                 <exclude reference="c9j-Xv-h7k"/>
                                 <exclude reference="fa0-kD-c0K"/>
                                 <exclude reference="b85-Mw-qb0"/>
+                                <exclude reference="28x-uB-z6n"/>
                                 <exclude reference="lBI-43-JTI"/>
                                 <exclude reference="Qj4-bs-feK"/>
                                 <exclude reference="fnv-hh-bxe"/>
@@ -632,7 +642,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bCY-gE-X38" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4699.5" y="627.5"/>
+            <point key="canvasLocation" x="4749.5" y="627.5"/>
         </scene>
         <!--Ad Banner View Controller-->
         <scene sceneID="adr-bO-v3m">
