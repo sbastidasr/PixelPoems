@@ -445,6 +445,13 @@
                                     <constraint firstAttribute="width" constant="30" id="qld-81-Uw2"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dbk-l2-rCz">
+                                <rect key="frame" x="0.0" y="112" width="375" height="461"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="461" id="5x3-Wa-0W5"/>
+                                    <constraint firstAttribute="width" constant="375" id="v3o-hp-DN8"/>
+                                </constraints>
+                            </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cne-eP-G32">
                                 <rect key="frame" x="0.0" y="573" width="375" height="44"/>
                                 <items>
@@ -500,6 +507,7 @@
                         <color key="backgroundColor" red="0.14117647058823529" green="0.16078431372549018" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Njq-1N-V47" secondAttribute="width" id="02V-IP-YG0"/>
+                            <constraint firstAttribute="centerY" secondItem="Dbk-l2-rCz" secondAttribute="centerY" id="28x-uB-z6n"/>
                             <constraint firstItem="Oxt-hI-oNG" firstAttribute="top" secondItem="Njq-1N-V47" secondAttribute="bottom" id="78C-J4-clB"/>
                             <constraint firstItem="1Fy-bl-83a" firstAttribute="trailing" secondItem="MPv-re-9Py" secondAttribute="trailingMargin" id="7xq-VP-t6Z"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Cne-eP-G32" secondAttribute="trailing" constant="-16" id="ACw-Cb-oMS"/>
@@ -539,6 +547,7 @@
                             <constraint firstItem="0gt-Rc-PHB" firstAttribute="bottom" secondItem="dMZ-7B-96r" secondAttribute="bottom" id="uKt-eT-bkJ"/>
                             <constraint firstItem="Cne-eP-G32" firstAttribute="leading" secondItem="MPv-re-9Py" secondAttribute="leadingMargin" constant="-16" id="wqO-6J-Xvc"/>
                             <constraint firstItem="1Fy-bl-83a" firstAttribute="height" secondItem="Nwg-wb-aB9" secondAttribute="height" id="yBd-Dv-hlV"/>
+                            <constraint firstAttribute="centerX" secondItem="Dbk-l2-rCz" secondAttribute="centerX" id="ykG-Dc-qUP"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -559,6 +568,7 @@
                         <outlet property="AdViewHeightConstraint" destination="cwy-bI-sv3" id="7RD-qT-Dgv"/>
                         <outlet property="WODbadge" destination="oBB-in-DZ9" id="6ML-oX-Vug"/>
                         <outlet property="adView" destination="Njq-1N-V47" id="3aL-eb-k92"/>
+                        <outlet property="backgroundImage" destination="Dbk-l2-rCz" id="YjV-zi-8CJ"/>
                         <outlet property="bottomBar" destination="Cne-eP-G32" id="Dmo-oh-3RQ"/>
                         <outlet property="gameView" destination="syC-Ev-DRd" id="vlY-L7-I4a"/>
                         <outlet property="pixelPoemsWatermark" destination="4iz-5d-jAY" id="pTq-XN-RgG"/>

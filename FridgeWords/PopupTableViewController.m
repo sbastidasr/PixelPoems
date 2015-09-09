@@ -109,34 +109,40 @@
    }
 
 
--(void)changeBackgroundImage{
+-(void)showColorPicker:(UITableViewCell*)selectedCell{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    HRSampleColorPickerViewController *listViewController = (HRSampleColorPickerViewController *)[storyboard instantiateViewControllerWithIdentifier:@"asd"];
+    listViewController.preferredContentSize = CGSizeMake(320, 350);
+    [self.navigationController pushViewController:listViewController animated:YES];
+    listViewController.delegate=self;
+    listViewController.color=[UIColor whiteColor];
+    self.selectedItemToChangeColor=selectedCell.text;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
 
-    UITableViewCell *selectedCell= [self.tableView cellForRowAtIndexPath:indexPath];
+
+-(void)sendMessageToChangeWordpacks:(UITableViewCell*)selectedCell{
+    NSMutableDictionary *argsDict = [[NSMutableDictionary alloc]init];
+    [argsDict setObject:self.navigationItem.title forKey:@"Action"];
+    [argsDict setObject:selectedCell.text forKey:@"SelectedCellText"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"PopOverAction" object:argsDict];
+}
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+        UITableViewCell *selectedCell= [self.tableView cellForRowAtIndexPath:indexPath];
     
     if(indexPath.section==1 && indexPath.row==1){
     //BackgroundImagestuff
-        [self changeBackgroundImage];
-    }
-    else{
-    if(self.typeOfController==0){ //All Cells Have Color Pickers.
-         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-         HRSampleColorPickerViewController *listViewController = (HRSampleColorPickerViewController *)[storyboard instantiateViewControllerWithIdentifier:@"asd"];
-         listViewController.preferredContentSize = CGSizeMake(320, 350);
-         [self.navigationController pushViewController:listViewController animated:YES];
-         listViewController.delegate=self;
-        listViewController.color=[UIColor whiteColor];
-        self.selectedItemToChangeColor=selectedCell.text;
+        [self sendMessageToChangeWordpacks:selectedCell];
     }
     
+    else{
+    if(self.typeOfController==0){ //All Cells Have Color Pickers.
+        [self showColorPicker:selectedCell];
+    }
        if(self.typeOfController==1){ //All Cells are wordpack Selections.
-           NSMutableDictionary *argsDict = [[NSMutableDictionary alloc]init];
-           [argsDict setObject:self.navigationItem.title forKey:@"Action"];
-           [argsDict setObject:selectedCell.text forKey:@"SelectedCellText"];
-           [[NSNotificationCenter defaultCenter] postNotificationName:@"PopOverAction" object:argsDict];
+           [self sendMessageToChangeWordpacks:selectedCell];
        }
     }
     return;
@@ -205,6 +211,9 @@
 {
       return 30;
 }
+
+
+
 
 
 @end

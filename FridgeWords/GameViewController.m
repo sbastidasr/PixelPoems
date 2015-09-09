@@ -12,7 +12,7 @@
 #import "ReusableFunctions.h"
 #import "RemoveAdsViewController.h"
 
-@interface GameViewController () <WYPopoverControllerDelegate>{
+@interface GameViewController () <UIImagePickerControllerDelegate, WYPopoverControllerDelegate>{
     WYPopoverController *popoverController;
 }
 
@@ -254,8 +254,6 @@
         
         //When WordPacks are modified
         if([action isEqualToString:@"WordPacks"]){
-            
-            
             //first check if worpack is available. if not. present op to buy.
             bool wordPackIsBought = [[NSUserDefaults standardUserDefaults] boolForKey:[argsDict[@"SelectedCellText"] uppercaseString]];
             [[NSUserDefaults standardUserDefaults] synchronize];
@@ -273,7 +271,7 @@
         }
         
         if([action isEqualToString:@"Customize"]){
-            NSArray *customizeOpts =@[@"FONT COLOR", @"BORDER COLOR",@"BACKGROUND COLOR", @"COLOR"];
+            NSArray *customizeOpts =@[@"FONT COLOR", @"BORDER COLOR",@"BACKGROUND COLOR", @"COLOR", @"IMAGE"];
             
             if([customizeOpts containsObject:argsDict[@"SelectedCellText"]])
             {
@@ -291,6 +289,17 @@
                         break;
                     case 3:
                         [self.gameView changeGameBackgroundTo:color];
+                        break;
+                    case 4:
+                            {
+                            //Present image picker controller
+                            NSLog(@"asd");
+                            UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+                            picker.delegate = self;
+                            picker.allowsEditing = YES;
+                            picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                            [self presentViewController:picker animated:YES completion:NULL];
+                        }
                         break;
                     default:
                         break;
@@ -406,4 +415,16 @@
     
     return cropped;
 }
+
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    UIImageView *iv= [[UIImageView alloc]initWithImage:chosenImage];
+    self.backgroundImage.image=chosenImage;
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+
+
 @end
