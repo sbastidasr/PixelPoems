@@ -12,11 +12,13 @@
 #import "ReusableFunctions.h"
 #import "RemoveAdsViewController.h"
 
-@interface GameViewController () <UIImagePickerControllerDelegate, WYPopoverControllerDelegate>{
+@interface GameViewController () <UIScrollViewDelegate, UIImagePickerControllerDelegate, WYPopoverControllerDelegate>{
     WYPopoverController *popoverController;
 }
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *AdViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollImageView;
+@property (weak, nonatomic) IBOutlet UIButton *setImageButton;
 
 @property (weak, nonatomic) IBOutlet UILabel *wordPackLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *WODbadge;
@@ -25,6 +27,7 @@
 - (IBAction)showPopover:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *pixelPoemsWatermark;
 
+@property (nonatomic,strong)UIImageView *imageView;
 @end
 
 @implementation GameViewController
@@ -85,6 +88,7 @@
                                              selector:@selector(receiveTestNotification:)
                                                  name:@"PopOverAction"
                                                object:nil];
+            [self.setImageButton setUserInteractionEnabled:NO];
 
 }
 
@@ -416,16 +420,51 @@
     return cropped;
 }
 
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    return self.imageView;
+}
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+-(void)setGameViewHidden:(BOOL)hide{
+    [self.gameView setUserInteractionEnabled:!hide];
+    [self.setImageButton setUserInteractionEnabled:hide];
     
-    UIImage *chosenImage = info[UIImagePickerControllerOriginalImage];
-    self.backgroundImage.image=chosenImage;
-    [picker dismissViewControllerAnimated:YES completion:NULL];
+    if (hide) {
+        [self.gameView setAlpha:0.0f];
+        [self.setImageButton setAlpha:1.0f];
+    } else {
+        [self.gameView setAlpha:1.0f];
+        [self.setImageButton setAlpha:0.0f];
+
+    }
+    
+    
     
 }
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+     [picker dismissViewControllerAnimated:YES completion:NULL];
+    [self setGameViewHidden:YES];
+    
+    UIImage *chosenImage = info[UIImagePickerControllerOriginalImage];
+    self.imageView=[[UIImageView alloc]initWithImage:chosenImage];
+   
+    [self.scrollImageView addSubview:self.imageView];
+    self.scrollImageView.contentSize = self.imageView.frame.size;
+    self.scrollImageView.delegate=self;
+    [self.scrollImageView setMaximumZoomScale:4.0f];
+    [self.scrollImageView setMinimumZoomScale:0.3f];
+     self.scrollImageView.bouncesZoom = YES;
+}
+
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     NSLog(@"asd??");
 }
+- (IBAction)setImageButtonPressed:(id)sender {
+    [self setGameViewHidden:NO];
+}
+
+
+
 
 @end
