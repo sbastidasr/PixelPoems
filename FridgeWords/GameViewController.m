@@ -271,7 +271,7 @@
                 RemoveAdsViewController *lvc = [storyboard instantiateViewControllerWithIdentifier:@"RemoveAds"];
                 lvc.purchaseType = argsDict[@"SelectedCellText"];
                 [self.navigationController pushViewController:lvc animated:YES];
-                         }
+            }
         }
         
         if([action isEqualToString:@"Customize"]){
@@ -295,15 +295,7 @@
                         [self.gameView changeGameBackgroundTo:color];
                         break;
                     case 4:
-                            {
-                            //Present image picker controller
-                            NSLog(@"asd");
-                            UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-                            picker.delegate = self;
-                            picker.allowsEditing = NO;
-                            picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-                            [self presentViewController:picker animated:YES completion:NULL];
-                        }
+                                [self presentImagePickerOrBuy];
                         break;
                     default:
                         break;
@@ -312,6 +304,28 @@
         }
     }
 }
+
+-(void)presentImagePickerOrBuy{
+
+    bool removeAdsBought = [[NSUserDefaults standardUserDefaults] boolForKey:@"areAdsRemoved"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    if(removeAdsBought){
+        //Present image picker controller
+        NSLog(@"asd");
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing = NO;
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        [self presentViewController:picker animated:YES completion:NULL];
+    }
+    else{
+        //present you the chance to buy
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+        RemoveAdsViewController *lvc = [storyboard instantiateViewControllerWithIdentifier:@"RemoveAds"];
+        [self.navigationController pushViewController:lvc animated:YES];
+    }
+}
+
 
 //POPOVER ACTIONS
 -(void)changeToWordPackNamed:(NSString *)name{
@@ -435,11 +449,7 @@
     } else {
         [self.gameView setAlpha:1.0f];
         [self.setImageButton setAlpha:0.0f];
-
     }
-    
-    
-    
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
@@ -453,15 +463,13 @@
     self.scrollImageView.contentSize = self.imageView.frame.size;
     self.scrollImageView.delegate=self;
     [self.scrollImageView setMaximumZoomScale:4.0f];
-    [self.scrollImageView setMinimumZoomScale:0.3f];
+    [self.scrollImageView setMinimumZoomScale:0.15f];
      self.scrollImageView.bouncesZoom = YES;
 }
 
--(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
-    NSLog(@"asd??");
-}
 - (IBAction)setImageButtonPressed:(id)sender {
     [self setGameViewHidden:NO];
+    self.gameView.backgroundColor=[UIColor clearColor];
 }
 
 

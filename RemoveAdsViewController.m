@@ -12,6 +12,7 @@
 //put the name of your view controller in place of MyViewController
 @interface RemoveAdsViewController() <SKProductsRequestDelegate, SKPaymentTransactionObserver>
 @property (weak, nonatomic) IBOutlet UIImageView *textImageOutlet;
+@property (weak, nonatomic) IBOutlet UIButton *getItButton;
 
 @end
 
@@ -29,6 +30,7 @@
     [super viewDidLoad];
     [self setColorsAndFonts];
     [self productIdentifier];
+    [self.getItButton setAlpha:1.0f];
 }
 
 
@@ -41,7 +43,8 @@
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
-        [self cleanDefaultPaymentQueue];
+    [self cleanDefaultPaymentQueue];
+    
 
 }
 
@@ -114,10 +117,13 @@
                 [self doStuffWithProductId:transaction.payment.productIdentifier];
                 [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
                 NSLog(@"Transaction state -> Purchased");
+               
                 break;
             case SKPaymentTransactionStateRestored:
                 [self doStuffWithProductId:transaction.payment.productIdentifier];
                 NSLog(@"Transaction state -> Restored");
+       
+
                 //add the same code as you did from SKPaymentTransactionStatePurchased here
                 [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
                 break;
@@ -125,6 +131,8 @@
                 //called when the transaction does not finish
                 if(transaction.error.code == SKErrorPaymentCancelled){
                     NSLog(@"Transaction state -> Cancelled");
+                   
+
                     //the user cancelled the payment ;(
                 }
                 [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
@@ -156,8 +164,9 @@
     }
     [[NSUserDefaults standardUserDefaults] synchronize];
     NSLog(@"Received Id: %@", id);
-    
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    self.textImageOutlet.image=[UIImage imageNamed:@"ThankYou"];
+   [self.getItButton setAlpha:0.0f];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

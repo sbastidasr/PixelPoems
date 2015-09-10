@@ -984,6 +984,7 @@
                     <navigationItem key="navigationItem" id="EIm-hE-0hj"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="getItButton" destination="ADb-JL-dDS" id="bwR-5J-G2M"/>
                         <outlet property="textImageOutlet" destination="VRI-kI-VC0" id="02S-89-68F"/>
                     </connections>
                 </viewController>
