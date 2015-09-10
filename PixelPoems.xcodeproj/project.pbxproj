@@ -42,6 +42,7 @@
 		EAB394541B42F2BE005E27B7 /* SavedGamesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB394531B42F2BE005E27B7 /* SavedGamesTableViewController.m */; };
 		EAC202821B137D60001C6692 /* wordPacks.json in Resources */ = {isa = PBXBuildFile; fileRef = EAC202811B137D60001C6692 /* wordPacks.json */; };
 		EAC202911B14D823001C6692 /* WordPackWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC202901B14D823001C6692 /* WordPackWrapper.m */; };
+		EACB9FB31BA1CD1700161536 /* HowToPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EACB9FB21BA1CD1700161536 /* HowToPlayViewController.m */; };
 		EACFEA281B9A2B600008B295 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EACFEA271B9A2B600008B295 /* images.xcassets */; };
 		EAD35B671AC0CBEA00D3901A /* PlistLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD35B661AC0CBEA00D3901A /* PlistLoader.m */; };
 		EAD8430F1B8B8698006439A0 /* ReusableFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD8430E1B8B8698006439A0 /* ReusableFunctions.m */; };
@@ -122,6 +123,8 @@
 		EAC202811B137D60001C6692 /* wordPacks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = wordPacks.json; path = ../wordPacks.json; sourceTree = "<group>"; };
 		EAC2028F1B14D823001C6692 /* WordPackWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordPackWrapper.h; sourceTree = "<group>"; };
 		EAC202901B14D823001C6692 /* WordPackWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPackWrapper.m; sourceTree = "<group>"; };
+		EACB9FB11BA1CD1700161536 /* HowToPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HowToPlayViewController.h; sourceTree = "<group>"; };
+		EACB9FB21BA1CD1700161536 /* HowToPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HowToPlayViewController.m; sourceTree = "<group>"; };
 		EACFEA271B9A2B600008B295 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
 		EAD35B651AC0CBEA00D3901A /* PlistLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlistLoader.h; sourceTree = "<group>"; };
 		EAD35B661AC0CBEA00D3901A /* PlistLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlistLoader.m; sourceTree = "<group>"; };
@@ -318,6 +321,8 @@
 				EAD35B641AC0CB8200D3901A /* Controllers. */,
 				EAD35B5D1AC0C9B800D3901A /* Model */,
 				EAE48A621A83B5AF0086F0B6 /* Main.storyboard */,
+				EACB9FB11BA1CD1700161536 /* HowToPlayViewController.h */,
+				EACB9FB21BA1CD1700161536 /* HowToPlayViewController.m */,
 				EA0757EC1B90DBFF00E9EB21 /* HomeWordPackTableViewController.h */,
 				EA0757ED1B90DBFF00E9EB21 /* HomeWordPackTableViewController.m */,
 				EAE48A581A83B5AF0086F0B6 /* Supporting Files */,
@@ -522,6 +527,7 @@
 				EAE48A5B1A83B5AF0086F0B6 /* main.m in Sources */,
 				EA2CAB221B596ABA00F60368 /* constants.m in Sources */,
 				EAC202911B14D823001C6692 /* WordPackWrapper.m in Sources */,
+				EACB9FB31BA1CD1700161536 /* HowToPlayViewController.m in Sources */,
 				EAA54A481B59777A00CD0BC4 /* GameView.m in Sources */,
 				EAE130681B4D8D0A00CFD86B /* PopupTableViewController.m in Sources */,
 				EA361F081B7BA79D00246167 /* HRSampleColorPickerViewController.m in Sources */,

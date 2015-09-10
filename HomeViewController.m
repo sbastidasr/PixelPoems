@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "PopupTableViewController.h"
+#import "HowToPlayViewController.h"
 
 @interface HomeViewController ()
 
@@ -20,6 +21,7 @@
 @implementation HomeViewController
 
 - (void)viewDidLoad {
+   //  [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"HowToPlay"];
     [super viewDidLoad];
     
     if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
@@ -69,11 +71,16 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    
-    //activate nav controller
+   
+    bool played = [[NSUserDefaults standardUserDefaults] boolForKey:@"HowToPlay"];
+  
+    if (!played && [segue.identifier isEqualToString:@"play"]){
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    HowToPlayViewController *listViewController = (HowToPlayViewController *)[storyboard instantiateViewControllerWithIdentifier:@"HowToPlay"];
+        [self.navigationController presentViewController:listViewController animated:NO completion:nil];
     }
+
+}
 
 
 @end
